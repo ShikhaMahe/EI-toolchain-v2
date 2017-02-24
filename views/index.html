@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="EngineerInsight">
 
 <head>
 
@@ -24,148 +24,65 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+       
+    <script src="PageRouting.js"></script>
 </head>
 
-<body>
+<body ng-controller="mainController">
 
     <!-- Navigation -->
     <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">  -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <!--   <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+   <!--         <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">
+                <img height="35" width="auto" src="/images/home_page.png" style="margin-bottom: 0px; border-bottom-width: 0px; padding-bottom: 10px; width: 40px; height: 40px;">
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <!--      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#defect">Defects</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#">Test Cases</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#">QA</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
+  <!--      </div>
         <!-- /.container -->
-    </nav>
-
+ <!--    </nav>
+--> 
+<data-ng-include src="'header.html'"></data-ng-include>
     <!-- Page Content -->
-    <div class="container">
-
-        <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
-        	<img src="/images/engineeringinsights.jpg" alt="">
-            
-            <p>Heterogeneous product stack used in the application development lifecycle, which is often a combination of Open Source and Enterprise Products.These products provide discrete reports, relevant to a specific task / activity, and lack the integration and capability of providing comprehensive Insights into the end to end application development lifecycle.</p>
-            
-            </p>
-        </header>
-
-        <hr>
-
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Get Insights in </h3>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Page Features -->
-        <div class="row text-center">
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-            
-                <div class="thumbnail">
-                   <a href="#" >
-                    	<img src="/images/requirements.png" alt="" >
-                   </a>  
-                    <div class="caption">
-                        <h3>Requirements</h3>
-                        <p>Get Insights in Requirements.</p>
-                        <p>
-                            
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-	                <a href="#" >
-	                    <img src="/images/testcases.png" alt="">
-	                 </a> 
-                    <div class="caption">
-                        <h3>Test Cases</h3>
-                        <p>Get Insights in TestCases.</p>
-                        <p>
-                           
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                	 <a href="#" >
-	                    <img src="/images/defects.png" alt="">
-	                 </a> 
-                    
-                    <div class="caption">
-                        <h3>Defects</h3>
-                        <p>Get Insights in Defects.</p>
-                        <p>
-                            
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                	<a href="#" >
-                    	<img src="/images/qualityassurance.png" alt="">
-                    </a>
-                    <div class="caption">
-                        <h3>QA</h3>
-                        <p>Get Insights in QA</p>
-                        <p>
-                           
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+  
+        <div id="main">    
+        <!-- angular templating : This is where content will be injected -->    
+        <div ng-view></div>    
+       </div> 
         <!-- /.row -->
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>&copy;  IBM India, SI Labs</p>
-                </div>
-            </div>
-        </footer>
-
+      
     </div>
+    
     <!-- /.container -->
-
+<data-ng-include src="'footer.html'"></data-ng-include>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
