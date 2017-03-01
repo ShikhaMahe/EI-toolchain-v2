@@ -1,0 +1,53 @@
+
+<div class="main-container">
+
+	<!-- Container fluid Starts -->
+	<div class="container-fluid" ng-controller="defect-analyticsController">
+
+		<!-- Row starts -->
+		<div class="row gutter">
+
+			<div class="panel panel-light">
+				<div class="panel-heading">
+					<h4 class="panel-title">Test Cases</h4>
+				</div>
+
+				<div class="panel-body">
+					<div class="chart-height2" fusioncharts width="600" height="400"
+						type="pie3d" dataSource="{{myDataSource}}"></div>
+					<div>
+						<br>
+						<button class="btn btn-info btn-rounded"
+							style="margin-bottom: 10px; align: center">Optimize Test
+							Cases</button>
+					</div>
+
+					<br> <br>
+					<div class="row gutter">
+						<div class="panel panel-light">
+							<div class="panel-heading">
+								<h4 class="panel-title">Use Cases</h4>
+
+							</div>
+
+							<div class="panel-body">
+								<div class="chart-height2" fusioncharts width="600" height="400"
+									type="pie3d" dataSource="{{myDataSourceUseCases}}"></div>
+								<div>
+									<br>
+									<button class="btn btn-info btn-rounded"
+										style="margin-bottom: 10px; align: center">Optimize
+										UseCases</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- Row ends -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Container fluid ends -->
+</div>
+

@@ -1,0 +1,93 @@
+.height1 {
+	height: 139px;
+}
+.chart-height-lg-xx {
+	height: 219px;
+}
+
+.gutter.row {
+	margin-right: -8px !important;
+	margin-left: -8px !important;
+}
+
+.gutter > [class^="col-"], .gutter-10 > [class^=" col-"] {
+	padding-right: 8px !important;
+	padding-left: 8px !important;
+}
+
+.small-stats {
+	text-align: center;
+}
+.small-stats i {
+	width: 48px;
+	height: 48px;
+	display: block;
+	border-radius: 50px;
+	border: 2px solid #058dc7;
+	font-size: 24px;
+	margin: auto;
+	vertical-align: middle;
+	color: #058dc7;
+	margin: auto;
+	line-height: 48px;
+}
+.small-stats h4.num {
+	margin: 10px 0 8px 0;
+	font-size: 21px;
+	color: #058dc7;
+	line-height: 100%;
+}
+.small-stats p.stats-title {
+	font-size: 11px;
+	margin: 0;
+	font-weight: 600;
+	color: #999;
+}
+
+.small-stats.blue i {
+	border: 2px solid #058dc7;
+	color: #058dc7;
+}
+.small-stats.blue h4.num {
+	color: #058dc7;
+}
+
+.small-stats.green i {
+	border: 2px solid #3FC5AC;
+	color: #3FC5AC;
+}
+.small-stats.green h4.num {
+	color: #3FC5AC;
+}
+
+.small-stats.red i {
+	border: 2px solid #E24B46;
+	color: #E24B46;
+}
+.small-stats.red h4.num {
+	color: #E24B46;
+}
+
+.small-stats.pink i {
+	border: 2px solid #F782AA;
+	color: #F782AA;
+}
+.small-stats.pink h4.num {
+	color: #F782AA;
+}
+
+.small-stats.yellow i {
+	border: 2px solid #FFD06B;
+	color: #FFD06B;
+}
+.small-stats.yellow h4.num {
+	color: #FFD06B;
+}
+
+.small-stats.brown i {
+	border: 2px solid #ab7967;
+	color: #ab7967;
+}
+.small-stats.brown h4.num {
+	color: #ab7967;
+}

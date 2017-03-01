@@ -1,0 +1,37 @@
+var ClientApp_route = angular.module('EngineeringInsightsClientApp.routes',['ngRoute']);
+
+
+// configure our routes
+
+ClientApp_route.config(function($routeProvider) {
+
+    $routeProvider
+
+
+        // route for the home page
+
+        .when('/login', {
+            templateUrl : 'pages/login.html',
+            controller  : 'loginController'
+        })
+       
+        .when('/angular-dod-analysis', {
+
+            templateUrl : 'pages/angular-dod-analysis.html',
+            controller  : 'dod-analysisController'
+        })        
+       
+        .when('/angular-testcase-optimization', {
+
+            templateUrl : 'pages/angular-testcase-optimization.html',
+            controller  : 'testcase-optimizationController'
+        })
+         .when('/defect-analytics', {
+            templateUrl : 'pages/defect-analytics.html',
+            controller  : 'defect-analyticsController'
+        })
+        .otherwise({
+        redirectTo: 'views/index.html'
+        });
+
+});

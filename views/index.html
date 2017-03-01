@@ -1,94 +1,252 @@
 <!DOCTYPE html>
-<html ng-app="EngineerInsight">
+<html lang="en" ng-app="EngineeringInsightsClientApp">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Sunrise Admin Panel" />
+		<meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap" />
+		<meta name="author" content="Bootstrap Gallery" />		
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<title>Engineering Insights Dashboard</title>
+		
+			 <!-- Now Angular related css and js  -->
+  		<script src="/js/angular.min.js"></script> 
+  		<script src="/js/angular-route.min.js"></script>
+  		
+		
+   <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.4/dist/angular-nvd3.js"></script>
+	
+		
+		
+		<!-- Bootstrap CSS -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 
-<head>
+		<!-- Animate CSS -->
+		<link href="/css/animate.css" rel="stylesheet" media="screen" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Gowdhaman J,Navjot,Vishal,Priyanka,Nidhi,Snehal">
+		<!-- Main CSS -->
+		<link href="/css/main.css" rel="stylesheet" media="screen" />
 
-    <title>Engineering Insights</title>
+		<!-- Icomoon Icons -->
+		<link href="/fonts/icomoon/icomoon.css" rel="stylesheet" />
+		<!-- For nvd3.css -->
+		<link href="/css/nv.d3.css" rel="stylesheet">
+		
+		<script src="/js/d3.min.js"></script>
+		<script src="/js/nv.d3.min.js"></script>
+		
+		<!-- nvd3 javascript for bullet chart -->
+		<script src="/js/nvd3/bullet-chart.js"></script>
+		<link href="/css/mycss.css" rel="stylesheet" media="screen" />	
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Circliful CSS -->
+<!-- 		
+		<link rel="stylesheet" href="../css/circliful/circliful.css" />
+ -->
+		<!-- Flags CSS -->
+<!-- 
+		<link rel="stylesheet" href="../css/flags/flag-icon-custom.css" />
+ -->
+		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="../js/html5shiv.js"></script>
+			<script src="../js/respond.min.js"></script>
+		<![endif]-->
+		    	
+  	<!--  Angular App related scripts -->
+		<script src="../eng-insights-js/EngineeringInsightsClientApp.js"></script>
+		<script src="../eng-insights-js/EngineeringInsightsClientApp-services.js"></script>
+		<script src="../eng-insights-js/EngineeringInsightsClientApp-controllers.js"></script>
+		<script src="../eng-insights-js/EngineeringInsightsClientApp-routes.js"></script>
+		
+			<!-- Fusion chart related --> 
+   		 <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
 
-    <!-- Custom CSS -->
-    <link href="css/heroic-features.css" rel="stylesheet">
+		<script type="text/javascript" src="js/fusioncharts.charts.js"></script>
+		<script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	</head>  
 
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-       
-    <script src="PageRouting.js"></script>
-</head>
+	<body class="purple">
+		<div class="sunrise-loading"></div>
 
-<body ng-controller="mainController">
+		<!-- Left sidebar start -->
+		<div class="vertical-nav">
 
-    <!-- Navigation -->
-    <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">  -->
-  <!--   <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-   <!--         <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                <img height="35" width="auto" src="/images/home_page.png" style="margin-bottom: 0px; border-bottom-width: 0px; padding-bottom: 10px; width: 40px; height: 40px;">
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-     <!--      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#defect">Defects</a>
-                    </li>
-                    <li>
-                        <a href="#">Test Cases</a>
-                    </li>
-                    <li>
-                        <a href="#">QA</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-  <!--      </div>
-        <!-- /.container -->
- <!--    </nav>
---> 
-<data-ng-include src="'header.html'"></data-ng-include>
-    <!-- Page Content -->
-  
-        <div id="main">    
-        <!-- angular templating : This is where content will be injected -->    
-        <div ng-view></div>    
-       </div> 
-        <!-- /.row -->
+			<!-- Collapse menu starts -->
+			<button class="collapse-menu">
+				<i class="icon-dehaze"></i>
+			</button>
+			<!-- Collapse menu ends -->
 
-        <hr>
+			<!-- Logo starts -->
+			<div class="logo">
+				<a href="#">
+					<img src="../eng-insights-img/ibm-logo.png" alt="IBM" />
+				</a>
+			</div>
+			<!-- Logo ends -->
 
-      
-    </div>
-    
-    <!-- /.container -->
-<data-ng-include src="'footer.html'"></data-ng-include>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+			<!-- Current user starts -->
+			<div class="user-info">
+				<div class="user-img">
+					<img src="../eng-insights-img/user1.png" alt="User Info">
+					
+				</div>
+				<h5 class="user-name-o">ReleaseManager</h5>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+			</div>
+			<!-- Current user ends -->
 
-</body>
+			<!-- Sidebar menu start -->
+			<ul class="menu clearfix">
+				<li class="active selected">
+					<a href="#overview">
+						<i class="icon-graphic_eq"></i>
+						<span class="menu-item">Dashboards</span>
+						<span class="down-arrow"></span>
+					</a>
+					<ul>
 
+						<li>
+							<a href="#angular-dod-analysis">
+								DoD Analysis
+								<span class="label label-danger">&nbsp;</span>
+							</a>
+						</li>
+						
+						<li>
+							<a href="#angular-testcase-optimization">
+								TestCase Optimization
+								<span class="label label-danger">&nbsp;</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+
+
+				
+				
+				
+				
+			</ul>
+			<!-- Sidebar menu snd -->
+			
+		</div>
+		<!-- Left sidebar end -->
+
+		<!-- Dashboard Wrapper Start -->
+		<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+			<!-- Header start -->
+			<header>
+
+				<div class="pull-right">
+					<ul id="mini-nav" class="clearfix">
+
+						<li class="list-box dropdown hidden-xs">
+							<a href="/login">
+								<i class="icon-exit_to_app"></i>
+							</a>
+						</li>
+						<li class="list-box hidden-lg hidden-md">
+							<button type="button" id="toggleMenu" class="toggle-menu">
+								<i class="icon-menu"></i>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<div class="custom-search hidden-sm hidden-xs">
+					<input type="text" class="search-query" placeholder="Search here ...">
+					<i class="icon-search4"></i>
+				</div>
+			</header>
+			<!-- Header ends -->
+
+			<!-- Top Bar Starts -->
+			<div class="top-bar clearfix">
+				<div class="page-title">
+					<h4>Overview</h4>
+				</div>
+				<ul class="sales-stats hidden-xs">
+					<li>
+						<div class="sales-block hidden-sm hidden-xs">
+							<span id="sale_today"></span>
+						</div>
+						<div class="sales-details">
+							 <i class="icon-arrow-up-right2 up"></i></h4>
+							<h5>Today's Progress</h5>
+						</div>
+					</li>
+					<li>
+						<div class="sales-block hidden-sm hidden-xs">
+							<span id="sale_weekly"></span>
+						</div>
+						<div class="sales-details">
+							 <i class="icon-arrow-down-right2 down"></i></h4>
+							<h5>Week's Progress</h5>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- Top Bar Ends -->
+
+			<!-- Main container starts -->
+			<div class="main-container">
+			
+    				<!-- angular templating -->
+       				<!-- this is where content will be injected -->
+					
+    				<div  ng-view></div>
+    				
+    				
+			<div>
+			<!-- Main container ends -->
+
+			<!-- Footer Start -->
+			<footer>
+				IBM India SI Labs <span>2017</span>.
+			</footer>
+			<!-- Footer end -->
+			
+		</div>
+		<!-- Dashboard Wrapper End -->
+
+		
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="/js/jquery.js"></script>
+
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="/js/bootstrap.min.js"></script>
+
+		<!-- jQuery UI JS -->
+		<script src="/js/jquery-ui.js"></script>
+
+		<!-- Sparkline graphs -->
+		<script src="/js/sparkline.js"></script>
+
+		
+		<!-- Tiny Scrollbar JS -->
+		<script src="/js/scrollbar/jquery.tinyscrollbar.min.js"></script>
+
+		<!-- jquery ScrollUp JS -->
+		<script src="/js/scrollup/jquery.scrollUp.js"></script>
+
+		<!-- Circliful js -->
+		<script src="/js/circliful/circliful.min.js"></script>
+		<script src="/js/circliful/circliful.custom.js"></script>		
+
+		<!-- Custom JS -->
+		<script src="/js/custom.js"></script>
+		
+			
+			
+			
+		
+		
+			
+	</body>
 </html>

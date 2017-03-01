@@ -7,10 +7,20 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 });
 
-/* GET home page. */
+/* GET login page. */
 router.get('/login', function(req, res, next) {
-	console.log('here in index.js');
-  res.sendFile(path.join(__dirname, '../', 'views', 'login.html'));
+  res.sendFile(path.join(__dirname, '../public', 'pages', 'login.html'));
 });
+
+/* GET Overview page. */
+router.get('/overview', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../public', 'pages', 'overview.html'));
+});
+
+/* GET Overview page. */
+router.get('/dod', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../public', 'pages', 'dod-analysis.html'));
+});
+
 
 module.exports = router;
