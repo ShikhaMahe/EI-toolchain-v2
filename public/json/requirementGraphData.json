@@ -1,0 +1,81 @@
+[{
+  "key": "Actual Completion Rate",
+  "color": "#e77338",
+  "values": [{
+    "label": "Apr",
+    "value": 0
+  }, {
+    "label": "May",
+    "value": 2
+  }, {
+    "label": "June",
+    "value": 6
+  }, {
+    "label": "Jul",
+    "value": 7
+  }, {
+    "label": "Aug",
+    "value": 8
+  }, {
+    "label": "Sep",
+    "value": 10
+  }, {
+    "label": "Oct",
+    "value": 12
+  }, {
+    "label": "Nov",
+    "value": 15
+  }, {
+    "label": "Dec",
+    "value": 17
+  }, {
+    "label": "Jan",
+    "value": 18
+  }, {
+    "label": "Feb",
+    "value": 19
+  }, {
+    "label": "Mar",
+    "value": 20
+  }]
+}, {
+  "key": "Expected Completion Rate",
+  "color": "#1f77b4",
+  "values": [{
+    "label": "Apr",
+    "value": 0
+  }, {
+    "label": "May",
+    "value": 8
+  }, {
+    "label": "June",
+    "value": 11
+  }, {
+    "label": "Jul",
+    "value": 15
+  }, {
+    "label": "Aug",
+    "value": 19
+  }, {
+    "label": "Sep",
+    "value": 21
+  }, {
+    "label": "Oct",
+    "value": 25
+  }, {
+    "label": "Nov",
+    "value": 28
+  }, {
+    "label": "Dec",
+    "value": 30
+  }, {
+    "label": "Jan",
+    "value": 32
+  }, {
+    "label": "Feb",
+    "value": 37
+  }, {
+    "label": "Mar",
+    "value": 38
+  }]
+}]

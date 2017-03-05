@@ -14,6 +14,14 @@ ClientApp_route.config(function($routeProvider) {
             templateUrl : 'pages/login.html',
             controller  : 'loginController'
         })
+        .when('/star', {
+            templateUrl : 'pages/starbrustchart.html',
+            controller  : 'loginController'
+        })
+        .when('/landing', {
+            templateUrl : 'pages/landing.html',
+            controller  : 'landingController'
+        })
        
         .when('/angular-dod-analysis', {
 
@@ -30,6 +38,7 @@ ClientApp_route.config(function($routeProvider) {
             templateUrl : 'pages/defect-analytics.html',
             controller  : 'defect-analyticsController'
         })
+        
         .otherwise({
         redirectTo: 'views/index.html'
         });

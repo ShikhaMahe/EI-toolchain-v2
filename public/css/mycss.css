@@ -4,3 +4,60 @@ svg.nvd3-svg {
     width:100%;
     height:55px;
 }
+
+/* Progress Bar Style */
+
+body {
+    
+}
+.progress-bar-success {
+    position: relative;
+}
+#horizontal-style {
+    display: table;
+    
+    position:absolute;
+    height:20px;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+
+.popover-content {
+	height: 60px; 
+	width: 120px;
+    padding: 2px 5px;       
+}
+
+.popover-title {
+	height: 20px; 
+	width: 120px;
+    padding: 2px 5px;
+    color: black;  
+    font-size: 10px;  
+}
+
+.popover {
+	background: #6e91cb none repeat scroll 0 0;	
+	font-size: 10px;
+	
+}
+
+.bottom {
+	background: #f29565;
+	display: block; top: 20px; left: 0px; width: 150px; height: 40px;	
+}
+
+.label-bullet {
+			position: relative;
+			left: 1px;
+			top: 6px;
+			width: 0;
+			height: 0;
+			border: 3px solid red;
+}
+
+
+
+
+

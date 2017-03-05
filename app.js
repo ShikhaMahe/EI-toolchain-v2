@@ -4,9 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var https = require('https');
 var http = require('http');
-
 var routes = require('./routes/index');
 //var users = require('./routes/user');
 
@@ -17,7 +15,7 @@ app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env === 'development';
 
 // view engine setup
-//app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -67,84 +65,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.get('/fetchdefectdetails',function(request,response){
-	 
-	 console.log("fetchdefectdetails called****************");
-	// readFile();
-	// var category = request.body.cat;
-	
-	 
-	 var options = {
-			  host: 'engginginsights-service.mybluemix.net',
-			  port: 443,
-			  path: '/getAllDefects',
-			  method: 'GET'
-			};
-
-			var req = https.request(options, function(res) {
-			  
-			  console.log(res.statusCode);
-			  res.on('data', function(d) {
-			    process.stdout.write(d);
-			  });	
-			  
-			  console.log(res);
-			  
-			});
-			
-			req.end();
-
-			req.on('error', function(e) {
-			  console.error(e);
-			});
-});	
-
-app.get('/test',function(request,response){
-    var responseString = '';
-    //response.json(200, {'test': 'it works!'})
-    var data = "{'test': 'it works!'}";
-    console.log("hey hey called****************");
-     console.log("fetchdefectdetails called****************");
-
-     //   response.json(200, {'test': 'it works!'})
-
-    var options = {
-              host: 'engginginsights-service.mybluemix.net',
-             // port: 443,
-              path: '/getAllDefects',
-              method: 'GET'
-            };
-
-    var request = https.request(options, function(response) {
-    console.log("fetchdefectdetails called****************");
-    response.setEncoding('utf-8');
-
-
-
-    response.on('data', function(data) {
-      responseString += data;
-    });
-
-    response.on('end', function() {
-      console.log('am hereeee '+responseString);
-      console.log('doneee');
-      // success(responseString);
-      // var responseObject = JSON.parse(responseString);
-
-    });
-  });
-    
-    
-
-console.log("dataString called****************");
-
-
-}); 
-
 
 module.exports = app;
-/*
-http.createServer(app).listen(app.get('port'), '0.0.0.0', function() {
-	console.log('Express server listening on port ' + app.get('port'));
-});*/
-

@@ -1,6 +1,6 @@
 {
-  "name": "engineeringinsights",
-  "description": "Engineering-Insishts Offering from IBM SI Labs",
+  "name": "clientapp-template",
+  "description": "clientapp-template description",
   "version": "1.0.0",
   "private": true,
   "main": "bin/www",
@@ -8,14 +8,12 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "cookie-parser": "^1.3.3",
     "express": "^4.13.3",
-    "http": "0.0.0",
-    "https": "^1.0.0",
-    "jade": "^1.11.0",
+    "serve-favicon": "^2.3.0",
     "morgan": "^1.6.1",
-    "serve-favicon": "^2.3.0"
+    "cookie-parser": "^1.3.3",
+    "body-parser": "^1.13.3",
+    "jade": "^1.11.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
