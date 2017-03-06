@@ -21,7 +21,15 @@ myAPIClientApp_controllers.controller('landingController', function($scope, $tim
 
   $('.mypopover').popover('show');
  
- 
+  $(document).ready(function(){
+	  $('[data-toggle="popover fade bottom in"]').popover({
+	        placement : 'bottom',
+	        trigger : 'hover',
+	        delay: { "show": 500, "hide": 300 },
+	        
+	        	
+	    });
+	});
   
   $scope.devAnalyzedClicked = function(){	   
 	   

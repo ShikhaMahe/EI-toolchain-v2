@@ -214,58 +214,126 @@
 							<table style="table-layout: auto" class="table no-margin">
 								<tbody>
 									<tr>
-										<td style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											<!-- <p>Requirements</p>  -->
-											<div style="margin-left: 2px; margin-right: 2px;" ng-click="progressClicked('requirement')" id="requirement" class="progress">
-												<div style="width: 90%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar progress-bar-success">90%</div>
-												<div style="width: 10%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar progress-bar-warning">10%</div>
-												<ul id="horizontal-style">
+										<td 
 													
-													<div role="tooltip" class="popover fade top in" id="popover395406" style="display: block; top: -84px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div><h3 class="popover-title">Requirements</h3><div class="popover-content">Frozen: 45 | In-Progress: 5 | Phase Duration: 6Weeks</div></div>
+											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+											<!-- <p>Requirements</p>  -->
+											<div class="progress" id="requirement"
+												ng-click="progressClicked('requirement')"
+												style="margin-left: 2px; margin-right: 2px;" >
+												<div class="progress-bar progress-bar-success"
+													role="progressbar" aria-valuenow="80" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 90%"
+													data-toggle="popover fade bottom in" data-content="90% of the duration is completed"
+													>90%</div>
+												<div class="progress-bar progress-bar-warning"
+													role="progressbar" aria-valuenow="80" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 10%"
+													data-toggle="popover fade bottom in" data-content="10% of the duration is left"
+													>10%</div>
+												<ul id="horizontal-style">
+													<!-- <li class="mypopover" data-placement="top"
+														data-content="Frozen: 45 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In-Progress: 5 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 6 Weeks"
+														data-title="Requirements" style="width: 40%"></li> -->
+														
+														 <div role="tooltip" class="popover fade top in" id="popover262464" style="display: block; top: -84px; left: 62px;">
+														<div class="arrow" style="left: 50%;"></div>
+														<h3 class="popover-title">Requirements</h3>
+														<div class="popover-content">Frozen: 45 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In-Progress: 5 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 6 Weeks</div>
+														</div>
 												</ul>
 											</div>
 										</td>
-										<td style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+										<td
+											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
 											<!--<p>Development</p>  -->
-											<div style="margin-left: 2px; margin-right: 2px;" ng-click="progressClicked('development')" id="dev" class="progress">
-												<div style="width: 50%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">50%</div>
-												<div style="width: 30%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar progress-bar-warning">30%</div>
-												<ul  id="horizontal-style" >
-													
-													<div role="tooltip" class="popover fade top in" id="popover652241" style="display: block; top: -84px;"><div class="arrow" style="left: 50%;"></div><h3 class="popover-title">Development</h3><div class="popover-content">Features Completed: 20 | In-Progress: 12 | Phase Duration: 12Weeks</div></div>
-													
-													
-													<div role="tooltip" class="popover fade bottom in" id="popover707161" style="display: block; top: 20px; left: 150px;"><div class="arrow" style="left: 50%;"></div><h3 class="popover-title" style="display: none;"></h3><div class="popover-content">Optimization Model Available!</div></div>
+											<div class="progress" id="dev"
+												ng-click="progressClicked('development')"
+												style="margin-left: 2px; margin-right: 2px;">
+												<div class="progress-bar progress-bar-success"
+													role="progressbar" aria-valuenow="40" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 50%">50%</div>
+												<div class="progress-bar progress-bar-warning"
+													role="progressbar" aria-valuenow="80" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 30%">30%</div>
+												<ul id="horizontal-style">
+													<!-- <li class="mypopover" data-placement="top"
+														data-content="Features Completed: 20 In-Progress: 12 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 12 Weeks"
+														data-title="Development" style="width: 40%"></li>
+													<li class="mypopover" data-placement="bottom"
+														data-content="Optimization Model Available!"
+														style="width: 70%"></li> -->
+														
+														<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
+														<div class="arrow" style="left: 50%;"></div>
+														<h3 class="popover-title">Development</h3>
+														<div class="popover-content">Features Completed: 20 In-Progress: 12 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 12 Weeks</div></div>
+														
+														<div role="tooltip" class="popover fade bottom in" id="popover262364" style="display: block; top: 19px; left: 62px;">
+														<div class="arrow" style="left: 50%;"></div>
+														<div class="popover-content">Optimization Model Available!</div></div>
 														
 
 												</ul>
 											</div>
 										</td>
-										<td style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+										<td
+											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
 											<!--<p>Build
 												and Deploy</p>  -->
-											<div style="margin-left: 2px; margin-right: 2px;" ng-click="progressClicked('deploy')" id="deploy" class="progress">
-												<div style="width: 37%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" role="progressbar" class="progress-bar progress-bar-success">37%</div>
-												<div style="width: 10%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar progress-bar-warning">10%</div>
+											<div class="progress" id="deploy"
+												ng-click="progressClicked('deploy')"
+												style="margin-left: 2px; margin-right: 2px;">
+												<div class="progress-bar progress-bar-success"
+													role="progressbar" aria-valuenow="10" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 37%">37%</div>
+												<div class="progress-bar progress-bar-warning"
+													role="progressbar" aria-valuenow="80" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 10%">10%</div>
 												<ul id="horizontal-style">
-													
-													
-													<div role="tooltip" class="popover fade top in" id="popover397671" style="display: block; top: -84px; left: 20px;"><div class="arrow" style="left: 50%;"></div><h3 class="popover-title">Build &amp; Deploy</h3><div class="popover-content">Build Successful: 120 | Build Failed: 20 | Phase Duration: 20Weeks</div></div>
+													<!-- <li class="mypopover" data-placement="top"
+														data-content="Build Successful: 120 &nbsp Build Failed: 20 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 20 Weeks"
+														data-title="Build & Deploy" style="width: 40%"></li> -->
+														
+														<div role="tooltip" class="popover fade top in" id="popover272424" style="display: block; top: -84px; left: 62px;">
+														<div class="arrow" style="left: 50%;"></div>
+														<h3 class="popover-title">Build & Deploy</h3>
+														<div class="popover-content">Build Successful: 120 &nbsp Build Failed: 20 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 20 Weeks</div></div>
 
 												</ul>
 											</div>
 										</td>
-										<td style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+										<td
+											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
 											<!--<p>Test</p>  -->
-											<div style="margin-left: 2px; margin-right: 2px;" ng-click="progressClicked('testing')" id="test" class="progress">
-												<div style="width: 40%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-success">40%</div>
-												<div style="width: 20%" title="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar progress-bar-warning">20%</div>
+											<div class="progress" id="test"
+												ng-click="progressClicked('testing')"
+												style="margin-left: 2px; margin-right: 2px;">
+												<div class="progress-bar progress-bar-success"
+													role="progressbar" aria-valuenow="20" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 40%">40%</div>
+												<div class="progress-bar progress-bar-warning"
+													role="progressbar" aria-valuenow="80" aria-valuemin="0"
+													aria-valuemax="100" title="" style="width: 20%">20%</div>
 												<ul id="horizontal-style">
-													
-													<div role="tooltip" class="popover fade top in" id="popover427534" style="display: block; top: -84px;"><div class="arrow" style="left: 50%;"></div><h3 class="popover-title">Test</h3><div class="popover-content">Features Tested: 15 | Pending : 25 | Phase Duration: 18Weeks</div></div>
-													
-													<div role="tooltip" class="popover fade bottom in" id="popover269975" style="display: block; top: 20px; left: 75px;"><div class="arrow" style="left: 50%;"></div><h3 class="popover-title" style="display: none;"></h3><div class="popover-content">Optimization Model Available!</div></div>
+													<!-- <li class="mypopover" data-placement="top"
+														data-content="Features Tested: 15 &nbsp;&nbsp;&nbsp;&nbsp; Pending : 25 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 18Weeks"
+														data-title="Test" style="width: 40%"></li> 
+													<li class="mypopover" data-placement="bottom"
+														data-content="Optimization Model Available!"
+														style="width: 40%"></li>-->
+														
+														
+														<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
+														<div class="arrow" style="left: 50%;"></div>
+														<h3 class="popover-title">Test</h3>
+														<div class="popover-content">Features Tested: 15 &nbsp;&nbsp;&nbsp;&nbsp; Pending : 25 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 18Weeks</div></div>
+														
+														<div role="tooltip" class="popover fade bottom in" id="popover268364" style="display: block; top: 19px; left: 62px;">
+														<div class="arrow" style="left: 50%;"></div>
+														<div class="popover-content">Optimization Model Available!</div>
+														
+														</div>
 
 												</ul>
 											</div>
