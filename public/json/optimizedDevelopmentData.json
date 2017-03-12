@@ -1,0 +1,17 @@
+{
+	"productId": "1",
+	"phase": [{
+		"phaseId": "Development",
+		"reusableProducts": ["SecurityService", "DBFramework", "UIDevelopmentFramework", "LogFramework", "UnitTestFramework"],
+		"totalNoOfReusableProducts": 5,
+		"requiredSkillLevelOfProduct": 3,
+		"totalSkillLevelOfProduct": 5
+	}, {
+		"phaseId": "Testing",
+		"reusableProducts": ["SecurityAutomation", "CommonLibraryAutomation", "UpdateTestResults"],
+		"totalNoOfReusableProducts": 3,
+		"requiredSkillLevelOfProduct": 4,
+		"totalSkillLevelOfProduct": 5
+	}]
+
+}

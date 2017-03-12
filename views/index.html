@@ -13,7 +13,9 @@
 			 <!-- Now Angular related css and js  -->
   		<script src="/js/angular.min.js"></script> 
   		<script src="/js/angular-route.min.js"></script>
-  		
+  		<script src="http://d3js.org/d3.v3.min.js"></script>
+  		<script src="/js/sunburst.js"></script>
+  		<script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 		
    <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.4/dist/angular-nvd3.js"></script>
 	
@@ -43,19 +45,12 @@
 		<link href="/css/rzslider.css" rel="stylesheet" media="screen" />
 		<script src="/js/rzslider.js"></script>	
 
-		<!-- Circliful CSS -->
-<!-- 		
-		<link rel="stylesheet" href="../css/circliful/circliful.css" />
- -->
-		<!-- Flags CSS -->
-<!-- 
-		<link rel="stylesheet" href="../css/flags/flag-icon-custom.css" />
- -->
-		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-			<script src="../js/html5shiv.js"></script>
-			<script src="../js/respond.min.js"></script>
-		<![endif]-->
+
+		<!--  Spinner -->
+		<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+  <script type="text/javascript" src="js/angular-spinner.min.js"></script>
+  <script type="text/javascript" src="js/angular-loading-spinner.js"></script>
+  
 		    	
   	<!--  Angular App related scripts -->
 		<script src="../eng-insights-js/EngineeringInsightsClientApp.js"></script>
@@ -71,8 +66,17 @@
 		<script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
 		
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		
+		<script src="js/SweetAlert.min.js"></script>
+        <script src="js/sweet-alert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/sweet-alert.css">
 
-<link href="/css/css3timeline.css" rel="stylesheet" media="screen" />
+		<link href="/css/css3timeline.css" rel="stylesheet" media="screen" />
+		
+		<!-- For Tooltip -->
+		<script src="/js/tooltip/tooltip.js"></script>
+		<link rel="stylesheet" type="text/css" href="/js/tooltip/tooltip.css">
+		
 	</head>  
 
 	<body class="purple">
@@ -123,60 +127,39 @@
 								<span class="label label-danger">&nbsp;</span>
 							</a>
 						</li>
-<!--  
-						<li>
-							<a href="#angular-dod-analysis">
-								DoD Analysis
-								<span class="label label-danger">&nbsp;</span>
-							</a>
-						</li>
-						
-						<li>
-							<a href="#angular-testcase-optimization">
-								TestCase Optimization
-								<span class="label label-danger">&nbsp;</span>
-							</a>
-						</li>
-	 -->					
+					
 					</ul>
 				</li>
 
-
-
-				
-				
-				
 				
 			</ul>
-			<!-- Sidebar menu snd -->
+
 			
 		</div>
-		<!-- Left sidebar end -->
+
 
 		<!-- Dashboard Wrapper Start -->
 		<div class="dashboard-wrapper dashboard-wrapper-lg">
 
 			<!-- Header start -->
-			<header>
-
-				<div class="pull-right">
-					<ul id="mini-nav" class="clearfix">
-
-						<li class="list-box dropdown hidden-xs">
-							<a href="/login">
-								<i class="icon-exit_to_app"></i>
-							</a>
-						</li>
-						<li class="list-box hidden-lg hidden-md">
-							<button type="button" id="toggleMenu" class="toggle-menu">
-								<i class="icon-menu"></i>
-							</button>
-						</li>
-					</ul>
-				</div>
-				<div class="custom-search hidden-sm hidden-xs">
-					<input type="text" class="search-query" placeholder="Search here ...">
-					<i class="icon-search4"></i>
+			<header ng-controller="headerController">
+				<div class="row gutter">
+							<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+								<div class="btn-group" style="float:left; margin-top: 14px;">
+									<button type="button" class="btn btn-info">Projects</button>
+									<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+									<ul class="dropdown-menu" role="menu">
+										<li ng-repeat="projectname in projectnames" ng-click="select(projectname)">
+											<a href="#">{{ projectname }}</a>
+											</li>			
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+									<div style="color:white; float:left"class="center-text">
+										<h3 >{{projectname}}</h3>
+									</div>
+							</div>	
 				</div>
 			</header>
 			<!-- Header ends -->
@@ -193,10 +176,7 @@
 			<!-- Main container starts -->
 			<div class="main-container" ng-controller="landingController">
 			
-    				<!-- angular templating -->
-       				<!-- this is where content will be injected -->
-					
-    				<!--  <div  ng-view></div>  -->
+    				
     				<!-- Container fluid Starts -->
 	<div class="container-fluid">
 
@@ -209,8 +189,8 @@
 						<h4>Project Health</h4>
 					</div>
 
-					<div class="panel-body">
-						<div style="margin-left: 0px; padding-left: 55px;" class="row gutter">
+					<div class="panel-body" style="height: 260px;">
+						<div style="margin-left: 0px; padding-left: 0px;" class="row gutter">
 							<table style="table-layout: auto" class="table no-margin">
 								<tbody>
 									<tr>
@@ -221,121 +201,140 @@
 											<div class="progress" id="requirement"
 												ng-click="progressClicked('requirement')"
 												style="margin-left: 2px; margin-right: 2px;" >
-												<div class="progress-bar progress-bar-success"
+											
+													 <div ng-class="{'progress-bar-success progress-bar' : requirementGreenStatus,'progress-bar-warning progress-bar' : requirementYellowStatus,'progress-bar-danger progress-bar' : requirementRedStatus}"
 													role="progressbar" aria-valuenow="80" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 90%"
-													data-toggle="popover fade bottom in" data-content="90% of the duration is completed"
-													>90%</div>
-												<div class="progress-bar progress-bar-warning"
-													role="progressbar" aria-valuenow="80" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 10%"
-													data-toggle="popover fade bottom in" data-content="10% of the duration is left"
-													>10%</div>
+													aria-valuemax="100" title="" style="width: {{requirementPercentage}}%"
+													
+													 id="pbreq" 
+													  onmouseover="tooltip.pop(this, '#Requirement_tip', { position:2, cssClass: 'no-padding'})">
+													  {{requirementPercentage}}% 
+													 </div>
+													 
+													 
+										
 												<ul id="horizontal-style">
-													<!-- <li class="mypopover" data-placement="top"
-														data-content="Frozen: 45 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In-Progress: 5 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 6 Weeks"
-														data-title="Requirements" style="width: 40%"></li> -->
+													
 														
-														 <div role="tooltip" class="popover fade top in" id="popover262464" style="display: block; top: -84px; left: 62px;">
+														<div role="tooltip" class="popover fade top in" id="popover262464" style="display: block; top: -84px; left: 62px;">
 														<div class="arrow" style="left: 50%;"></div>
 														<h3 class="popover-title">Requirements</h3>
-														<div class="popover-content">Frozen: 45 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In-Progress: 5 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 6 Weeks</div>
+														<div class="popover-content">{{requirementTopPop}}</div>
 														</div>
 												</ul>
+<!-- 
+		<div role="dialog" class="modal fade" id="modalreq"
+			tabindex="-1" role="dialog" aria-labelledby="modal1Label">
+			<div class="modal-dialog modal-sm modal-left">
+				<div class="modal-content"
+					style="top: 110px; color: white; background-color: {{reqcolor">
+					<div class="modal-header"
+						style="padding-top: 0px; padding-bottom: 0px;">
+					</div>
+					<div class="modal-body" style="padding: 0px;">{{requirementDataContent}}</div>
+				</div>
+			</div>
+		</div>
+ -->				
 											</div>
 										</td>
-										<td
-											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											<!--<p>Development</p>  -->
-											<div class="progress" id="dev"
-												ng-click="progressClicked('development')"
-												style="margin-left: 2px; margin-right: 2px;">
-												<div class="progress-bar progress-bar-success"
-													role="progressbar" aria-valuenow="40" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 50%">50%</div>
-												<div class="progress-bar progress-bar-warning"
-													role="progressbar" aria-valuenow="80" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 30%">30%</div>
+										
+										<!--<p>Development</p>  -->
+										<td style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+											<div class="progress" id="dev" ng-click="progressClicked('development')" style="margin-left: 2px; margin-right: 2px;">
+												<div ng-class="{'progress-bar-success progress-bar' : developmentGreenStatus,'progress-bar-warning progress-bar' : developmentYellowStatus,'progress-bar-danger progress-bar' : developmentRedStatus}"
+													role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" title="" 
+													style="width: {{developmentPercentage}}%"
+													 id="pbdev" 
+													 onmouseover="tooltip.pop(this, '#Development_tip', { position:2, cssClass: 'no-padding' })">{{developmentPercentage}}%</div>
+											
 												<ul id="horizontal-style">
-													<!-- <li class="mypopover" data-placement="top"
-														data-content="Features Completed: 20 In-Progress: 12 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 12 Weeks"
-														data-title="Development" style="width: 40%"></li>
-													<li class="mypopover" data-placement="bottom"
-														data-content="Optimization Model Available!"
-														style="width: 70%"></li> -->
-														
-														<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
+													<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
 														<div class="arrow" style="left: 50%;"></div>
 														<h3 class="popover-title">Development</h3>
-														<div class="popover-content">Features Completed: 20 In-Progress: 12 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 12 Weeks</div></div>
-														
-														<div role="tooltip" class="popover fade bottom in" id="popover262364" style="display: block; top: 19px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div>
-														<div class="popover-content">Optimization Model Available!</div></div>
-														
-
+													<div class="popover-content">{{developmentTopPop}}</div></div>
 												</ul>
+<!-- 												
+		<div role="dialog" class="modal fade" id="modaldev" tabindex="-1" role="dialog" aria-labelledby="modal2Label">
+				<div class="modal-dialog modal-sm modal-left">
+			    	<div class="modal-content" style="top: 110px; color:white; margin-left: 0px; left: 205px; background-color: {{devcolor}};">
+						<div class="modal-header" style="padding-top: 0px; padding-bottom: 0px;">
+				    		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						</div>
+						<div class="modal-body" style="padding: 0px;">{{developmentDataContent}}</div>
+				           
+			        </div>
+		    	</div>
+		</div>
+ -->
 											</div>
 										</td>
+										
+										<!--<p>Build and Deploy</p>  -->
 										<td
 											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											<!--<p>Build
-												and Deploy</p>  -->
+											
 											<div class="progress" id="deploy"
-												ng-click="progressClicked('deploy')"
-												style="margin-left: 2px; margin-right: 2px;">
-												<div class="progress-bar progress-bar-success"
-													role="progressbar" aria-valuenow="10" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 37%">37%</div>
-												<div class="progress-bar progress-bar-warning"
-													role="progressbar" aria-valuenow="80" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 10%">10%</div>
+												ng-click="progressClicked('deploy')" style="margin-left: 2px; margin-right: 2px;">
+												<div ng-class="{'progress-bar-success progress-bar' : builddeployGreenStatus,'progress-bar-warning progress-bar' : builddeployYellowStatus,'progress-bar-danger progress-bar' : builddeployRedStatus}"
+													role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" title="" 
+													style="width: {{builddeployPercentage}}%"
+													id="pbbnd"
+													onmouseover="tooltip.pop(this, '#Build_tip', { position:2, cssClass: 'no-padding' })">{{builddeployPercentage}}%</div>
+										
 												<ul id="horizontal-style">
-													<!-- <li class="mypopover" data-placement="top"
-														data-content="Build Successful: 120 &nbsp Build Failed: 20 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 20 Weeks"
-														data-title="Build & Deploy" style="width: 40%"></li> -->
-														
 														<div role="tooltip" class="popover fade top in" id="popover272424" style="display: block; top: -84px; left: 62px;">
 														<div class="arrow" style="left: 50%;"></div>
 														<h3 class="popover-title">Build & Deploy</h3>
-														<div class="popover-content">Build Successful: 120 &nbsp Build Failed: 20 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 20 Weeks</div></div>
-
+														<div class="popover-content">{{builddeployTopPop}}</div></div>
 												</ul>
+<!-- 												
+		<div role="dialog" class="modal fade" id="modalbnd" tabindex="-1" role="dialog" aria-labelledby="modal1Label">
+			<div class="modal-dialog modal-sm modal-left">
+    			<div class="modal-content" style="top: 110px; color:white; margin-left: 0px; left: 400px; background-color: {{bndcolor}};">
+				<div class="modal-header" style="padding-top: 0px; padding-bottom: 0px;">
+    				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				</div>
+				<div class="modal-body" style="padding: 0px;">{{builddeployDataContent}}</div>
+           
+        		</div>
+    		</div>
+		</div>
+ -->		
 											</div>
 										</td>
+										
+										<!--<p>Test</p>  -->
 										<td
 											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											<!--<p>Test</p>  -->
-											<div class="progress" id="test"
-												ng-click="progressClicked('testing')"
-												style="margin-left: 2px; margin-right: 2px;">
-												<div class="progress-bar progress-bar-success"
-													role="progressbar" aria-valuenow="20" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 40%">40%</div>
-												<div class="progress-bar progress-bar-warning"
-													role="progressbar" aria-valuenow="80" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: 20%">20%</div>
+											
+											<div class="progress" id="test" ng-click="progressClicked('testing')" style="margin-left: 2px; margin-right: 2px;">
+												
+												<div ng-class="{'progress-bar-success progress-bar' : testGreenStatus,'progress-bar-warning progress-bar' : testYellowStatus,'progress-bar-danger progress-bar' : testRedStatus}"
+													role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" title="" style="width: {{testPercentage}}%"
+													id="pbtest"
+													onmouseover="tooltip.pop(this, '#Test_tip', { position:2, cssClass: 'no-padding' })">{{testPercentage}}%</div>
+										
 												<ul id="horizontal-style">
-													<!-- <li class="mypopover" data-placement="top"
-														data-content="Features Tested: 15 &nbsp;&nbsp;&nbsp;&nbsp; Pending : 25 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 18Weeks"
-														data-title="Test" style="width: 40%"></li> 
-													<li class="mypopover" data-placement="bottom"
-														data-content="Optimization Model Available!"
-														style="width: 40%"></li>-->
-														
-														
 														<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
 														<div class="arrow" style="left: 50%;"></div>
 														<h3 class="popover-title">Test</h3>
-														<div class="popover-content">Features Tested: 15 &nbsp;&nbsp;&nbsp;&nbsp; Pending : 25 &nbsp;&nbsp;&nbsp;&nbsp; Duration: 18Weeks</div></div>
-														
-														<div role="tooltip" class="popover fade bottom in" id="popover268364" style="display: block; top: 19px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div>
-														<div class="popover-content">Optimization Model Available!</div>
-														
-														</div>
-
+														<div class="popover-content">{{testTopPop}}</div></div>
 												</ul>
+												
+<!-- 												
+		<div role="dialog" class="modal fade" id="modaltest" tabindex="-1" role="dialog" aria-labelledby="modal1Label">
+			<div class="modal-dialog modal-sm modal-left">
+		    	<div class="modal-content" style="top: 110px; color:white; margin-left: 0px; left: 600px; background-color: {{testcolor}};">
+					<div class="modal-header" style="padding-top: 0px; padding-bottom: 0px;">
+			    		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					</div>
+					<div class="modal-body" style="padding: 0px;">{{testDataContent}}</div>
+			           
+		        </div>
+		    </div>
+		</div>
+ -->		
 											</div>
 										</td>
 
@@ -350,77 +349,189 @@
 		
 		</div>
 		<div class="row gutter" ng-show="showAnalyzedDev">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="panel panel-blue">
+		<div class="panel panel-blue">
 					<div class="panel-heading">
 						<h4>Predicted Optimization for Development</h4>
 					</div>
 					<div class="panel-body">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">				
 						<div class="row gutter">
-							<div style="margin-left: 30px; margin-right: 10px;">
+							<div style="margin-left: 0px; margin-right: 10px; margin-top: -20px;"">
 								<ol class="lens-profile-timelineTime"
 									style="margin-left: 0px; margin-right: 20px;">
 									<li style="left: 0; border: 15px solid #39752c;">
 										<p>Start</p>
 									</li>
-
 									<li style="left: 85%; border: 15px solid #6e91cb;">
-										<p style="top: 20px;">Predicted Completion:11Weeks</p>
+										<p style="top: 20px;">Predicted Completion:13Days</p>
 									</li>
 									<li style="left: 96%">
-										<p style="left: -50px;">Expected Completion:12Weeks</p>
+										<p style="left: -50px;">Expected Completion:15Days</p>
 									</li>
 
 
 								</ol>
 							</div>
-							<h5>1 week of development could be saved !</h5>
+							<h6><strong class="bg-success">2 Days</strong> of development effort could be saved !</h6>
 						</div>
-					</div>
-				</div>
-
-
+						<div class="row gutter">
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="float: left;">
+			<h6><strong class="bg-success">Do you want to ingest this optimization in to your planning?</strong></h6>
 			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right;">
+			<span us-spinner="{radius:30, width:8, length: 16}"></span>
+			<button ng-click="startAjax(); devOptimizeYes(); demo.alert(devOptimizeSuccessMsg)" data-toggle="modal"
+			type="button" class="btn btn-success btn-xm btn-rounded" data-loading-text="Loading..." ng-controller="demoCtrl as demo">Yes</button>
+			<button ng-click="devOptimizeNo()" data-toggle="modal"
+			type="button" class="btn btn-danger btn-xm btn-rounded">No</button>			
+			</div>
+			</div>
+					</div>
+				
 
 
+			
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin">
+								<tbody>
+								<thead>
+												<tr>
+													<th>#</th>
+													<th>WorkItems</th>
+													<th>Reusable Assets</th>													
+												</tr>
+											</thead>
+								</th>
+									<tr>
+										<td>1
+										</td>
+										<td>WI1,WI2
+										</td>
+										<td>SecurityService,LogFramework
+										</td>
+										
+										</tr>
+										<tr>
+										<td>2
+										</td>
+										<td>WI12,WI21
+										</td>
+										<td>DBFramework,LogFramework
+										</td>										
+										</tr>
+										<tr>
+										<td>3
+										</td>
+										<td>WI5,WI23
+										</td>
+										<td>UIDevelopmentFramework
+										</td>										
+										</tr>
+										</tbody>
+										</table>
+			</div>
+			
+			
+
+
+	
+		</div>
+		</div>
 		</div>
 		<div class="row gutter" ng-show="showAnalyzedTest">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="panel panel-blue">
+		<div class="panel panel-blue">
 					<div class="panel-heading">
 						<h4>Predicted Optimization for Test</h4>
 					</div>
 					<div class="panel-body">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">				
 						<div class="row gutter">
-							<div style="margin-left: 30px; margin-right: 10px;">
+							<div style="margin-left: 0px; margin-right: 10px; margin-top: -20px;"">
 								<ol class="lens-profile-timelineTime"
 									style="margin-left: 0px; margin-right: 20px;">
 									<li style="left: 0; border: 15px solid #39752c;">
 										<p>Start</p>
 									</li>
-
 									<li style="left: 85%; border: 15px solid #6e91cb;">
-										<p style="top: 20px;">Predicted Completion:18Weeks</p>
+										<p style="top: 20px;">Predicted Completion:25Days</p>
 									</li>
 									<li style="left: 96%">
-										<p style="left: -50px;">Expected Completion:16Weeks</p>
+										<p style="left: -50px;">Expected Completion:30Days</p>
 									</li>
 
 
 								</ol>
 							</div>
-							<h5>2 weeks of testing could be saved !</h5>
+							<h6><strong class="bg-success">5 Days</strong> of testing effort could be saved !</h6>
 						</div>
-					</div>
-				</div>
-
-
+						<div class="row gutter">
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="float: left;">
+			<h6><strong class="bg-success">Do you want to ingest this optimization in to your planning?</strong></h6>
 			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right;">
+			<span us-spinner="{radius:30, width:8, length: 16}"></span>
+			<button ng-click="startAjax(); testOptimizeYes(); demo.alert(testOptimizeSuccessMsg)" data-toggle="modal"
+			type="button" class="btn btn-success btn-xm btn-rounded" data-loading-text="Loading..." ng-controller="demoCtrl as demo">Yes</button>
+			<button ng-click="testOptimizeNo()" data-toggle="modal"
+			type="button" class="btn btn-danger btn-xm btn-rounded">No</button>			
+			</div>
+			</div>
+					</div>
+				
+
+
+			
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin">
+								<tbody>
+								<thead>
+												<tr>
+													<th>#</th>
+													<th>WorkItems</th>
+													<th>Test Reusable Assets</th>													
+												</tr>
+											</thead>
+								</th>
+									<tr>
+										<td>1
+										</td>
+										<td>TC1,TC2,TC3
+										</td>
+										<td>SecurityAutomation
+										</td>
+										
+										</tr>
+										<tr>
+										<td>2
+										</td>
+										<td>TC6,TC7,TC8
+										</td>
+										<td>CommonLibraryAutomation
+										</td>										
+										</tr>
+										<tr>
+										<td>3
+										</td>
+										<td>TC10,TC11,TC34
+										</td>
+										<td>updateTestResults
+										</td>										
+										</tr>
+										</tbody>
+										</table>
+			</div>
+			
+			
+
+
+	
+		</div>
+		</div>
 
 
 		</div>
 
-		<div class="row gutter" ng-show="showReqProgressChart">
+		<div class="row gutter" ng-if="showReqProgressChart">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="panel">
 					<div class="panel-heading">
@@ -438,9 +549,9 @@
 
 			</div>
 		</div>
-		<div class="row gutter" ng-show="showTwoQ">
+		<div class="row gutter" ng-if="showTwoQ">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				<div class="panel panel-blue" ng-show="showdevelopmentprogress">
+				<div class="panel panel-blue" ng-if="showdevelopmentprogress">
 					<div class="panel-heading">
 						<h4>Development Progress</h4>
 					</div>
@@ -452,7 +563,7 @@
 					</div>
 
 				</div>
-				<div class="panel panel-blue" ng-show="showBuildprogress">
+				<div class="panel panel-blue" ng-if="showBuildprogress">
 					<div class="panel-heading">
 						<h4>Build and Deploy Progress</h4>
 					</div>
@@ -464,15 +575,14 @@
 					</div>
 
 				</div>
-				<div class="panel panel-blue" ng-show="showtestingprogress">
+				<div class="panel panel-blue" ng-if="showtestingprogress">
 					<div class="panel-heading">
 						<h4>Testing Progress</h4>
 					</div>
 					<div class="panel-body">
 						<div>
-							<div fusioncharts type="pie3d" dataSource="{{myDataSource}}"></div>
-							<!--  <nvd3 options="optionspiedefectchart" data="piedefectdata"></nvd3>
-								 -->
+							<!-- <div fusioncharts type="pie3d" dataSource="{{myDataSource}}"></div> -->
+							 <nvd3 options="optionsTestDevelopement" data="dataTestDevelopement"></nvd3>
 						</div>
 					</div>
 				</div>
@@ -487,18 +597,18 @@
 						<div class="tabbable">
 							<ul class="nav nav-tabs">
 
-								<li ng-class="{ active: isSet(1) }"><a href
+								<!-- <li ng-class="{ active: isSet(1) }"><a href
 									ng-click="setTab(1)">Business Insights</a></li>
-
+ -->
+								<li ng-class="{ active: isSet(1) }"><a href
+									ng-click="setTab(1)">Optimization</a></li>
 								<li ng-class="{ active: isSet(2) }"><a href
-									ng-click="setTab(2)">Optimization</a></li>
-								<li ng-class="{ active: isSet(3) }"><a href
-									ng-click="setTab(3)">What-If Analysis</a></li>
+									ng-click="setTab(2)">What-If Analysis</a></li>
 
 							</ul>
 							<div class="tab-content no-margin"
 								style="padding-bottom: 0px; padding-top: 0px;">
-								<div ng-show="isSet(1)">
+								<!-- <div ng-show="isSet(3)">
 									<nvd3 options="optionsDevSunBurst" data="dataDevSunBurst"
 							class="with-3d-shadow with-transitions"></nvd3>
 	<div>
@@ -524,28 +634,38 @@
 
 									</div>
 								</div>
-								<div ng-show="isSet(2)">
+								 --><div ng-show="isSet(1)">
 									<div class="panel-body">
 										<ul class="activity-list">
 
 											<li>
 												<p>
 													<i class="icon-verified_user text-danger"></i>Resuable
-													Assests<span class="time"></span>
+													Assests <span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Resuable Assets Available</span>
+													<br>
+													<div class="info" ng-repeat="reusable in reusbleproducts">
+														<ul class="manage-labels">
+																
+																<li><i class="icon-controller-record blue"></i> {{reusable}}</li>
+																
+															</ul>
+														
+														
+													</div>	
 												</p>
 											</li>
 											<li>
 												<p>
 													<i class="icon-offline_pin text-info"></i> Skill Level<span
-														class="time"></span>
+														class="time" style="margin-top: -5px;">Avarage Skill Level of developers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
 												</p>
 											</li>
 										</ul>
 									</div>
 									
 								</div>
-								<div ng-show="isSet(3)">
-									<div class="panel-body">
+								<div ng-show="isSet(2)">
+									<div class="panel-body" style="padding-bottom: 0px; padding-top: 13px;">
 
 										<button data-toggle="collapse" data-target="#demo"
 											class="btn btn-warning btn-xs btn-rounded btn-block"
@@ -563,11 +683,11 @@
 										<button data-toggle="collapse" data-target="#demo1"
 											class="btn btn-success btn-xs btn-rounded btn-block">Reusable
 											Assets</button>
-										<div id="demo1" class="collapse">
-											<div class="checkbox">
-												<label><input type="checkbox" value="">Use
-													Available Assets</label>
+										<div id="demo1" class="collapse" style="margin-bottom: -20px;">
+											<div class="checkbox" ng-repeat="reusable in reusbleproducts">
+												<label><input type="checkbox" value="">{{reusable}}</label>
 											</div>
+
 										</div>
 										<br />
 
@@ -585,17 +705,17 @@
 						<div class="tabbable">
 							<ul class="nav nav-tabs">
 
-								<li ng-class="{ active: isSet(1) }"><a href
+								<!-- <li ng-class="{ active: isSet(1) }"><a href
 									ng-click="setTab(1)">Business Insights</a></li>
-
+ -->
+								<li ng-class="{ active: isSet(1) }"><a href
+									ng-click="setTab(1)">Optimization</a></li>
 								<li ng-class="{ active: isSet(2) }"><a href
-									ng-click="setTab(2)">Optimization</a></li>
-								<li ng-class="{ active: isSet(3) }"><a href
-									ng-click="setTab(3)">What-If Analysis</a></li>
+									ng-click="setTab(2)">What-If Analysis</a></li>
 
 							</ul>
 							<div class="tab-content no-margin" style="padding-bottom: 0px; padding-top: 0px;">
-								<div ng-show="isSet(1)">
+								<!-- <div ng-show="isSet(1)">
 									<nvd3 options="options" data="data"
 									class="with-3d-shadow with-transitions"></nvd3>
 									<table class="table no-margin" style="table-layout: auto">
@@ -612,26 +732,35 @@
 												</tr>
 											</tbody>
 										</table>
-								</div>
-								<div ng-show="isSet(2)">
+								</div> -->
+								<div ng-show="isSet(1)">
 									<div class="panel-body">
 										<ul class="activity-list">
 											<li>
 												<p>
-													<i class="icon-flag2 text-info"></i> Test Automation <span
-														class="time"></span>
+													<i class="icon-flag2 text-info"></i> Test Reusable Assets <span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Resuable Assets Available</span>
+													<div class="info" ng-repeat="reusable in reusbleproducts">
+														<ul class="manage-labels">
+																
+																<li><i class="icon-controller-record blue"></i> {{reusable}}</li>
+																
+															</ul>
+													</div>
 												</p>
 											</li>
-											<li>
+											 <li>
 												<p>
-													<i class="icon-whatshot text-warning"></i>  <a   onclick='javascript:optimizeTestcase()' style="color:Blue">
- 									Testcase Optimizer</a><span class="time"></span>
+													 <i class="icon-whatshot text-warning"></i>  
+ 													<a class='testcaseoptimizer-iframe' onclick='javascript:optimizeTestcase()' >
+ 															<button type="button" 
+																			class="btn btn-info btn-xs btn-rounded">Try Optimization</button>
+													</a>
 												</p>
-											</li>
+											</li> 
 											<li>
 												<p>
 													<i class="icon-offline_pin text-info"></i> Skill Level<span
-														class="time"></span>
+														class="time" style="margin-top: -5px;">Avarage Skill Level of Testers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
 												</p>
 											</li>
 										</ul>
@@ -640,7 +769,7 @@
 								
 									
 								</div>
-								<div ng-show="isSet(3)">
+								<div ng-show="isSet(2)">
 									<div class="panel-body">
 
 										<button data-toggle="collapse" data-target="#demo_t1"
@@ -657,16 +786,16 @@
 										<br />
 
 										<button data-toggle="collapse" data-target="#demo_t2"
-											class="btn btn-success btn-xs btn-rounded btn-block">Test
-											Automation</button>
+											class="btn btn-success btn-xs btn-rounded btn-block">Test Reusable Assets
+											</button>
 										<div id="demo_t2" class="collapse">
-											<div class="checkbox">
-												<label><input type="checkbox" value="">Try Automation</label>
+											<div class="checkbox" ng-repeat="reusable in reusbleproducts">
+												<label><input type="checkbox" value="">{{reusable}}</label>
 											</div>
 										</div>
 										<br />
 
-										<button data-toggle="collapse" data-target="#demo_t3"
+										<!-- <button data-toggle="collapse" data-target="#demo_t3"
 											class="btn btn-warning btn-xs btn-rounded btn-block">Test
 											Cases Optimization</button>
 										<div id="demo_t3" class="collapse">
@@ -674,7 +803,7 @@
 												<label><input type="checkbox" value="">Optimize
 													Test Cases</label>
 											</div>
-										</div>
+										</div> -->
 										<p></p>
 
 										<button type="button" ng-click="testAnalyzedClicked()"
@@ -686,7 +815,8 @@
 							</div>
 						</div>
 					
-					<div class="panel-body" ng-show="showBuildInsightprogress">
+					
+					<div class="panel-body" ng-if="showBuildInsightprogress">
 						<div>
 							<nvd3 options="optionsBuildTimetaked" data="dataBuildTimetaken"></nvd3>
 
@@ -700,7 +830,7 @@
 	</div>
     				
     				
-			<div>
+			</div>
 			<!-- Main container ends -->
 
 			<!-- Footer Start -->
@@ -740,10 +870,38 @@
 		<script src="/js/custom.js"></script>
 		
 			
-			
-			
+		<!-- For Content Box -->
+		<link rel="stylesheet" href="/js/testcase-optimizer/css/colorbox.css" />
 		
-		
+		<script src="/js/testcase-optimizer/jquery.colorbox.js"></script>
+				
+			
+		<!-- Start: All Tooltips on mouse over -->
+			<div style="display: none;" ng-controller="landingController">
+				<div id="Requirement_tip">
+					<h3>Requirement HealthInfo</h3>
+					{{requirementDataContent}}
+				</div>
+			</div>
+			<div style="display: none;" ng-controller="landingController">
+				<div id="Development_tip">
+					<h3>Development HealthInfo</h3>
+					{{developmentDataContent}}
+				</div>
+			</div>
+			<div style="display: none;" ng-controller="landingController">
+				<div id="Build_tip">
+					<h3>Build & Deploy HealthInfo</h3>
+					{{builddeployDataContent}}
+				</div>
+			</div>
+			<div style="display: none;" ng-controller="landingController">
+				<div id="Test_tip">
+					<h3>Test HealthInfo</h3>
+					{{testDataContent}}
+				</div>
+			</div>
+		<!-- End: All Tooltips on mouse over -->
 			
 	</body>
 </html>

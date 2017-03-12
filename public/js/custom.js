@@ -33,11 +33,11 @@ var tid = setInterval( function () {
 		$("i", this).toggleClass("icon-menu2 icon-cross2");
 	};
 
-	// Toggle menu click
+/*	// Toggle menu click
 	querySelector('.toggle-menu').onclick = function () {
 		nav.classList.toggle('vertical-nav-opened');
 	};
-
+*/
 }, 1000 );
 
 

@@ -10,5 +10,5 @@
 //the 2nd parameter is an array of 'requires'
 //'starter.services' is found in services.js
 //'starter.controllers' is found in controllers.js
-angular.module('EngineeringInsightsClientApp', ['EngineeringInsightsClientApp.controllers', 'EngineeringInsightsClientApp.routes', 'EngineeringInsightsClientApp.services','ng-fusioncharts','nvd3','rzModule']);
+angular.module('EngineeringInsightsClientApp', ['EngineeringInsightsClientApp.controllers', 'EngineeringInsightsClientApp.routes', 'EngineeringInsightsClientApp.services','ng-fusioncharts','nvd3','rzModule','ui.bootstrap','ngLoadingSpinner','oitozero.ngSweetAlert']);
 

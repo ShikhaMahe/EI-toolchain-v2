@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+.node {
+		cursor: pointer;
+	}
+
+	.node circle {
+	  fill: #fff;
+	  stroke: black;
+	  stroke-width: 3px;
+	}
+
+	.node text {
+	  font: 12px sans-serif;
+	}
+
+	.link {
+	  fill: none;
+	  /*stroke: green;*/
+	  stroke-width: 3px;
+	}
+	
+	
+	
+	
+	

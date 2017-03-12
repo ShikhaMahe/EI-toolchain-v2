@@ -1,0 +1,57 @@
+[{
+  "key": "No of TestCases Tested",
+  "color": "#e77338",
+  "values": [{
+    "label": "Mar 1",
+    "value": 0
+  }, {
+    "label": "Mar 2",
+    "value": 0
+  }, {
+    "label": "Mar 3",
+    "value": 10
+  }, {
+    "label": "Mar 6",
+    "value": 12
+  }, {
+    "label": "Mar 7",
+    "value": 14
+  }, {
+    "label": "Mar 8",
+    "value": 7
+  }, {
+    "label": "Mar 9",
+    "value": 9
+  }, {
+    "label": "Mar 10",
+    "value": 0
+  }]
+}, {
+  "key": "Defects Raised",
+  "color": "#1f77b4",
+  "values": [{
+    "label": "Mar 1",
+    "value": 0
+  }, {
+    "label": "Mar 2",
+    "value": 0
+  }, {
+    "label": "Mar 3",
+    "value": 15
+  }, {
+    "label": "Mar 6",
+    "value": 7
+  }, {
+    "label": "Mar 7",
+    "value": 0
+  }, {
+    "label": "Mar 8",
+    "value": 10
+  }, {
+    "label": "Mar 9",
+    "value": 5
+  }, {
+    "label": "Mar 10",
+    "value": 0
+  }]
+}]

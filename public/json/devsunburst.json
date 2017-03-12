@@ -1,0 +1,85 @@
+{
+                "name": "Project",
+                "children": [
+                    {
+                        "name": "Resources",
+                        "children": [
+                            {
+                                "name": "HardWare",
+                                "children": [
+                                    {"name": "HardWare Acquired",
+                                    "children": [
+                                    {"name": "HW1"},
+                                    {"name": "HW2"},
+                                    {"name": "HW3"},
+                                    {"name": "HW4"},
+                                    {"name": "HW5"}
+                                ]},
+                                    {"name": "HardWare Yet To Acquire",
+                                    "children": [
+                                    {"name": "HW11"},
+                                    {"name": "HW8"},
+                                    {"name": "HW9"}                                   
+                                ]}
+                                   
+                                ]
+                            },
+                            {
+                                "name": "People",
+                                "children": [
+                                    {"name": "People Yet To Onboard",
+                                    "children": [
+                                    {"name": "P1"},
+                                    {"name": "P2"}
+                                    
+                                ]},
+                                    {"name": "People Onboarded",
+                                    "children": [
+                                    {"name": "P6"},
+                                    {"name": "P7"},
+                                    {"name": "P8"},
+                                    {"name": "P3"},
+                                    {"name": "P4"},
+                                    {"name": "P5"}                                   
+                                ]}
+                                   
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Skills",
+                        "children": [
+                            {"name": "Development", "children": [
+                                    {"name": "P1", 
+                                    "children":[{"name":"Java", "size" : 1},{"name":"J2EE", "size" : 3},{"name":"JSP" ,"size" : 4},{"name":"Node js", "size" : 5}]},
+                                    {"name": "P2", 
+                                    "children":[{"name":"Js", "size" : 5},{"name":"Angular JS", "size" : 3},{"name":"JSP", "size" : 2}]},
+                                    {"name": "p3", 
+                                    "children":[{"name":"Js", "size" : 1},{"name":"Angular JS", "size" : 2},{"name":"JSP", "size" : 5}]},
+                                    {"name": "P4", 
+                                    "children":[{"name":"React.js", "size" : 2},{"name":"Angular JS", "size" : 3},{"name":"JSP", "size" : 1}]},
+                                    {"name": "P7", 
+                                    "children":[{"name":"D3.js", "size" : 1},{"name":"REST Service", "size" : 3},{"name":"C", "size" : 4}]}
+                                   
+                                ]}
+                        ]
+                    },
+                    {
+                        "name": "Dependency",
+                        "children": [
+                            {
+                                "name": "Features",
+                                "children": [
+                                    {"name": "Feature1", "children":[{"name":"D1"},{"name":"D2"},{"name":"D3"}]},
+                                    {"name": "Feature2", "children":[{"name":"D1"},{"name":"D4"},{"name":"D6"},{"name":"D7"}]},
+                                    {"name": "Feature3", "children":[{"name":"D4"},{"name":"D1"}]},
+                                    {"name": "Feature5", "children":[{"name":"D7"},{"name":"D2"}]},
+                                    {"name": "Feature6", "children":[{"name":"D2"},{"name":"D1"},{"name":"D4"},{"name":"D5"}]}
+                                ]
+                            }
+                        ]
+                    }
+                    
+                ]
+            }

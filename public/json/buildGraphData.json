@@ -1,0 +1,45 @@
+[{
+    "key": "Sucess Build",
+    "color": "#e77338",
+    "values": [{
+      "label": "Mar 2",
+      "value": 1
+    }, {
+      "label": "Mar 3",
+      "value": 2
+    }, {
+      "label": "Mar 6",
+      "value": 3
+    }, {
+      "label": "Mar 7",
+      "value": 2
+    }, {
+      "label": "Mar 8",
+      "value": 3
+    }, {
+      "label": "Mar 9",
+      "value": 4
+    }]
+  }, {
+    "key": "Failed Build",
+    "color": "#1f77b4",
+    "values": [{
+      "label": "Mar 2",
+      "value": 3
+    }, {
+      "label": "Mar 3",
+      "value": 0
+    }, {
+      "label": "Mar 6",
+      "value": 2
+    }, {
+      "label": "Mar 7",
+      "value": 5
+    }, {
+      "label": "Mar 8",
+      "value": 1
+    }, {
+      "label": "Mar 9",
+      "value": 2
+    }]
+  }]

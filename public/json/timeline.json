@@ -1,0 +1,40 @@
+{
+	"projectname": "EI",
+	"body": [{
+		"id": "requirements",
+		"status": "success",
+		"completed": "40",
+		"pending": "0",
+		"duration": "1Week",
+		"percentage": "100",
+		"staticPopOver": "Frozon :40 , Pending: 0 , Duration: 1 Week",
+		"healthInfo": "As on date ,All The requirements are frozen however you have slipped the duration by 2 days"
+	}, {
+		"id": "development",
+		"status": "danger",
+		"completed": "25",
+		"pending": "25",
+		"duration": "3Weeks",
+		"percentage": "50",
+		"staticPopOver": "Total WorkItem : 120 , Planned WorkItem : 51 , Completed WorkItems : 25",
+		"healthInfo": "As on date, 7 days have been consumed, 25 out of 51 workItems completed and 25 workitems in backlog. You may not be able to meet your deadline if this situation continues.Try optimize this phase with our optimization model."
+	}, {
+		"id": "build&deploy",
+		"status": "warning",
+		"completed": "28",
+		"pending": "",
+		"duration": "1Week",
+		"percentage": "53",
+		"staticPopOver": "Total Build : 28 , Sucess Build : 15 , Failed build : 13",
+		"healthInfo": "As on date, Build and deploy phase is on track"
+	}, {
+		"id": "test",
+		"status": "success",
+		"completed": "35",
+		"pending": "5",
+		"duration": "6Weeks",
+		"percentage": "16",
+		"staticPopOver": "Total Testcases : 200 , Testcases completed : 52",
+		"healthInfo": "An on date, 5 days have been consumed, 52 out of 200 testcases are completed, try optimizing Test Phase with available optimization model."
+	}]
+}
