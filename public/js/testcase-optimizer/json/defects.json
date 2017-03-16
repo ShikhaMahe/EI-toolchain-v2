@@ -1,0 +1,32 @@
+{
+"Def-1": {
+	"DefectId":"Def-1",
+	"Summary":"Login service is not checking for not special character in the username",
+	"Severity":"Sev-1"
+},
+"Def-2": {
+	"DefectId":"Def-2",
+	"Summary":"Login service is not validating password ",
+	"Severity":"Sev-2"
+},
+"Def-3": {
+	"DefectId":"Def-3",
+	"Summary":"Login failed",
+	"Severity":"Sev-1"
+},
+"Def-4": {
+	"DefectId":"Def-4",
+	"Summary":"Login success for invalid credentials ",
+	"Severity":"Sev-2"
+},
+"Def-5": {
+	"DefectId":"Def-5",
+	"Summary":"Submitting data without username is going thru",
+	"Severity":"Sev-2"
+},
+"Def-6": {
+	"DefectId":"Def-6",
+	"Summary":"Submitting data without passw0rd] is going thru",
+	"Severity":"Sev-1"
+}
+}

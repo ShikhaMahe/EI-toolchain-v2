@@ -11,13 +11,13 @@
 		"healthInfo": "All the requirements have been frozen. You exceed the planned estimate for this by  9 hours. However this should not have an impact on the overall schedule. "
 	}, {
 		"id": "development",
-		"status": "danger",
+		"status": "success",
 		"completed": "25",
 		"pending": "25",
 		"duration": "3Weeks",
 		"percentage": "50",
 		"staticPopOver": "Total WorkItem(s) : 120 , Planned WorkItem(s) : 51 , Completed WorkItem(s) : 25 ", 
-		"healthInfo": "You are 7 days into the development effort and you have completed the development of 15 work items. At this rate, you will not be able to meet your projects timelines. The system has identified potential for optimization of this phase. Click here to run the optimization"
+		"healthInfo": "Post the Optimization Model Ingestion, Your time line would not impact the project schedule"
 	}, {
 		"id": "build&deploy",
 		"status": "warning",
@@ -35,6 +35,6 @@
 		"duration": "6Weeks",
 		"percentage": "16",
 		"staticPopOver": "Total Test Cases : 200 , Test Cases completed : 52",
-		"healthInfo": "You are 5 days into the test cycle and have executed  52 of the 200 test cases. An optimized  test case execution model is available. Click here to run the optimization"
+		"healthInfo": "With the newly ingested optimization model, we do not see any hurdle in meeting your project timeline"
 	}]
 }

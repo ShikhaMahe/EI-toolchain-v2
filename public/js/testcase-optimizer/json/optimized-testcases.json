@@ -1,0 +1,326 @@
+{
+ "Def-1": {
+  "name": "Def-1",
+  "children": [
+   {
+    "name": "TestCase-1",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-9",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-10",
+      "relavant": "n"
+     }
+    ]
+   },
+   {
+    "name": "TestCase-2",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-3",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-4",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-5",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-6",
+    "relavant": "y"
+   }
+  ]
+ },
+ "Def-2": {
+  "name": "Def-2",
+  "children": [
+   {
+    "name": "TestCase-2",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-13",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-19",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-10",
+      "relavant": "n"
+     },
+     {
+      "name": "TestCase-12",
+      "relavant": "y"
+     }
+    ]
+   },
+   {
+    "name": "TestCase-5",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-4",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-7",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-9",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-29",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-10",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-22",
+      "relavant": "y"
+     }
+    ]
+   }
+  ]
+ },
+ "Def-3": {
+  "name": "Def-3",
+  "children": [
+   {
+    "name": "TestCase-14",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-17",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-15",
+    "relavant": "n",
+    "children": [
+     {
+      "name": "TestCase-18",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-11",
+      "relavant": "n"
+     },
+     {
+      "name": "TestCase-15",
+      "relavant": "y"
+     }
+    ]
+   },
+   {
+    "name": "TestCase-24",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-23",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-22",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-26",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-29",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-22",
+      "relavant": "y"
+     }
+    ]
+   }
+  ]
+ },
+ "Def-4": {
+  "name": "Def-4",
+  "children": [
+   {
+    "name": "TestCase-33",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-57",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-55",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-34",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-48",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-51",
+      "relavant": "n"
+     },
+     {
+      "name": "TestCase-45",
+      "relavant": "y"
+     }
+    ]
+   },
+   {
+    "name": "TestCase-27",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-52",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-56",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-59",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-52",
+      "relavant": "y"
+     }
+    ]
+   }
+  ]
+ },
+ "Def-5": {
+  "name": "Def-5",
+  "children": [
+   {
+    "name": "TestCase-5",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-23",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-25",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-24",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-74",
+    "relavant": "n",
+    "children": [
+     {
+      "name": "TestCase-39",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-20",
+      "relavant": "n"
+     },
+     {
+      "name": "TestCase-22",
+      "relavant": "y"
+     }
+    ]
+   },
+   {
+    "name": "TestCase-69",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-89",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-80",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-52",
+      "relavant": "y"
+     }
+    ]
+   }
+  ]
+ },
+  "Def-6": {
+  "name": "Def-6",
+  "children": [
+   {
+    "name": "TestCase-6",
+    "relavant": "n",
+    "children": [
+     {
+      "name": "TestCase-49",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-10",
+      "relavant": "n"
+     },
+     {
+      "name": "TestCase-27",
+      "relavant": "y"
+     }
+    ]
+   },
+   {
+    "name": "TestCase-24",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-26",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-28",
+    "relavant": "y"
+   },
+   {
+    "name": "TestCase-74",
+    "relavant": "n"
+   },
+   {
+    "name": "TestCase-69",
+    "relavant": "y",
+    "children": [
+     {
+      "name": "TestCase-89",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-80",
+      "relavant": "y"
+     },
+     {
+      "name": "TestCase-52",
+      "relavant": "y"
+     }
+    ]
+   }
+  ]
+ }
+}

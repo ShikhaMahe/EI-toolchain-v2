@@ -342,6 +342,15 @@
 								</tbody>
 							</table>
 
+<div>
+<ul class="legend">
+    <li><span class="scheduleonlessimpact"></span> Schedule On Less Impact</li>
+    <li><span class="scheduleonrisk"></span> Schedule On Risk</li>
+     <li><span class="scheduleontrack"></span> Schedule On Track</li>
+</ul>
+</div>
+
+
 						</div>
 					</div>
 				</div>
@@ -560,6 +569,13 @@
 							<nvd3 options="optionsFeatureDevelopement"
 								data="dataFeatureDevelopement"></nvd3>
 						</div>
+						<div ng-if="showDevCompareOption">
+							
+							<a class='devoptimizer-iframe' onclick='javascript:compareDev()' >
+								<button type="button" 
+											 class="btn btn-info btn-xs btn-rounded">Compare</button>
+							</a>
+						</div>
 					</div>
 
 				</div>
@@ -583,6 +599,13 @@
 						<div>
 							<!-- <div fusioncharts type="pie3d" dataSource="{{myDataSource}}"></div> -->
 							 <nvd3 options="optionsTestDevelopement" data="dataTestDevelopement"></nvd3>
+						</div>
+						<div ng-if="showTestCompareOption">
+							
+							<a class='testoptimizer-iframe' onclick='javascript:compareTest()' >
+								<button type="button" 
+											 class="btn btn-info btn-xs btn-rounded">Compare</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -879,26 +902,30 @@
 		<!-- Start: All Tooltips on mouse over -->
 			<div style="display: none;" ng-controller="landingController">
 				<div id="Requirement_tip">
-					<h3>Requirement HealthInfo</h3>
-					{{requirementDataContent}}
+					<h3>Requirement</h3>
+					<p id="Requirement_tip_content">{{requirementDataContent}}</p>
+					
 				</div>
 			</div>
 			<div style="display: none;" ng-controller="landingController">
 				<div id="Development_tip">
-					<h3>Development HealthInfo</h3>
-					{{developmentDataContent}}
+					<h3>Development</h3>
+					<p id="Development_tip_content">{{developmentDataContent}}</p>
+					
 				</div>
 			</div>
 			<div style="display: none;" ng-controller="landingController">
 				<div id="Build_tip">
-					<h3>Build & Deploy HealthInfo</h3>
-					{{builddeployDataContent}}
+					<h3>Build & Deploy</h3>
+					<p id="Build_tip_content">{{builddeployDataContent}}</p>
+					
 				</div>
 			</div>
 			<div style="display: none;" ng-controller="landingController">
 				<div id="Test_tip">
-					<h3>Test HealthInfo</h3>
-					{{testDataContent}}
+					<h3>Test</h3>
+					<p id="Test_tip_content">{{testDataContent}}</p>
+					
 				</div>
 			</div>
 		<!-- End: All Tooltips on mouse over -->

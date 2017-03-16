@@ -1,5 +1,5 @@
 [{
-  "key": "Planed WorkItems",
+  "key": "Planned WorkItems",
   "color": "#e77338",
   "values": [{
     "label": "Mar 9",
@@ -25,8 +25,54 @@
   }, {
     "label": "Mar 20",
     "value": 7
+  }, {
+    "label": "Mar 21",
+    "value": 8
+  }, {
+    "label": "Mar 22",
+    "value": 11
+  }, {
+    "label": "Mar 23",
+    "value": 9
+  }, {
+    "label": "Mar 24",
+    "value": 12
+  }, {
+    "label": "Mar 27",
+    "value": 10
+  }, {
+    "label": "Mar 28",
+    "value": 0
+  }, {
+    "label": "Mar 29",
+    "value": 0
   }]
 }, {
+  "key": "Optimized Planned WorkItems",
+  "color": "#008000",
+  "values": [{
+    "label": "Mar 21",
+    "value": 16
+  }, {
+    "label": "Mar 22",
+    "value": 13
+  }, {
+    "label": "Mar 23",
+    "value": 15
+  }, {
+    "label": "Mar 24",
+    "value": 12
+  }, {
+    "label": "Mar 27",
+    "value": 13
+  }, {
+    "label": "Mar 28",
+    "value": 0
+  }, {
+    "label": "Mar 29",
+    "value": 0
+  }]
+},{
   "key": "Completed WorkItems",
   "color": "#1f77b4",
   "values": [{

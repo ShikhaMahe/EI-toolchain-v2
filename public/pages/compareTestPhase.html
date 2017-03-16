@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EngineeringInsightsClientApp">
+	<head>
+<script src="/js/angular.min.js"></script> 
+  		<script src="/js/angular-route.min.js"></script>
+  		<script src="http://d3js.org/d3.v3.min.js"></script>
+  		<script src="/js/sunburst.js"></script>
+  		<script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+		
+   <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.4/dist/angular-nvd3.js"></script>
+	
+		
+		
+		<!-- Bootstrap CSS -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+
+		<!-- Animate CSS -->
+		<link href="/css/animate.css" rel="stylesheet" media="screen" />
+
+		<!-- Main CSS -->
+		<link href="/css/main.css" rel="stylesheet" media="screen" />
+
+		<!-- Icomoon Icons -->
+		<link href="/fonts/icomoon/icomoon.css" rel="stylesheet" />
+		<!-- For nvd3.css -->
+		<link href="/css/nv.d3.css" rel="stylesheet">
+		
+		<script src="/js/d3.min.js"></script>
+		<script src="/js/nv.d3.min.js"></script>
+		
+		<!-- nvd3 javascript for bullet chart -->
+		<script src="/js/nvd3/bullet-chart.js"></script>
+		<link href="/css/mycss.css" rel="stylesheet" media="screen" />
+
+		<link href="/css/rzslider.css" rel="stylesheet" media="screen" />
+		<script src="/js/rzslider.js"></script>	
+
+
+		<!--  Spinner -->
+		<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+  <script type="text/javascript" src="js/angular-spinner.min.js"></script>
+  <script type="text/javascript" src="js/angular-loading-spinner.js"></script>
+  
+		    	
+  	<!--  Angular App related scripts -->
+		<script src="../eng-insights-js/EngineeringInsightsClientApp.js"></script>
+		<script src="../eng-insights-js/EngineeringInsightsClientApp-services.js"></script>
+		<script src="../eng-insights-js/EngineeringInsightsClientApp-controllers.js"></script>
+		<script src="../eng-insights-js/EngineeringInsightsClientApp-routes.js"></script>
+
+
+		 <script type="text/javascript" src="js/fusioncharts.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
+
+		<script type="text/javascript" src="js/fusioncharts.charts.js"></script>
+		<script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		
+		<script src="js/SweetAlert.min.js"></script>
+        <script src="js/sweet-alert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/sweet-alert.css">
+
+		<link href="/css/css3timeline.css" rel="stylesheet" media="screen" />
+		
+		<!-- For Tooltip -->
+		<script src="/js/tooltip/tooltip.js"></script>
+		<link rel="stylesheet" type="text/css" href="/js/tooltip/tooltip.css">
+</head>
+<body>		
+<div class="main-container">
+
+	<!-- Container fluid Starts -->
+	<div class="container-fluid" ng-controller="compareCtlAfterOptimize">
+
+		<!-- Row starts -->
+		<div class="row gutter">
+			<div class="col-md-6">
+				<div class="panel panel-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">Actual Testing Phase Planning</h4>
+					</div>
+
+					<div class="panel-body">
+						
+						<div>
+							<nvd3 options="optionsTestCompareProgress"
+								data="dataTestCompareProgress"></nvd3>
+						</div>	
+					</div>
+				</div>
+			
+			</div>
+			<div class="col-md-6">		
+				<div class="panel panel-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">Testing Phase Optimization</h4>
+
+					</div>
+
+					<div class="panel-body">
+						<div>
+							<nvd3 options="optionsTestCompareProgress"
+								data="dataTestOptimizedProgress"></nvd3>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+					<!-- Row ends -->
+	</div>
+</div>
+		
+	<!-- Container fluid ends -->
+
+</body>
+</html>
+

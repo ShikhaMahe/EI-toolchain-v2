@@ -1,0 +1,217 @@
+[{
+  "key": "No of Planed TestCases",
+  "color": "#e77338",
+  "values": [{
+    "label": "Mar 9",
+    "value": 0
+  }, {
+    "label": "Mar 10",
+    "value": 0
+  }, {
+    "label": "Mar 13",
+    "value": 10
+  }, {
+    "label": "Mar 14",
+    "value": 12
+  }, {
+    "label": "Mar 15",
+    "value": 14
+  }, {
+    "label": "Mar 16",
+    "value": 7
+  }, {
+    "label": "Mar 17",
+    "value": 9
+  }, {
+    "label": "Mar 20",
+    "value": 0
+  }, {
+    "label": "Mar 21",
+    "value": 8
+  }, {
+    "label": "Mar 22",
+    "value": 11
+  }, {
+    "label": "Mar 23",
+    "value": 9
+  }, {
+    "label": "Mar 24",
+    "value": 12
+  }, {
+    "label": "Mar 27",
+    "value": 10
+  }, {
+    "label": "Mar 28",
+    "value": 13
+  }, {
+    "label": "Mar 29",
+    "value": 6
+  }, {
+    "label": "Mar 30",
+    "value": 8
+  }, {
+    "label": "Mar 31",
+    "value": 11
+  }, {
+    "label": "Apr 3",
+    "value": 10
+  }, {
+    "label": "Apr 4",
+    "value": 13
+  }, {
+    "label": "Apr 5",
+    "value": 6
+  }, {
+    "label": "Apr 6",
+    "value": 8
+  }, {
+    "label": "Apr 7",
+    "value": 11
+  }, {
+    "label": "Apr 10",
+    "value": 9
+  }, {
+    "label": "Apr 11",
+    "value": 12
+  }, {
+    "label": "Apr 12",
+    "value": 10
+  }, {
+    "label": "Apr 13",
+    "value": 0
+  }, {
+    "label": "Apr 14",
+    "value": 0
+  }, {
+    "label": "Apr 17",
+    "value": 0
+  }, {
+    "label": "Apr 18",
+    "value": 0
+  }, {
+    "label": "Apr 19",
+    "value": 0
+  }]
+},{
+  "key": "No of Optimized TestCases",
+  "color": "#008000",
+  "values": [{
+    "label": "Mar 9",
+    "value": 0
+  }, {
+    "label": "Mar 10",
+    "value": 0
+  }, {
+    "label": "Mar 13",
+    "value": 0
+  }, {
+    "label": "Mar 14",
+    "value": 0
+  }, {
+    "label": "Mar 15",
+    "value": 0
+  }, {
+    "label": "Mar 16",
+    "value": 0
+  }, {
+    "label": "Mar 17",
+    "value": 0
+  }, {
+    "label": "Mar 20",
+    "value": 0
+  }, {
+    "label": "Mar 21",
+    "value": 8
+  }, {
+    "label": "Mar 22",
+    "value": 15
+  }, {
+    "label": "Mar 23",
+    "value": 10
+  }, {
+    "label": "Mar 24",
+    "value": 12
+  }, {
+    "label": "Mar 27",
+    "value": 15
+  }, {
+    "label": "Mar 28",
+    "value": 18
+  }, {
+    "label": "Mar 29",
+    "value": 9
+  }, {
+    "label": "Mar 30",
+    "value": 8
+  }, {
+    "label": "Mar 31",
+    "value": 13
+  }, {
+    "label": "Apr 3",
+    "value": 15
+  }, {
+    "label": "Apr 4",
+    "value": 17
+  }, {
+    "label": "Apr 5",
+    "value": 8
+  }, {
+    "label": "Apr 6",
+    "value": 10
+  }, {
+    "label": "Apr 7",
+    "value": 14
+  }, {
+    "label": "Apr 10",
+    "value": 9
+  }, {
+    "label": "Apr 11",
+    "value": 13
+  }, {
+    "label": "Apr 12",
+    "value": 14
+  }, {
+    "label": "Apr 13",
+    "value": 0
+  }, {
+    "label": "Apr 14",
+    "value": 0
+  }, {
+    "label": "Apr 17",
+    "value": 0
+  }, {
+    "label": "Apr 18",
+    "value": 0
+  }, {
+    "label": "Apr 19",
+    "value": 0
+  }]
+}, {
+  "key": "Defects Raised",
+  "color": "#1f77b4",
+  "values": [{
+    "label": "Mar 9",
+    "value": 0
+  }, {
+    "label": "Mar 10",
+    "value": 0
+  }, {
+    "label": "Mar 13",
+    "value": 15
+  }, {
+    "label": "Mar 14",
+    "value": 7
+  }, {
+    "label": "Mar 15",
+    "value": 0
+  }, {
+    "label": "Mar 16",
+    "value": 10
+  }, {
+    "label": "Mar 17",
+    "value": 5
+  }, {
+    "label": "Mar 20",
+    "value": 0
+  }]
+}]

@@ -38,6 +38,14 @@ ClientApp_route.config(function($routeProvider) {
             templateUrl : 'pages/defect-analytics.html',
             controller  : 'defect-analyticsController'
         })
+         .when('/devCompareOptimizer', {
+            templateUrl : 'pages/compare.html',
+            controller  : 'compareCtlAfterOptimize'
+        })
+         .when('/testCompareOptimizer', {
+            templateUrl : 'pages/compareTestPhase.html',
+            controller  : 'compareCtlAfterOptimize'
+        })
         
         .otherwise({
         redirectTo: 'views/index.html'

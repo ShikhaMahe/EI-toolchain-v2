@@ -32,6 +32,13 @@ router.get('/optimizetestcase', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public', 'pages', 'optimize-testcase.html'));
 });
 
+router.get('/devCompareOptimizer', function(req, res, next) {
+    res.sendFile(path.join(__dirname, '../public', 'pages', 'compare.html'));
+});
+
+router.get('/testCompareOptimizer', function(req, res, next) {
+    res.sendFile(path.join(__dirname, '../public', 'pages', 'compareTestPhase.html'));
+});
 
 /* GET Defect Optimize Data. */
 router.get('/defect', function(req, res, next) {
@@ -39,5 +46,7 @@ router.get('/defect', function(req, res, next) {
 	//res.setHeader('Content-Type', 'application/json');
     res.send(response.resp);
 }); 
+
+
 
 module.exports = router;
