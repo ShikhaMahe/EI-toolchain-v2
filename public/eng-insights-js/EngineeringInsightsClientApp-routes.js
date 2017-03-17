@@ -46,6 +46,11 @@ ClientApp_route.config(function($routeProvider) {
             templateUrl : 'pages/compareTestPhase.html',
             controller  : 'compareCtlAfterOptimize'
         })
+         .when('/bndsunburst', {
+            templateUrl : 'pages/buildDeploySunburst.html',
+            controller  : 'buildInsightsController'
+        })
+        
         
         .otherwise({
         redirectTo: 'views/index.html'

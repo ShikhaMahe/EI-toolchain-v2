@@ -2,14 +2,34 @@
 	"productId": "1",
 	"phase": [{
 		"phaseId": "Development",
-		"reusableProducts": ["SecurityService", "DBFramework", "UIDevelopmentFramework", "LogFramework", "UnitTestFramework"],
-		"totalNoOfReusableProducts": 5,
+		"reusableProducts": [{
+			"name": "Security Service",
+			"desc": "This provide SSO based security authentication",
+		    "info": "Asset consumed by : SIT Services"
+		}, {
+			"name": "DB Framework",
+			"desc": "This provide the abstracts required to do DB operations",
+		    "info": "Asset consumed by : IRC Product,WHO Life "
+		}, {
+			"name": "UI Development Framework",
+			"desc": "This provide all required functions and libraries to build interactive responsive UI",
+		    "info": "Asset consumed by : ABAP Limited "
+		}],
+		"totalNoOfReusableProducts": 3,
 		"requiredSkillLevelOfProduct": 3,
 		"totalSkillLevelOfProduct": 5
 	}, {
 		"phaseId": "Testing",
-		"reusableProducts": ["SecurityAutomation", "CommonLibraryAutomation", "UpdateTestResults"],
-		"totalNoOfReusableProducts": 3,
+		"reusableProducts":  [{
+			"name": "Security Automation",
+			"desc": "This provide a way to verify SSO auth with encryption/decrption mechanism and caching",
+		    "info":"Asset consumed by : QualInfo Quality Service "
+		}, {
+			"name": "Common Library Automation",
+			"desc": "This provide APIs to verify all required libraries",
+		    "info":"Asset consumed by : Virtual Testing Limited"
+		}],
+		"totalNoOfReusableProducts": 2,
 		"requiredSkillLevelOfProduct": 4,
 		"totalSkillLevelOfProduct": 5
 	}]

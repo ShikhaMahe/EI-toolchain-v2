@@ -1,12 +1,12 @@
-var app = angular.module('d3AngularApp', ['d3']);
+var app = angular.module('ReusableAsset-Vs-WorkItem-d3App', ['d3']);
 
-app.factory('testOptimizeServices', function($http,$window){
+app.factory('reusableAssetServices', function($http,$window){
 	var myObject ={
-			getOptimisedTestCase: function (defectId) {
+			getPropableWorkItems: function (reusableAssetId) {
 		   		 
-		  		  console.log("1. defectId--->"+defectId);
+		  		  console.log("1. reusableAssetId--->"+reusableAssetId);
 		  		  
-		  		  var REST_URL='js/testcase-optimizer/json/optimized-testcases.json';
+		  		  var REST_URL='js/reusableasset-vs-workitem/json/reusabeasset-vs-workitems.json';
 		  		  console.log("3. REST URL to be Invoked--->"+REST_URL);
 		  		  return $http(
 		  		    		{
@@ -17,9 +17,9 @@ app.factory('testOptimizeServices', function($http,$window){
 		  		    );
 		  		  
 		  	  },
-		  	getDefects:function(){
+		  	getreusableAssets:function(){
 		   		 
-		  		  var REST_URL='js/testcase-optimizer/json/defects.json';
+		  		  var REST_URL='js/reusableasset-vs-workitem/json/reusableassets.json';
 		  		  console.log("3. REST URL to be Invoked--->"+REST_URL);
 		  		  return $http(
 		  		    		{
@@ -80,14 +80,14 @@ app.factory('testOptimizeServices', function($http,$window){
 	
 });
 
-app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$timeout',function(d3, $scope,$http,testOptimizeServices,$timeout){
-	$scope.defects;
-	$scope.populateDefects = function(){
-		var respDefects = testOptimizeServices.getDefects();
+app.controller('chartCntrl', ['d3', '$scope', '$http', 'reusableAssetServices','$timeout',function(d3, $scope,$http,reusableAssetServices,$timeout){
+	$scope.reusableAssets;
+	$scope.populatereusableAssets = function(){
+		var respreusableAssets = reusableAssetServices.getreusableAssets();
 		
-		respDefects.then(function (result) {
+		respreusableAssets.then(function (result) {
 			
-			$scope.defects=result.data;
+			$scope.reusableAssets=result.data;
 			
 		}, function(err) {
 	    	  console.log(err);
@@ -100,14 +100,14 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 	
 	
 	
-	$scope.drawTreeChart = function(defectId){
+	$scope.drawTreeChart = function(reusableAssetId){
 		var treeData;
 		$scope.tempData={"name":"","children":[]};
 		 var resp ;
 		
 		//Start the spinner
-		var spinnerConfig = testOptimizeServices.spinnerConfig();
-		testOptimizeServices.spinnerAction(spinnerConfig,'spin');
+		var spinnerConfig = reusableAssetServices.spinnerConfig();
+		reusableAssetServices.spinnerAction(spinnerConfig,'spin');
 		
 		
 		
@@ -115,19 +115,19 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 		setTimeout(function(){
 			
 			//To stop the spinner
-			testOptimizeServices.spinnerAction(spinnerConfig,'stop');
+			reusableAssetServices.spinnerAction(spinnerConfig,'stop');
 			
-			//To fetch the Optimized testcase from backend
-			resp = testOptimizeServices.getOptimisedTestCase(defectId);
+			//To fetch the workitems which may  re-use a specific asset from backend
+			resp = reusableAssetServices.getPropableWorkItems(reusableAssetId);
 			
 			//Promise architecture to get the response and draw the Chart
 			resp.then(function (result) {
 			  
 			
-			  treeData=result.data[defectId];
+			  treeData=result.data[reusableAssetId];
 			  
 			//************** Generate the tree diagram	 *****************
-				var margin = {top: 20, right: 90, bottom: 30, left: 350},
+				var margin = {top: 20, right: 90, bottom: 30, left: 200},
 			    width = 740 - margin.left - margin.right,
 			    height = 440 - margin.top - margin.bottom;
 
@@ -138,7 +138,7 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 				
 				d3.select("svg").remove();	
 			var svg = d3.select("#tree-chart").append("svg")
-				.attr("id","test-optimizer")
+				.attr("id","workitem-optimizer")
 			    .attr("width", "100%")
 			    .attr("height", height + margin.top + margin.bottom)
 			  .append("g")
@@ -158,7 +158,7 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 			root.y0 = 0;
 
 			// Collapse after the second level
-			root.children.forEach(collapse);
+			//root.children.forEach(collapse);
 
 			update(root);
 				
@@ -199,7 +199,6 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 				  // Enter any new modes at the parent's previous position.
 				  var nodeEnter = node.enter().append('g')
 				      .attr('class', 'node')
-				      
 				      .attr("transform", function(d) {
 				        return "translate(" + source.y0 + "," + source.x0 + ")";
 				    })
@@ -208,7 +207,6 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 				  // Add Circle for the nodes
 				  nodeEnter.append('circle')
 				      .attr('class', 'node')
-				     
 				      .attr('r', 1e-6)
 				      .style("fill", function(d) {
 				          return d._children ? "lightsteelblue" : "#fff";
@@ -216,7 +214,7 @@ app.controller('chartCntrl', ['d3', '$scope', '$http', 'testOptimizeServices','$
 
 				  // Add labels for the nodes
 				  nodeEnter.append('text')
-				      .attr("dy", ".25em")
+				      .attr("dy", ".35em")
 				      .attr("x", function(d) {
 				          return d.children || d._children ? -13 : 13;
 				      })

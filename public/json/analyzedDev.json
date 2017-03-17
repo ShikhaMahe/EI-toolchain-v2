@@ -1,0 +1,135 @@
+{
+	"projectname":"EI",
+	"body":[
+		
+	{
+			"id":""			
+		},
+		{
+			"id":"Sec",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Security Service",
+					"WIs":"Implementing OAuth"
+				}
+			],
+			"predictedCompletion":"54hours",
+		"ExpectedCompletion":"50Hours",
+		"saving":"4Hours"
+			
+		},
+		{
+			"id":"DB",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"DB Framework",
+					"WIs":"Implementing OAuth, Fetch config from LDAP and implement secured connection pooling"
+				}
+			],
+			"predictedCompletion":"54Hours",
+		"ExpectedCompletion":"48Hours",
+		"saving":"6Hours"
+			
+		},
+		{
+			"id":"UI",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"UI Development Framework",
+					"WIs":"Implementing OAuth"
+				}
+			],
+			"predictedCompletion":"54Hours",
+		"ExpectedCompletion":"48Hours",
+		"saving":"6Hours"
+			
+		},
+		{
+			"id":"SecDB",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Security Service",
+					"WIs":"Implementing OAuth"
+				},
+				{
+					"SN":"2",
+					"ReusableAsset":"DB Framework",
+					"WIs":"Implementing OAuth"
+				}
+			],
+			"predictedCompletion":"54Hours",
+		"ExpectedCompletion":"44Hour",
+		"saving":"10Hours"
+			
+		},
+		{
+			"id":"SecUI",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Security Service",
+					"WIs":"Implementing OAuth"
+				},
+				{
+					"SN":"2",
+					"ReusableAsset":"UI Development Framework",
+					"WIs":"Implementing OAuth"
+				}
+			],
+			"predictedCompletion":"54Hours",
+		"ExpectedCompletion":"44Hour",
+		"saving":"10Hours"
+			
+		},
+		{
+			"id":"DBUI",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"DB Framework",
+					"WIs":"Implementing OAuth"
+				},
+				{
+					"SN":"2",
+					"ReusableAsset":"UI Development Framework",
+					"WIs":"Implementing OAuth"
+				}
+			],
+			"predictedCompletion":"54Hours",
+		"ExpectedCompletion":"42Hours",
+		"saving":"12Hours"
+			
+		},
+		{
+			"id":"SecDBUI",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Security Service",
+					"WIs":"Implementing OAuth"
+				},
+				{
+					"SN":"2",
+					"ReusableAsset":"DB Framework",
+					"WIs":"Implementing OAuth"
+				},
+				{
+					"SN":"3",
+					"ReusableAsset":"UI Development Framework",
+					"WIs":"Implementing OAuth"
+				}
+			],
+			"predictedCompletion":"54Hours",
+		"ExpectedCompletion":"38Hours",
+		"saving":"16Hours"
+			
+		}
+		
+		
+		
+	]
+}

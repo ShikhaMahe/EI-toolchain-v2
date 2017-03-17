@@ -14,7 +14,9 @@
   		<script src="/js/angular.min.js"></script> 
   		<script src="/js/angular-route.min.js"></script>
   		<script src="http://d3js.org/d3.v3.min.js"></script>
-  		<script src="/js/sunburst.js"></script>
+  		<script src="https://vitalets.github.io/checklist-model/checklist-model.js"></script>
+
+
   		<script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 		
    <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.4/dist/angular-nvd3.js"></script>
@@ -365,22 +367,8 @@
 					<div class="panel-body">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">				
 						<div class="row gutter">
-							<div style="margin-left: 0px; margin-right: 10px; margin-top: -20px;"">
-								<ol class="lens-profile-timelineTime"
-									style="margin-left: 0px; margin-right: 20px;">
-									<li style="left: 0; border: 15px solid #39752c;">
-										<p>Start</p>
-									</li>
-									<li style="left: 85%; border: 15px solid #6e91cb;">
-										<p style="top: 20px;">Predicted Completion:13Days</p>
-									</li>
-									<li style="left: 96%">
-										<p style="left: -50px;">Expected Completion:15Days</p>
-									</li>
+							<nvd3 options="optionsbulletChart" data="databulletchart"></nvd3>
 
-
-								</ol>
-							</div>
 							<h6><strong class="bg-success">2 Days</strong> of development effort could be saved !</h6>
 						</div>
 						<div class="row gutter">
@@ -389,7 +377,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right;">
 			<span us-spinner="{radius:30, width:8, length: 16}"></span>
-			<button ng-click="startAjax(); devOptimizeYes(); demo.alert(devOptimizeSuccessMsg)" data-toggle="modal"
+			<button ng-click="devOptimizeYes(); demo.alert(devOptimizeSuccessMsg)" data-toggle="modal"
 			type="button" class="btn btn-success btn-xm btn-rounded" data-loading-text="Loading..." ng-controller="demoCtrl as demo">Yes</button>
 			<button ng-click="devOptimizeNo()" data-toggle="modal"
 			type="button" class="btn btn-danger btn-xm btn-rounded">No</button>			
@@ -401,43 +389,25 @@
 
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin">
-								<tbody>
+			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin" ng-show="devReusableTable">
+								
 								<thead>
 												<tr>
-													<th>#</th>
-													<th>WorkItems</th>
-													<th>Reusable Assets</th>													
+													<th>#</th>												
+													<th>Reusable Asset</th>
+													<th>Benifited WorkItems</th>													
 												</tr>
 											</thead>
-								</th>
-									<tr>
-										<td>1
-										</td>
-										<td>WI1,WI2
-										</td>
-										<td>SecurityService,LogFramework
-										</td>
-										
-										</tr>
-										<tr>
-										<td>2
-										</td>
-										<td>WI12,WI21
-										</td>
-										<td>DBFramework,LogFramework
-										</td>										
-										</tr>
-										<tr>
-										<td>3
-										</td>
-										<td>WI5,WI23
-										</td>
-										<td>UIDevelopmentFramework
-										</td>										
-										</tr>
-										</tbody>
-										</table>
+							<tbody>
+									<tr ng-repeat="reusabledev in reusablesdev">
+										<td>{{reusabledev.SN}}</td>
+										<td>{{reusabledev.ReusableAsset}}</td>
+										<td>{{reusabledev.WIs}}</td>										
+									</tr>
+								</tbody>
+									
+			</table>
+	
 			</div>
 			
 			
@@ -455,22 +425,8 @@
 					<div class="panel-body">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">				
 						<div class="row gutter">
-							<div style="margin-left: 0px; margin-right: 10px; margin-top: -20px;"">
-								<ol class="lens-profile-timelineTime"
-									style="margin-left: 0px; margin-right: 20px;">
-									<li style="left: 0; border: 15px solid #39752c;">
-										<p>Start</p>
-									</li>
-									<li style="left: 85%; border: 15px solid #6e91cb;">
-										<p style="top: 20px;">Predicted Completion:25Days</p>
-									</li>
-									<li style="left: 96%">
-										<p style="left: -50px;">Expected Completion:30Days</p>
-									</li>
-
-
-								</ol>
-							</div>
+							
+							<nvd3 options="optionsbulletChart" data="dataTestbulletchart"></nvd3>
 							<h6><strong class="bg-success">5 Days</strong> of testing effort could be saved !</h6>
 						</div>
 						<div class="row gutter">
@@ -491,42 +447,21 @@
 
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin">
-								<tbody>
-								<thead>
+			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin" ng-show="testReusableTable">
+						<thead>
 												<tr>
-													<th>#</th>
-													<th>WorkItems</th>
-													<th>Test Reusable Assets</th>													
+													<th>#</th>												
+													<th>Reusable Asset</th>
+													<th>Benifited TestCases</th>													
 												</tr>
 											</thead>
-								</th>
-									<tr>
-										<td>1
-										</td>
-										<td>TC1,TC2,TC3
-										</td>
-										<td>SecurityAutomation
-										</td>
-										
-										</tr>
-										<tr>
-										<td>2
-										</td>
-										<td>TC6,TC7,TC8
-										</td>
-										<td>CommonLibraryAutomation
-										</td>										
-										</tr>
-										<tr>
-										<td>3
-										</td>
-										<td>TC10,TC11,TC34
-										</td>
-										<td>updateTestResults
-										</td>										
-										</tr>
-										</tbody>
+							<tbody>
+									<tr ng-repeat="reusabletest in reusablestest">
+										<td>{{reusabletest.SN}}</td>
+										<td>{{reusabletest.ReusableAsset}}</td>
+										<td>{{reusabletest.TCs}}</td>										
+									</tr>
+								</tbody>
 										</table>
 			</div>
 			
@@ -564,7 +499,7 @@
 					<div class="panel-heading">
 						<h4>Development Progress</h4>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body" style="padding-bottom: 0px; padding-top: 10px; height: 330px;">
 						<div>
 							<nvd3 options="optionsFeatureDevelopement"
 								data="dataFeatureDevelopement"></nvd3>
@@ -583,11 +518,18 @@
 					<div class="panel-heading">
 						<h4>Build and Deploy Progress</h4>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body" style="padding-bottom: 15px; padding-top: 13px;">
 						<div>
 							<nvd3 options="optionsDefectStatus" data="dataDefectStatus"></nvd3>
 
 						</div>
+			<!-- 
+						<div>							
+							<a class='buildanddeployinsights-iframe' onclick='javascript:buildanddeployinsights()' >
+ 									<button type="button" class="btn btn-info btn-xs btn-rounded">Build & Deploy Insights</button>
+							</a>
+						</div> 
+		 -->			
 					</div>
 
 				</div>
@@ -595,7 +537,7 @@
 					<div class="panel-heading">
 						<h4>Testing Progress</h4>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body" style="padding-bottom: 0px; padding-top: 10px; height: 330px;">
 						<div>
 							<!-- <div fusioncharts type="pie3d" dataSource="{{myDataSource}}"></div> -->
 							 <nvd3 options="optionsTestDevelopement" data="dataTestDevelopement"></nvd3>
@@ -626,7 +568,7 @@
 								<li ng-class="{ active: isSet(1) }"><a href
 									ng-click="setTab(1)">Optimization</a></li>
 								<li ng-class="{ active: isSet(2) }"><a href
-									ng-click="setTab(2)">What-If Analysis</a></li>
+									ng-click="setTab(2); devReusableChecked();">What-If Analysis</a></li>
 
 							</ul>
 							<div class="tab-content no-margin"
@@ -663,24 +605,41 @@
 
 											<li>
 												<p>
-													<i class="icon-verified_user text-danger"></i>Resuable
-													Assests <span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Resuable Assets Available</span>
+												
+												 <!-- <h9 class="center-text"><b>We found the following, which could help you optimize your development effort</b></h9> -->
+												<br>
+													<i class="icon-verified_user text-danger"></i>Reusable
+													Assests 
+													<span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Reusable Assets Available</span>
 													<br>
+													<div class="info">
+													<h10><b>The following asset(s) can help accelerate your development efforts</b><h10></div>
+													
 													<div class="info" ng-repeat="reusable in reusbleproducts">
 														<ul class="manage-labels">
-																
-																<li><i class="icon-controller-record blue"></i> {{reusable}}</li>
-																
-															</ul>
-														
-														
+																<li><i class="icon-controller-record blue"></i> {{reusable.name}}</li>
+															</ul>	
+													{{reusable.desc}}
+													<span class="time" style="margin-top: -5px;">{{reusable.info}}</span>
 													</div>	
 												</p>
 											</li>
-											<li>
+													<li>
+														<p>
+															<i class="icon-whatshot text-warning"></i> <a
+																class='reusableasset-vs-workitems-iframe'
+																onclick='javascript:reusableAssetVsWorkItems()'>
+																<button type="button"
+																	class="btn btn-info btn-xs btn-rounded">Re-Usable
+																	Asset Vs WorkItem</button>
+															</a>
+														</p>
+													</li>
+
+													<li>
 												<p>
 													<i class="icon-offline_pin text-info"></i> Skill Level<span
-														class="time" style="margin-top: -5px;">Avarage Skill Level of developers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
+														class="time" style="margin-top: -5px;">Average Skill Level of developers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
 												</p>
 											</li>
 										</ul>
@@ -693,7 +652,7 @@
 										<button data-toggle="collapse" data-target="#demo"
 											class="btn btn-warning btn-xs btn-rounded btn-block"
 											ng-click="refreshSlider()">Skill Level</button>
-										<div id="demo" class="collapse">
+										<div id="demo" class="collapse" style="margin-bottom: 20px;">
 											<rzslider id="devSlider"
 												rz-slider-model="range_slider_ticks_values.minValue"
 												rz-slider-high="range_slider_ticks_values.maxValue"
@@ -708,7 +667,7 @@
 											Assets</button>
 										<div id="demo1" class="collapse" style="margin-bottom: -20px;">
 											<div class="checkbox" ng-repeat="reusable in reusbleproducts">
-												<label><input type="checkbox" value="">{{reusable}}</label>
+												<label><input type="checkbox" ng-click="devReusableChecked()" checklist-model="user.reusbleproducts" checklist-value="reusable.name">{{reusable.name}}</label>
 											</div>
 
 										</div>
@@ -716,7 +675,7 @@
 
 
 										<button ng-click="devAnalyzedClicked()" data-toggle="modal"
-											type="button" class="btn btn-info btn-xm btn-rounded">Analyze</button>
+											type="button" class="btn btn-info btn-xm btn-rounded" id="devAnalyzeButton">Analyze</button>
 									</div>
 								</div>
 
@@ -734,7 +693,7 @@
 								<li ng-class="{ active: isSet(1) }"><a href
 									ng-click="setTab(1)">Optimization</a></li>
 								<li ng-class="{ active: isSet(2) }"><a href
-									ng-click="setTab(2)">What-If Analysis</a></li>
+									ng-click="setTab(2); testReusableChecked();">What-If Analysis</a></li>
 
 							</ul>
 							<div class="tab-content no-margin" style="padding-bottom: 0px; padding-top: 0px;">
@@ -761,15 +720,34 @@
 										<ul class="activity-list">
 											<li>
 												<p>
-													<i class="icon-flag2 text-info"></i> Test Reusable Assets <span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Resuable Assets Available</span>
+												
+												
+												<br>
+													<i class="icon-verified_user text-danger"></i>Reusable
+													Assests 
+													<span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Reusable Assets Available</span>
+													<br>
+													<div class="info">
+													<h10><b>The following asset(s) can help accelerate your Testing efforts</b><h10></div>
+													
+													<div class="info" ng-repeat="reusable in reusbleproducts">
+														<ul class="manage-labels">
+																<li><i class="icon-controller-record blue"></i> {{reusable.name}}</li>
+															</ul>	
+													{{reusable.desc}}<br>
+													<span class="time" style="margin-top: -5px;">{{reusable.info}}</span>
+													</div>	
+												</p>
+												<!-- <p>
+													<i class="icon-flag2 text-info"></i> Test Reusable Assets <span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Reusable Assets Available</span>
 													<div class="info" ng-repeat="reusable in reusbleproducts">
 														<ul class="manage-labels">
 																
-																<li><i class="icon-controller-record blue"></i> {{reusable}}</li>
+																<li><i class="icon-controller-record blue"></i> {{reusable.name}}</li>
 																
 															</ul>
 													</div>
-												</p>
+												</p> -->
 											</li>
 											 <li>
 												<p>
@@ -783,7 +761,7 @@
 											<li>
 												<p>
 													<i class="icon-offline_pin text-info"></i> Skill Level<span
-														class="time" style="margin-top: -5px;">Avarage Skill Level of Testers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
+														class="time" style="margin-top: -5px;">Average Skill Level of Testers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
 												</p>
 											</li>
 										</ul>
@@ -798,7 +776,7 @@
 										<button data-toggle="collapse" data-target="#demo_t1"
 											class="btn btn-warning btn-xs btn-rounded btn-block"
 											ng-click="refreshSlider()">Skill Level</button>
-										<div id="demo_t1" class="collapse">
+										<div id="demo_t1" class="collapse" style="margin-bottom: 20px;">
 											<rzslider id="testSlider"
 												rz-slider-model="range_slider_ticks_values.minValue"
 												rz-slider-high="range_slider_ticks_values.maxValue"
@@ -812,8 +790,8 @@
 											class="btn btn-success btn-xs btn-rounded btn-block">Test Reusable Assets
 											</button>
 										<div id="demo_t2" class="collapse">
-											<div class="checkbox" ng-repeat="reusable in reusbleproducts">
-												<label><input type="checkbox" value="">{{reusable}}</label>
+											<div class="checkbox" ng-repeat="reusable_t in reusbleproducts">
+												<label><input type="checkbox" checklist-model="testuser.reusbleproducts" ng-click="testReusableChecked()" checklist-value="reusable_t.name">{{reusable_t.name}}</label>
 											</div>
 										</div>
 										<br />
@@ -830,7 +808,7 @@
 										<p></p>
 
 										<button type="button" ng-click="testAnalyzedClicked()"
-											class="btn btn-info btn-xm btn-rounded">Analyze</button>
+											class="btn btn-info btn-xm btn-rounded" id="testAnalyzeButton">Analyze</button>
 
 									</div>
 								</div>

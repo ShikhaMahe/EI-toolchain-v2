@@ -1,0 +1,17 @@
+{
+"Asset-1": {
+	"AssetId":"Asset-001",
+	"Name":"Login Service",
+	"Owner":"johndoe@demo.com"
+},
+"Asset-2": {
+	"AssetId":"Asset-002",
+	"Name":"UnitTest Framework",
+	"Owner":"johndoe@demo.com"
+},
+"Asset-3": {
+	"AssetId":"Asset-003",
+	"Name":"Log Framework",
+	"Owner":"johndoe@demo.com"
+}
+}

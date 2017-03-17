@@ -1,0 +1,23 @@
+[
+	{
+	"projectname": "EI",
+	"body": [{
+		"ShorName": "FNFE",
+		"Description":"File Not Found Exception",
+		"Builds": "B1,B7,B10"
+		
+	},
+	{
+		"ShorName": "NPE",
+		"Description":"Null Pointer Exception",
+		"Builds": "B2,B5,B9"
+		
+	},{
+		"ShorName": "NoSpace",
+		"Description":"Problem creating zip: No space left on device",
+		"Builds": "B11,B12,B13"
+		
+	}]
+
+}
+]

@@ -1,0 +1,65 @@
+{
+  "Asset-001": {
+    "name": "Login Service",
+    "children": [
+      {
+        "name": "WI-10: Implement BusinessPartner Login",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-12: Implement Single Sign-On with Partner Application ",
+        "relavant": "y"
+      }
+    ]
+  },
+  "Asset-002": {
+    "name": "UnitTest Framework",
+    "children": [
+      {
+        "name": "WI-77: Implement - Borrowers Can View Total Cost of Loan",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-46: Implement - Donors Can Choose to Support an Organization",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-54: Implement - Dividend Allocation by Percentage",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-42: Implement - Allocate Dividends by Percentage",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-85: Validate Adherence to Corporate Standard on User Lockout",
+        "relavant": "y"
+      }
+    ]
+  },
+  "Asset-003": {
+    "name": "Log Framework",
+    "children": [
+      {
+        "name": "WI-77: Implement - Borrowers Can View Total Cost of Loan",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-46: Implement - Donors Can Choose to Support an Organization",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-54: Implement - Dividend Allocation by Percentage",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-42: Implement - Allocate Dividends by Percentage",
+        "relavant": "y"
+      },
+      {
+        "name": "WI-85: Validate Adherence to Corporate Standard on User Lockout",
+        "relavant": "y"
+      }
+      ]
+  }
+}

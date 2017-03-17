@@ -20,14 +20,13 @@
 	  stroke-width: 3px;
 	}
 	
-	/* basic positioning */
+	
+		/* basic positioning */
 .legend { list-style: none; }
 .legend li { float: right; margin-right: 10px; }
 .legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
 /* your colors */
 .legend .relevant { background-color: #5EBB5E; }
 .legend .irrelevant { background-color: #D63D3E; }
-
-	
 	
 	

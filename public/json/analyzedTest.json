@@ -1,0 +1,53 @@
+{
+	"projectname":"EI",
+	"body":[
+		{
+			"id":"Sec",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Security Automation",
+					"TCs":"Creating Base Framework"
+				}
+			],
+			"predictedCompletion":"30days",
+		"ExpectedCompletion":"28Days",
+		"saving":"2Days"
+			
+		},
+		{
+			"id":"Com",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Common Library Automation",
+					"TCs":"Adding Relevant Library"
+				}
+			],
+			"predictedCompletion":"30Days",
+		"ExpectedCompletion":"28Days",
+		"saving":"2Days"
+			
+		},
+		{
+			"id":"SecCom",
+			"reusableProducts":[
+				{
+					"SN":"1",
+					"ReusableAsset":"Security Automation",
+					"TCs":"Creating Base Framework"
+				},
+				{
+					"SN":"2",
+					"ReusableAsset":"Common Library Automation",
+					"TCs":"Creating Base Framework"
+				}
+			],
+			"predictedCompletion":"30Days",
+		"ExpectedCompletion":"26days",
+		"saving":"4Days"
+			
+		}
+		
+	]
+}

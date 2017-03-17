@@ -40,6 +40,16 @@ router.get('/testCompareOptimizer', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../public', 'pages', 'compareTestPhase.html'));
 });
 
+/* GET Build and Deploy insights  page. */
+router.get('/build-deploy-insights', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../public', 'pages', 'build-and-deploy-insights.html'));
+});
+
+/* GET reusableasset-vs-workitems   page. */
+router.get('/reusableasset-vs-workitems', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../public', 'pages', 'reusableasset-vs-workitem.html'));
+});
+
 /* GET Defect Optimize Data. */
 router.get('/defect', function(req, res, next) {
 

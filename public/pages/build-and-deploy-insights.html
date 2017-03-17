@@ -1,0 +1,102 @@
+<html lang="en" ng-app="d3AngularApp4Build-Deploy">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link rel="shortcut icon" href="img/favicon.ico">
+<title>Build & Deploy Insights</title>
+
+
+<script src="/js/build-and-deploy-insights/lib/angular.min.js"></script>
+
+<link href="/js/build-and-deploy-insights/css/mychart.css" rel="stylesheet" media="screen" />
+
+
+<!-- Bootstrap CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+
+<!-- Animate CSS -->
+<link href="/css/animate.css" rel="stylesheet" media="screen" />
+
+<!-- Main CSS -->
+<link href="/css/main.css" rel="stylesheet" media="screen" />
+
+<!-- Icomoon Icons -->
+<link href="/fonts/icomoon/icomoon.css" rel="stylesheet" />
+
+
+<!--  Angular App related scripts -->
+
+<script src="/js/build-and-deploy-insights/app/app.module.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+
+<!-- For Spinner -->
+<script src="/js/spinner/spin.js"></script>
+
+
+
+</head>
+
+<body class="purple">
+<div class="main-container">
+	<!-- Container fluid Starts -->
+	<div class="container-fluid">
+		
+		<div class="row gutter" ng-controller="chartCntrl">
+
+			<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+				<div class="panel panel-blue">
+					<div class="panel-heading">
+						<h4>Build and Deploy Insights</h4>
+					</div>
+					<div id="forspinner" ></div>
+					<div id= "forTestcaseTree" class="panel-body" >
+				 			<div data-ng-init="drawSunBurstChart()" >
+								<div id="sunburst-chart"></div>
+							</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+					<div class="panel panel-blue">
+					<div class="panel-heading">
+						<h4> <font color="red">Root Cause for Common Build Failure</font></h4>
+					</div>
+						
+						<div class="panel-body" style="height: 255px;">
+							<table 
+								class="table table-striped table-bordered no-margin"
+								cellspacing="0" width="100%">
+									<thead>
+									<tr>
+										<th>ShorName</th>
+										<th>Description</th>
+										<th>Affected Build</th>									
+
+									</tr>
+								</thead>
+								<tbody ng-repeat="errors in buildinsight">
+									<tr ng-repeat="error in errors.body">
+										<td>{{error.ShorName}}</td>
+										<td>{{error.Description}}</td>
+										<td>{{error.Builds}}</td>										
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+	<!-- Container fluid ends -->
+</div>
+ 
+</body>
+
+</html>

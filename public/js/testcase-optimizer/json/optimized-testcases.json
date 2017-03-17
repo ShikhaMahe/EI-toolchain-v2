@@ -1,326 +1,143 @@
 {
- "Def-1": {
-  "name": "Def-1",
-  "children": [
-   {
-    "name": "TestCase-1",
-    "relavant": "y",
+  "Def-001": {
+    "name": "Unable to change user password",
     "children": [
-     {
-      "name": "TestCase-9",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-10",
-      "relavant": "n"
-     }
+      {
+        "name": "TC-PWD-001: Invalid characters in Password ",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-PWD-011: Test using Blank space in password",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-PWD-004: Test using older password (last 3)",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-PWD-07: Test password with more than 20 charachters.",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-PWD-014: Test with saving password on Locked account",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-PWD-005:Test Password meets the min Required charachters",
+        "relavant": "n"
+      }
     ]
-   },
-   {
-    "name": "TestCase-2",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-3",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-4",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-5",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-6",
-    "relavant": "y"
-   }
-  ]
- },
- "Def-2": {
-  "name": "Def-2",
-  "children": [
-   {
-    "name": "TestCase-2",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-13",
-    "relavant": "y",
+  },
+  "Def-002": {
+    "name": "Logout is not working correctly",
     "children": [
-     {
-      "name": "TestCase-19",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-10",
-      "relavant": "n"
-     },
-     {
-      "name": "TestCase-12",
-      "relavant": "y"
-     }
+      {
+        "name": "TC-LOG-03: Cookies Cleared on Logout",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-LOG:030:Logout works on all devices",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-LOG-05: Logout option available on all pages.",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-LOG-05: Logout Re-direction Page",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-LOG-23: Logout flushes out password details on Re-direction Page.",
+        "relavant": "n"
+      }
     ]
-   },
-   {
-    "name": "TestCase-5",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-4",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-7",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-9",
-    "relavant": "y",
+  },
+  "Def-003": {
+    "name": "Loyaly Points not reflecting on transaction ",
     "children": [
-     {
-      "name": "TestCase-29",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-10",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-22",
-      "relavant": "y"
-     }
+      {
+        "name": "TC-INT-021: Existing Customer with Loyalty and using Coupon",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-INT-021: Existing Customer Loyaly with NO Coupon",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-INT-34: Existing Customer without Loyalty Level and Coupon",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-INT-76: Loyalty points deducted after cancelled transaction ",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-INT-004: Loyalty  Points for valid shopping Partners",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-INT-45: New Customer -Loyalty Program enrollment done ",
+        "relavant": "n"
+      }
     ]
-   }
-  ]
- },
- "Def-3": {
-  "name": "Def-3",
-  "children": [
-   {
-    "name": "TestCase-14",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-17",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-15",
-    "relavant": "n",
+  },
+  "Def-004": {
+    "name": "Shopping Cart not show the right entries",
     "children": [
-     {
-      "name": "TestCase-18",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-11",
-      "relavant": "n"
-     },
-     {
-      "name": "TestCase-15",
-      "relavant": "y"
-     }
+      {
+        "name": "TC-CRT-001: Duplicate entries in Cart",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-CRT-056: Cart should display whole list- max 30 items",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-CRT-045: Cart should display Free Add-on products with zero charge",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-CRT-89: Cart  display full name of product",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-CRT-56: Cart should be visible after user Logout",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-CRT-89: Deleted items should get removed from cart",
+        "relavant": "y"
+      }
     ]
-   },
-   {
-    "name": "TestCase-24",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-23",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-22",
-    "relavant": "y",
+  },
+  "Def-005": {
+    "name": "Inventory shows items , but not able to place order for 30 items",
     "children": [
-     {
-      "name": "TestCase-26",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-29",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-22",
-      "relavant": "y"
-     }
+      {
+        "name": "TC-ORD-034: Check Purchase eligibilty criteria",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-ORD-014: Check if Cart Size is exceeded",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-ORD-16: Check simulatanous purchases",
+        "relavant": "n"
+      },
+      {
+        "name": "TC-ORD-89: Check if Order is getting saved ",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-ORD-67: Check Order placement on Mobile ",
+        "relavant": "y"
+      },
+      {
+        "name": "TC-ORD-78: Check Order Placement on Web",
+        "relavant": "y"
+      }
     ]
-   }
-  ]
- },
- "Def-4": {
-  "name": "Def-4",
-  "children": [
-   {
-    "name": "TestCase-33",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-57",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-55",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-34",
-    "relavant": "y",
-    "children": [
-     {
-      "name": "TestCase-48",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-51",
-      "relavant": "n"
-     },
-     {
-      "name": "TestCase-45",
-      "relavant": "y"
-     }
-    ]
-   },
-   {
-    "name": "TestCase-27",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-52",
-    "relavant": "y",
-    "children": [
-     {
-      "name": "TestCase-56",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-59",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-52",
-      "relavant": "y"
-     }
-    ]
-   }
-  ]
- },
- "Def-5": {
-  "name": "Def-5",
-  "children": [
-   {
-    "name": "TestCase-5",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-23",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-25",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-24",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-74",
-    "relavant": "n",
-    "children": [
-     {
-      "name": "TestCase-39",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-20",
-      "relavant": "n"
-     },
-     {
-      "name": "TestCase-22",
-      "relavant": "y"
-     }
-    ]
-   },
-   {
-    "name": "TestCase-69",
-    "relavant": "y",
-    "children": [
-     {
-      "name": "TestCase-89",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-80",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-52",
-      "relavant": "y"
-     }
-    ]
-   }
-  ]
- },
-  "Def-6": {
-  "name": "Def-6",
-  "children": [
-   {
-    "name": "TestCase-6",
-    "relavant": "n",
-    "children": [
-     {
-      "name": "TestCase-49",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-10",
-      "relavant": "n"
-     },
-     {
-      "name": "TestCase-27",
-      "relavant": "y"
-     }
-    ]
-   },
-   {
-    "name": "TestCase-24",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-26",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-28",
-    "relavant": "y"
-   },
-   {
-    "name": "TestCase-74",
-    "relavant": "n"
-   },
-   {
-    "name": "TestCase-69",
-    "relavant": "y",
-    "children": [
-     {
-      "name": "TestCase-89",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-80",
-      "relavant": "y"
-     },
-     {
-      "name": "TestCase-52",
-      "relavant": "y"
-     }
-    ]
-   }
-  ]
- }
+  }
 }
