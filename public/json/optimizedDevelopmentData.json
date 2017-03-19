@@ -3,16 +3,16 @@
 	"phase": [{
 		"phaseId": "Development",
 		"reusableProducts": [{
-			"name": "Security Service",
-			"desc": "This provide SSO based security authentication",
+			"name": "Login Service",
+			"desc": "Powerful and easy-to-use Java Login framework that performs authentication, authorization, cryptography, and session management",
 		    "info": "Asset consumed by : SIT Services"
 		}, {
-			"name": "DB Framework",
-			"desc": "This provide the abstracts required to do DB operations",
+			"name": "UnitTest Framework",
+			"desc": "Highly innovative and extendible testing platform for JVM that allows developers to easily create automated integration, functional and acceptance tests",
 		    "info": "Asset consumed by : IRC Product,WHO Life "
 		}, {
-			"name": "UI Development Framework",
-			"desc": "This provide all required functions and libraries to build interactive responsive UI",
+			"name": "Log Framework",
+			"desc": "Choose logging solution depends on the complexity of your logging needs, compatibility with other logging solutions and ease of use.",
 		    "info": "Asset consumed by : ABAP Limited "
 		}],
 		"totalNoOfReusableProducts": 3,

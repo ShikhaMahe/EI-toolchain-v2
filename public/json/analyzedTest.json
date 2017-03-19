@@ -7,7 +7,7 @@
 				{
 					"SN":"1",
 					"ReusableAsset":"Security Automation",
-					"TCs":"Creating Base Framework"
+					"TCs":"TC1:Cookie testing : Open cookies in notepad and check if you can change the information and check system behavior,TC03:SSL testing : change setting in SSL config files and run them. Check system behavior,TC04:Sql injections: Try to inject SQL queries into the site URL and verify,TC05 : Authenticated URL,TC06:Database leaks testing: Done by advanced SQL injections."
 				}
 			],
 			"predictedCompletion":"30days",
@@ -21,7 +21,7 @@
 				{
 					"SN":"1",
 					"ReusableAsset":"Common Library Automation",
-					"TCs":"Adding Relevant Library"
+					"TCs":"TC02:Adding Relevant Library"
 				}
 			],
 			"predictedCompletion":"30Days",
@@ -35,12 +35,12 @@
 				{
 					"SN":"1",
 					"ReusableAsset":"Security Automation",
-					"TCs":"Creating Base Framework"
+					"TCs":"TC1:Cookie testing : Open cookies in notepad and check if you can change the information and check system behavior,TC03:SSL testing : change setting in SSL config files and run them. Check system behavior,TC04:Sql injections: Try to inject SQL queries into the site URL and verify,TC05 : Authenticated URL,TC06:Database leaks testing: Done by advanced SQL injections."
 				},
 				{
 					"SN":"2",
 					"ReusableAsset":"Common Library Automation",
-					"TCs":"Creating Base Framework"
+					"TCs":"TC02:Creating Base Framework"
 				}
 			],
 			"predictedCompletion":"30Days",

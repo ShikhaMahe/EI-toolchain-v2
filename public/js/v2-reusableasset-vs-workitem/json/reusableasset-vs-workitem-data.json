@@ -1,0 +1,94 @@
+
+{
+	     "reusableassets": [
+	         {
+	          "type": "reusableasset",
+	          "name": "Login Service",
+	          "description": "Powerful and easy-to-use Java Login framework that performs authentication, authorization, cryptography, and session management Asset",
+	          "links": [
+	           "WI-10",
+	           "WI-12"
+	          ]
+	         },
+	         {
+	          "type": "reusableasset",
+	          "name": "UnitTest Framework",
+	          "description": "Reusableasset-2 - Description",
+	          "links": [
+	           "WI-77",
+	           "WI-46",
+	           "WI-42",
+	           "WI-54",
+	           "WI-85"
+	           
+	          ]
+	         },
+	         {
+	          "type": "reusableasset",
+	          "name": "Log Framework",
+	          "description": "Reusableasset-3 - Description",
+	          "links": [
+	           "WI-77",
+	           "WI-46",
+	           "WI-42",
+	           "WI-54",
+	           "WI-85",
+	           "WI-10",
+	           "WI-12"
+	           
+	          ]
+	         }
+
+	        ],
+	        "workitems": [
+	         {
+	          "type": "workitem",
+	          "name": "WI-10",
+	          "description": "Implement BusinessPartner Login",
+	          "slug": ""
+	         
+	         },
+	         {
+	          "type": "workitem",
+	          "name": "WI-12",
+	          "description": "Implement Single Sign-On with Partner Application",
+	          "slug": ""
+	        
+	         },
+	         {
+		       "type": "workitem",
+		       "name": "WI-77",
+		       "description": "Implement - Borrowers Can View Total Cost of Loan",
+		       "slug": ""
+		     },
+	         {
+		       "type": "workitem",
+		       "name": "WI-46",
+		       "description": "Implement - Donors Can Choose to Support an Organization",
+		       "slug": ""
+		     },
+	         {
+		       "type": "workitem",
+		       "name": "WI-54",
+		       "description": "Implement - Dividend Allocation by Percentage",
+		       "slug": ""
+		       
+		     },
+	         {
+		       "type": "workitem",
+		       "name": "WI-42",
+		       "description": "Implement - Allocate Dividends by Percentage",
+		       "slug": ""
+		       
+		     },
+	         {
+		       "type": "workitem",
+		       "name": "WI-85",
+		       "description": "Validate Adherence to Corporate Standard on User Lockout",
+		       "slug": ""
+		       
+		     }
+	        ],
+	        "userstories": []
+	        
+	       }

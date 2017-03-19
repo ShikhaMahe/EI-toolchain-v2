@@ -26,7 +26,7 @@ router.get('/dod', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public', 'pages', 'dod-analysis.html'));
 });
 
-var response = require("../public/backend-data/defectoptimize-data.js");
+
 /* GET Testcase optimize page. */
 router.get('/optimizetestcase', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public', 'pages', 'optimize-testcase.html'));
@@ -47,8 +47,9 @@ router.get('/build-deploy-insights', function(req, res, next) {
 
 /* GET reusableasset-vs-workitems   page. */
 router.get('/reusableasset-vs-workitems', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../public', 'pages', 'reusableasset-vs-workitem.html'));
+  res.sendFile(path.join(__dirname, '../public', 'pages', 'v2-reusableasset-vs-workitem.html'));
 });
+
 
 /* GET Defect Optimize Data. */
 router.get('/defect', function(req, res, next) {

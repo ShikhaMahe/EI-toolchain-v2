@@ -1,9 +1,9 @@
 (function() {
-    var a = 800,
+    var a = 850,
         c = 800,
         h = c,
         U = 200,
-        K = 16,
+        K = 20,
         S = 20,
         s = 8,
         R = 110,
@@ -37,10 +37,10 @@
         fill: "transparent"
     }).on("click", O);
     var B = d.append("g").attr("class", "links"),
-        f = d.append("g").attr("class", "defects"),
+        f = d.append("g").attr("class", "reusableassets"),
         E = d.append("g").attr("class", "nodes");
     var Q = d3.select("#graph-info");
-    d3.json("/defect", function(X, Y) {
+    d3.json("/js/v2-reusableasset-vs-workitem/json/reusableasset-vs-workitem-data.json", function(X, Y) {
         T = d3.map(Y);
         q = d3.merge(T.values());
         x = {};
@@ -57,7 +57,7 @@
             }
         });
         j = d3.map();
-        T.get("defects").forEach(function(aa) {
+        T.get("reusableassets").forEach(function(aa) {
             aa.links = aa.links.filter(function(ab) {
                 return typeof x[p(ab)] !== "undefined" && ab.indexOf("r-") !== 0
             });
@@ -93,16 +93,16 @@
             node: null,
             map: {}
         };
-        i = Math.floor(c / T.get("defects").length);
-        y = Math.floor(T.get("defects").length * i / 2);
-        T.get("defects").forEach(function(af, ae) {
+        i = Math.floor(c / T.get("reusableassets").length);
+        y = Math.floor(T.get("reusableassets").length * i / 2);
+        T.get("reusableassets").forEach(function(af, ae) {
             af.x = U / -2;
             af.y = ae * i - y
         });
         var ad = 180 + J,
             Z = 360 - J,
-            ac = (Z - ad) / (T.get("testcases").length - 1);
-        T.get("testcases").forEach(function(af, ae) {
+            ac = (Z - ad) / (T.get("workitems").length - 1);
+        T.get("workitems").forEach(function(af, ae) {
             af.x = Z - ae * ac;
             af.y = h / 2 - R;
             af.xOffset = -S;
@@ -119,7 +119,7 @@
         });
         H = [];
         var ab, Y, aa, X = h / 2 - R;
-        T.get("defects").forEach(function(ae) {
+        T.get("reusableassets").forEach(function(ae) {
             ae.links.forEach(function(af) {
                 ab = x[p(af)];
                 if (!ab || ab.type === "reference") {
@@ -132,7 +132,7 @@
                     target: ab,
                     key: aa,
                     canonicalKey: aa,
-                    x1: ae.x + (ab.type === "testcase" ? 0 : U),
+                    x1: ae.x + (ab.type === "workitem" ? 0 : U),
                     y1: ae.y + K / 2,
                     x2: Math.cos(Y) * X + ab.xOffset,
                     y2: Math.sin(Y) * X
@@ -158,10 +158,10 @@
 
     function G(Y, X) {
         if (L.node === Y && X !== true) {
-            if (Y.type === "defect") {
+            if (Y.type === "reusableasset") {
             	//Gowtham-- Start
                 //window.location.href = "/" + Y.slug;
-                window.location.href = "/optimizetestcase" ;
+                window.location.href = "/reusableasset-vs-workitems" ;
                 return
             }
             L.node.children.forEach(function(aa) {
@@ -270,8 +270,8 @@
                 [X.x2, X.y2]
             ])
         });
-        D(T.get("defects"));
-        b(d3.merge([T.get("testcases"), T.get("userstories")]));
+        D(T.get("reusableassets"));
+        b(d3.merge([T.get("workitems"), T.get("userstories")]));
         C([]);
         m(P);
         Q.html('<a href="/the-concept-map/">What\'s this?</a>');
@@ -288,7 +288,7 @@
         });
         H = r.links(X);
         H.forEach(function(Z) {
-            if (Z.source.type === "defect") {
+            if (Z.source.type === "reusableasset") {
                 Z.key = Z.source.canonicalKey + "-to-" + Z.target.canonicalKey
             } else {
                 Z.key = Z.target.canonicalKey + "-to-" + Z.source.canonicalKey
@@ -341,13 +341,19 @@
                 }
             }
         });
-        X.selectAll("text").transition().duration(w).ease(F).attr("dy", ".3em").attr("font-size", function(Z) {
+        X.selectAll("text").transition().duration(w).ease(F).attr("dy", ".3em")
+        
+        .attr("font-size", function(Z) {
             if (Z.depth === 0) {
                 return 20
             } else {
                 return 15
             }
-        }).text(function(Z) {
+        })
+        .attr("class","mylead")
+        .attr("fill","orange")
+         .attr("font-weight","bold")
+        .text(function(Z) {
             return Z.name
         }).attr("text-anchor", function(Z) {
             if (Z === L.node || Z.isGroup) {
@@ -392,19 +398,19 @@
         var ac = d.selectAll(".detail").data(Z, u);
         var Y = ac.enter().append("g").attr("class", "detail");
         var ab = Z[0];
-        if (ab && ab.type === "defect") {
+        if (ab && ab.type === "reusableasset") {
             var aa = Y.append("a").attr("xlink:href", function(ae) {
             	//Gowtham --Start
                 //return "/" + ae.slug
-            	return "/" + "optimizetestcase"
+            	return "/" + "reusableasset-vs-workitems"
                 //Gowtham -- End
             });
             aa.append("text").attr("fill", N).attr("text-anchor", "middle").attr("y", (o + t) * -1).text(function(ae) {
-                return "defect " + ae.defect
+                return "reusableasset " 
             })
         } else {
-            if (ab && ab.type === "testcase") {
-                Y.append("text").attr("fill", "#aaa").attr("text-anchor", "middle").attr("y", (o + t) * -1).text("testcase")
+            if (ab && ab.type === "workitem") {
+                Y.append("text").attr("fill", "#aaa").attr("text-anchor", "middle").attr("y", (o + t) * -1).text("workitem")
             } else {
                 if (ab && ab.type === "userstory") {
                     var ad = ac.selectAll(".pair").data(A.get(ab.group).filter(function(ae) {
@@ -421,29 +427,40 @@
             }
         }
         ac.exit().remove();
-        var X = d.selectAll(".all-defects").data(Z);
-        X.enter().append("text").attr("text-anchor", "start").attr("x", a / -2 + t).attr("y", c / 2 - t).text("all defects").attr("class", "all-defects").on("click", O);
+        var X = d.selectAll(".all-reusableassets").data(Z);
+        X.enter().append("text").attr("text-anchor", "start").attr("x", a / -2 + t).attr("y", c / 2 - t).text("Click Here--> To View All Reusable Assets").attr("class", "mylead").on("click", O);
         X.exit().remove()
     }
 
     function D(Y) {
-        var Y = f.selectAll(".defect").data(Y, u);
-        var X = Y.enter().append("g").attr("class", "defect").on("mouseover", g).on("mouseout", n).on("click", G);
-        X.append("rect").attr("x", U / -2).attr("y", K / -2).attr("width", U).attr("height", K).transition().duration(w).ease(F).attr("x", function(Z) {
+        var Y = f.selectAll(".reusableasset").data(Y, u);
+        var X = Y.enter().append("g").attr("class", "reusableasset").on("mouseover", g).on("mouseout", n).on("click", G);
+        X.append("rect")
+        .attr("x", U / -2)
+        .attr("y", K / -2)
+        .attr("width", U)
+        .attr("height", K)
+        .transition()
+        .duration(w)
+        .ease(F)
+        .attr("x", function(Z) {
             return Z.x
         }).attr("y", function(Z) {
             return Z.y
         });
-        X.append("text").attr("x", function(Z) {
-            return U / -2 + t
+        
+        X.append("text")
+        .attr("class","mylead")
+        .attr("x", function(Z) {
+            return U / -2 + t 
         }).attr("y", function(Z) {
-            return K / -2 + o
+            return K / -2 + o 
         }).attr("fill", "#fff").text(function(Z) {
             return Z.name
         }).transition().duration(w).ease(F).attr("x", function(Z) {
             return Z.x + t
         }).attr("y", function(Z) {
-            return Z.y + 10
+            return Z.y + 15
         });
         Y.exit().selectAll("rect").transition().duration(w).ease(F).attr("x", function(Z) {
             return U / -2
@@ -498,7 +515,7 @@
             if (X === L.node) {
                 return "#000"
             } else {
-                if (X.type === "testcase") {
+                if (X.type === "workitem") {
                 	if(X.relavant==='y')
                 		return l(X, "#666", N, "#000")
                     else
@@ -515,7 +532,7 @@
             if (X === L.node) {
                 return l(X, null, N, null)
             } else {
-                if (X.type === "testcase") {
+                if (X.type === "workitem") {
                     return "#000"
                 } else {
                     if (X.type === "userstory") {
@@ -528,7 +545,7 @@
             if (X === L.node) {
                 return l(X, null, 2.5, null)
             } else {
-                if (X.type === "testcase" || X.type === "userstory") {
+                if (X.type === "workitem" || X.type === "userstory") {
                     return 1.5
                 }
             }

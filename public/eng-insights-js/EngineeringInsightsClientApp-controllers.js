@@ -281,28 +281,32 @@ myAPIClientApp_controllers
 					    }
 					    
 						$scope.devReusableTable = true;
-						document.getElementById("devAnalyzeButton").disabled = false;
+						document.getElementById("devAnalyzeButton").disabled = true;
 						
-					   // alert(checkedBoxes);
-					    if(checkedBoxes=="Security Service ")
+						if(checkedBoxes.length>0){
+							document.getElementById("devAnalyzeButton").disabled = false;
+							
+						}
+					   
+					    if(checkedBoxes=="Login Service ")
 					    	$scope.devReusableId = "Sec";					   
-					    else if(checkedBoxes=="DB Framework ")
+					    else if(checkedBoxes=="UnitTest Framework ")
 					    	$scope.devReusableId = "DB";
-					    else if(checkedBoxes=="UI Development Framework ")
+					    else if(checkedBoxes=="Log Framework ")
 					    	$scope.devReusableId = "UI";
-					    else if(checkedBoxes=="Security Service DB Framework ")
+					    else if(checkedBoxes=="Login Service UnitTest Framework " || checkedBoxes=="UnitTest Framework Login Service " )
 					    	$scope.devReusableId = "SecDB";
-			            else if(checkedBoxes=="Security Service UI Development Framework ")
+			            else if(checkedBoxes=="Login Service Log Framework " || checkedBoxes=="Log Framework  Login Service ")
 					    	$scope.devReusableId = "SecUI";
-                        else if(checkedBoxes=="DB Framework UI Development Framework ")
+                        else if(checkedBoxes=="UnitTest Framework Log Framework " || checkedBoxes=="Log Framework UnitTest Framework ")
 					    	$scope.devReusableId = "DBUI";
-                        else if(checkedBoxes=="Security Service DB Framework UI Development Framework ")
+                        else if(checkedBoxes.length>0)
 					    	$scope.devReusableId = "SecDBUI";
                         else{
 					    	$scope.devReusableId = "";
 					    	$scope.devReusableTable = false;					    	
 							$scope.showAnalyzedDev = false;	
-					    	document.getElementById("devAnalyzeButton").disabled = true;
+					    	
 					    }		    
 					    	
 					  };					  
@@ -615,20 +619,26 @@ myAPIClientApp_controllers
 						      checkedBoxes += $scope.testuser.reusbleproducts[i] + " ";
 						    }
 						    $scope.testReusableTable = true;
-						    document.getElementById("testAnalyzeButton").disabled = false;
+
+						    document.getElementById("testAnalyzeButton").disabled = true;
+
+						    if(checkedBoxes.length>0){
+						    	document.getElementById("testAnalyzeButton").disabled = false;
+						    }
+						    
 						    
 						  //  alert(checkedBoxes);
 						    if(checkedBoxes=="Security Automation ")
 						    	$scope.testReusableId = "Sec";		    	
 						    else if(checkedBoxes=="Common Library Automation ")
 						    	$scope.testReusableId = "Com";
-						    else if(checkedBoxes=="Security Automation Common Library Automation ")
+						    else if(checkedBoxes=="Security Automation Common Library Automation " || checkedBoxes=="Common Library Automation Security Automation ")
 						    	$scope.testReusableId = "SecCom";	
                             else{
 						    	$scope.testReusableId = "";
 						    	$scope.testReusableTable = false;
 						    	$scope.showAnalyzedTest = false;									
-						    	document.getElementById("testAnalyzeButton").disabled = true;
+						    	//document.getElementById("testAnalyzeButton").disabled = true;
 						    }
 						    
 						    	
@@ -951,7 +961,7 @@ myAPIClientApp_controllers
 						}
 					
 						reusableAssetVsWorkItems = function() {
-						$(".reusableasset-vs-workitems-iframe").colorbox({iframe:true, width:"80%", height:"90%",href:"/reusableasset-vs-workitems"});
+						$(".reusableasset-vs-workitems-iframe").colorbox({iframe:true, width:"80%", height:"95%",href:"/reusableasset-vs-workitems"});
 						}
 						
 						compareDev = function() {

@@ -10,8 +10,8 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"Security Service",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Login Service",
+					"WIs":"WI-10: Implement BusinessPartner Login,WI-12: Implement Single Sign-On with Partner Application"
 				}
 			],
 			"predictedCompletion":"54hours",
@@ -24,8 +24,8 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"DB Framework",
-					"WIs":"Implementing OAuth, Fetch config from LDAP and implement secured connection pooling"
+					"ReusableAsset":"Unit Test Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cos,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard on User"
 				}
 			],
 			"predictedCompletion":"54Hours",
@@ -38,8 +38,8 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"UI Development Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Log Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cost,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard "
 				}
 			],
 			"predictedCompletion":"54Hours",
@@ -52,13 +52,13 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"Security Service",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Login Service",
+					"WIs":"WI-10: Implement BusinessPartner Login,WI-12: Implement Single Sign-On with Partner Application"
 				},
 				{
 					"SN":"2",
-					"ReusableAsset":"DB Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Unit Test Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cos,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard on User"
 				}
 			],
 			"predictedCompletion":"54Hours",
@@ -71,13 +71,13 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"Security Service",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Login Service",
+					"WIs":"WI-10: Implement BusinessPartner Login,WI-12: Implement Single Sign-On with Partner Application"
 				},
 				{
 					"SN":"2",
-					"ReusableAsset":"UI Development Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Log Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cost,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard "
 				}
 			],
 			"predictedCompletion":"54Hours",
@@ -90,13 +90,13 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"DB Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Unit Test Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cos,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard on User"
 				},
 				{
 					"SN":"2",
-					"ReusableAsset":"UI Development Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Log Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cost,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard "
 				}
 			],
 			"predictedCompletion":"54Hours",
@@ -109,18 +109,18 @@
 			"reusableProducts":[
 				{
 					"SN":"1",
-					"ReusableAsset":"Security Service",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Login Service",
+					"WIs":"WI-10: Implement BusinessPartner Login,WI-12: Implement Single Sign-On with Partner Application"
 				},
 				{
 					"SN":"2",
-					"ReusableAsset":"DB Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Unit Test Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cos,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard on User"
 				},
 				{
 					"SN":"3",
-					"ReusableAsset":"UI Development Framework",
-					"WIs":"Implementing OAuth"
+					"ReusableAsset":"Log Framework",
+					"WIs":"WI-77: Implement - Borrowers Can View Total Cost,WI-46: Implement - Donors Can Choose to Support,WI-54: Implement - Dividend Allocation by Percentage,WI-42: Implement - Allocate Dividends by Percentage,WI-85: Validate Adherence to Corporate Standard "
 				}
 			],
 			"predictedCompletion":"54Hours",
