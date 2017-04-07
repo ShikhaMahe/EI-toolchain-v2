@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: engineeringinsights
-  host: engineeringinsights
+  name: engineering-insights-v2
+  host: engineering-insights-v2
   disk_quota: 1024M
