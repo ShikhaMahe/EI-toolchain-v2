@@ -23,18 +23,18 @@ body {
     display: table-cell;
 }
 
-.popover-content {
+/* .popover-content {
 	height: 60px; 
 	width: 120px;
     padding: 2px 5px;       
 }
-
+ */
 .popover-title {
 	height: 20px; 
 	width: 120px;
     padding: 2px 5px;
     color: black;  
-    font-size: 10px;  
+    font-size: 14px;  
 }
 
 .popover {

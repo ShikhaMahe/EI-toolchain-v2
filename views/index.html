@@ -1,912 +1,826 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="EngineeringInsightsClientApp">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="description" content="Sunrise Admin Panel" />
-		<meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap" />
-		<meta name="author" content="Bootstrap Gallery" />		
-		<link rel="shortcut icon" href="img/favicon.ico">
-		<title>Engineering Insights Dashboard</title>
-		
-			 <!-- Now Angular related css and js  -->
-  		<script src="/js/angular.min.js"></script> 
-  		<script src="/js/angular-route.min.js"></script>
-  		<script src="http://d3js.org/d3.v3.min.js"></script>
-  		<script src="https://vitalets.github.io/checklist-model/checklist-model.js"></script>
+<html lang="en-US" ng-app="EngineeringInsightsClientApp">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="//www.ibm.com/favicon.ico">
+    <link rel="canonical" href="https://www.ibm.com/cloud-computing/">
+    <meta name="dcterms.date" content="2016-02-19">
+    <meta name="dcterms.rights" content="© Copyright IBM Corp. 2017">
+    <meta name="description" content="Our cloud computing one-stop shop provides all the cloud solutions &amp; IBM cloud tools you need from IBM.">
+    <meta name="keywords" content="cloud computing, ibm cloud, cloud solutions">
+    <title>IBM - Engineering Insights</title>
+    <meta name="geo.country" content="US">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--  Angular js scripts -->
+    <script src="/js/angular.min.js"></script> 
+    <script src="/js/angular-route.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://vitalets.github.io/checklist-model/checklist-model.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" /> -->
+    <link href="/css/bootstrap_modified.css" rel="stylesheet">
+    
+    <!-- Animate CSS -->
+    <link href="/css/animate.css" rel="stylesheet" media="screen" />
+    
+    <!-- Main CSS -->
+    <link href="/css/main_modifed.css" rel="stylesheet" media="screen" />
+    
+    <!-- Icomoon Icons -->
+    <link href="/fonts/icomoon/icomoon.css" rel="stylesheet" />
+    
+    <!-- For nvd3.css -->
+    <link href="/css/nv.d3.css" rel="stylesheet">
+    <script src="/js/d3.min.js"></script>
+    <script src="/js/nv.d3.min.js"></script>
+    
+    <!-- nvd3 javascript for bullet chart -->
+    <script src="/js/nvd3/bullet-chart.js"></script>
+    <link href="/css/mycss.css" rel="stylesheet" media="screen" />
 
+	<!-- rzslider js and css -->
+    <link href="/css/rzslider.css" rel="stylesheet" media="screen" />
+    <script src="/js/rzslider.js"></script> 
+    
+    <!--  Spinner -->
+    <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+  	<script type="text/javascript" src="js/angular-spinner.min.js"></script>
+  	<script type="text/javascript" src="js/angular-loading-spinner.js"></script>
+    
+   	<script src="https://rawgit.com/krispo/angular-nvd3/v1.0.4/dist/angular-nvd3.js"></script>
+   
+   	<!--  Angular App related scripts -->
+    <script src="../eng-insights-js/EngineeringInsightsClientApp.js"></script>
+    <script src="../eng-insights-js/EngineeringInsightsClientApp-services.js"></script>
+    <script src="../eng-insights-js/EngineeringInsightsClientApp-controllers.js"></script>
+    <script src="../eng-insights-js/EngineeringInsightsClientApp-routes.js"></script>
+    
+    <!-- Fusion chart related --> 
+    <script type="text/javascript" src="js/fusioncharts.js"></script>
+    <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
+    <script type="text/javascript" src="js/fusioncharts.charts.js"></script>
+    <script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script src="js/SweetAlert.min.js"></script>
+    <script src="js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/sweet-alert.css">
 
-  		<script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
-		
-   <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.4/dist/angular-nvd3.js"></script>
-	
-		
-		
-		<!-- Bootstrap CSS -->
-		<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="/css/css3timeline.css" rel="stylesheet" media="screen" />
+    
+    <!-- For Tooltip -->
+    <script src="/js/tooltip/tooltip.js"></script>
+    <link rel="stylesheet" type="text/css" href="/js/tooltip/tooltip.css">
+    <script>
+    digitalData = {
+        page: {
+            category: {
+                primaryCategory: 'SB03'
+            },
+            pageInfo: {
+                effectiveDate: '2016-02-19',
+                language: 'en-US',
+                publishDate: '2016-02-19',
+                publisher: 'null',
+                version: 'v18',
+                ibm: {
+                    subject:'EV100',
+                    type:'CTB00',
+                    country:'US',
+                    owner:'Troy Burnett/Atlanta/IBM',
+                    siteID:'CLOUD',
+                    pageName:'IBM Cloud Computing',
+                    contactModuleConfiguration: {
+                        contactInformationBundleKey: {
+                           focusArea: "Cloud - All",
+                           languageCode: "en",
+                           regionCode: "US"
+                        },
+                        contactModuleTranslationKey: {
+                           languageCode: "en",
+                           regionCode: "US"
+                        }
+                    }
+                },
+                hotjar: {
+                    enabled: true
+                }
+            }
+        }
+    };
+    </script><!-- production links to v18 framework files -->
+    <link href="//1.www.s81c.com/common/v18/css/www.css" rel="stylesheet">
+    <link rel="stylesheet" href="/cloud-computing/bin/stylesheets/style_v2.css">
+    <link href="//1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
+    <script src="//1.www.s81c.com/common/stats/ida_stats.js"></script>
+    <script src="//1.www.s81c.com/common/v18/js/www.js"></script>
+    <!-- mega menu files-->
+    <link rel="stylesheet" href="https://www.ibm.com/cloud-computing/bin/stylesheets/mega_menu_nav.css">
+    <script src="https://www.ibm.com/cloud-computing/bin/javascripts/mega_menu_nav.js"></script>
+    <script src="//1.www.s81c.com/common/v18/js/mustache.js"></script>
+    <script src="//1.www.s81c.com/common/v18/js/greensock/TweenMax.min.js"></script>
+    <script src="//1.www.s81c.com/common/v18/js/greensock/TimelineLite.min.js"></script>
+    <script src="//1.www.s81c.com/common/v18/js/greensock/plugins/ScrollToPlugin.min.js"></script>
+    <!-- v18 form files -->
+    <link href="//1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
+    <script src="//1.www.s81c.com/common/v18/js/forms.js"></script>
+    <!-- live advisor -->
+    <script src="//www.ibm.com/common/digitaladvisor/js/cm-app.min.js" defer></script>
+    
+    <script>
+      //- trigger alternate masthead and config v18
+      IBMCore.common.util.config.set({
+          masthead: {
+            type: "alternate",  // default|alternate|mobile also exists
+          },
+          footer: {
+            type: "alternate"
+          }
+      });
+      jQuery(document).ready(function($) {
+        function getQueryVariable(variable)
+        {
+           var query = window.location.search.substring(1);
+           var vars = query.split("&");
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=");
+                   if(pair[0] == variable){return pair[1];}
+           }
+           return(false);
+        }
+        switch(getQueryVariable("version")) {
+            //Show Leadspace US Open 01
+            case "Spotlight":
+                $(".cloud-usopen01-leadspace").slideDown("slow");
+                break;
+            //Show Leadspace US Open 02
+            case "Trailblazers":
+                $(".cloud-usopen02-leadspace").slideDown("slow")
+                break;
+            //Show Leadspace US Open 03
+            case "VIP":
+                $(".cloud-usopen03-leadspace").slideDown("slow")
+                break;
+            //Show Leadspace US Open 04
+            case "Whirlpool":
+                $(".cloud-usopen04-leadspace").slideDown("slow")
+                break;
+            //Default to Interconnect Leadspace
+            default:
+                $(".cloud-interconnect-leadspace").slideDown("slow");
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//www.ibm.com/software/info/js/tactic.js"></script>
+    <script type="text/javascript" src="//www.ibm.com/software/info/js/tacticbindlinks.js"></script>
+    <style type="text/css">
+      .ibm-carousel-controls {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body id="ibm-com" class="ibm-type">
+    <div id="ibm-top" class="ibm-landing-page">
+      <div id="ibm-masthead" role="banner" aria-label="IBM">
+        <div id="ibm-universal-nav">
+          <nav role="navigation" aria-label="IBM">
+            <div id="ibm-home"><a href="http://www.ibm.com/us/en/">IBM&reg;</a></div>
+            <ul id="ibm-menu-links" role="toolbar" aria-label="Site map">
+              <li><a href="http://www.ibm.com/sitemap/us/en/">Site map</a></li>
+              <li role="presentation" class="ibm-icononly ibm-masthead-item-search ibm-masthead-full-item ibm-masthead-mobile-item"><a role="button" href="//www.ibm.com/Search/?lang=en&amp;amp;cc=us" tabindex="-1" class="ibm-masthead-search-link">Search</a></li>
+            </ul>
+          </nav>
+            <div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead">
+                <form id="ibm-search-form" action="//www.ibm.com/Search/" method="get">
+                <p>
+                    <input type="text" maxlength="100" value="" placeholder="Search" name="q" id="q" aria-label="Search"/>
+                    <input type="hidden" value="18" name="v"/>
+                    <input type="hidden" value="utf" name="en"/>
+                    <input type="hidden" value="en" name="lang"/>
+                    <input type="hidden" value="us" name="cc"/>
+                    <span class="ibm-search-scope"><input type="checkbox" name="sn" value="Cloud" checked id="scopeoption"> <label for="scopeoption">Within cloud computing</label></span><input type="submit" id="ibm-search" class="ibm-btn-search" value="Submit"/>
+                  </p>
+                </form>
+                <form class="ibm-hide" id="ecmCustomForm" action="https://www.ibm.com/marketplace/next/search/us/en-us/" method="get">
+                    <p><input type="text" name="terms" /></p>
+                </form>
+            </div>
+        </div>
+      </div>
 
-		<!-- Animate CSS -->
-		<link href="/css/animate.css" rel="stylesheet" media="screen" />
+      <div id="ibm-content-wrapper">
+        <header role="banner" aria-label="ibm-pagetitle-h1">
+           <div class="ibm-sitenav-menu-container">
+              <div class="ibm-sitenav-menu-name"><a href="https://www.ibm.com/cloud-computing/">IBM Engineering Insights</a></div>
+              <!-- local navigation -->
+              <!-- <div class="ibm-sitenav-menu-list">
+                <ul role="menubar">
+                  <li role="presentation">
+                    <p class="ibm-button-link ibm-nospacing">
+                      <a href="https://www.ibm.com/cloud-computing/bluemix/" class="ibm-btn-sec ibm-btn-blue-50 ibm-btn-small">Bluemix</a>
+                    </p>
+                  </li>
+                  <li role="presentation">
+                    <a href="https://www.ibm.com/cloud-computing/products/" title="Products">Products</a>
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" href="https://www.ibm.com/cloud-computing/solutions/">Services</a>
+                  </li>
+                  <li role="presentation" >
+                    <a role="menuitem" href="https://www.ibm.com/cloud-computing/solutions/">Solutions</a>
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" href="https://www.ibm.com/cloud-computing/industries/">Industries</a>
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" href="https://www.ibm.com/cloud-computing/learn-about-cloud/">Learn More</a>
+                  </li>
+                </ul>
+              </div> -->
+              <!-- end local navigation -->
+          </div>
+          <!--Default Leadspace-->
+          <div id="ibm-leadspace-head" style="background-image:url(/cloud-computing/images/cloud/homepage/recap/default_slideshow_static.jpg); background-repeat: no-repeat; background-position: 0% 100%; background-size: cover;border-bottom-width:0px;display:none;" class="cloud-interconnect-leadspace ibm-alternate-background ibm-video-background ibm-background-blue-90">
+            <div id="ibm-leadspace-body" class="ibm-padding-bottom-r2 ibm-padding-top-r2">
+              <div class="ibm-columns ibm-hidden-large">
+              <p><strong>Project Health</strong></p>
+              	<table style="table-layout: auto" class="table no-margin">
 
-		<!-- Main CSS -->
-		<link href="/css/main.css" rel="stylesheet" media="screen" />
-
-		<!-- Icomoon Icons -->
-		<link href="/fonts/icomoon/icomoon.css" rel="stylesheet" />
-		<!-- For nvd3.css -->
-		<link href="/css/nv.d3.css" rel="stylesheet">
-		
-		<script src="/js/d3.min.js"></script>
-		<script src="/js/nv.d3.min.js"></script>
-		
-		<!-- nvd3 javascript for bullet chart -->
-		<script src="/js/nvd3/bullet-chart.js"></script>
-		<link href="/css/mycss.css" rel="stylesheet" media="screen" />
-
-		<link href="/css/rzslider.css" rel="stylesheet" media="screen" />
-		<script src="/js/rzslider.js"></script>	
-
-
-		<!--  Spinner -->
-		<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
-  <script type="text/javascript" src="js/angular-spinner.min.js"></script>
-  <script type="text/javascript" src="js/angular-loading-spinner.js"></script>
-  
-		    	
-  	<!--  Angular App related scripts -->
-		<script src="../eng-insights-js/EngineeringInsightsClientApp.js"></script>
-		<script src="../eng-insights-js/EngineeringInsightsClientApp-services.js"></script>
-		<script src="../eng-insights-js/EngineeringInsightsClientApp-controllers.js"></script>
-		<script src="../eng-insights-js/EngineeringInsightsClientApp-routes.js"></script>
-		
-			<!-- Fusion chart related --> 
-   		 <script type="text/javascript" src="js/fusioncharts.js"></script>
-        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
-
-		<script type="text/javascript" src="js/fusioncharts.charts.js"></script>
-		<script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
-		
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		
-		<script src="js/SweetAlert.min.js"></script>
-        <script src="js/sweet-alert.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/sweet-alert.css">
-
-		<link href="/css/css3timeline.css" rel="stylesheet" media="screen" />
-		
-		<!-- For Tooltip -->
-		<script src="/js/tooltip/tooltip.js"></script>
-		<link rel="stylesheet" type="text/css" href="/js/tooltip/tooltip.css">
-		
-	</head>  
-
-	<body class="purple">
-
-		
-		<div class="sunrise-loading"></div>
-
-		<!-- Left sidebar start -->
-		<div class="vertical-nav">
-
-			<!-- Collapse menu starts -->
-			<button class="collapse-menu">
-				<i class="icon-dehaze"></i>
-			</button>
-			<!-- Collapse menu ends -->
-
-			<!-- Logo starts -->
-			<div class="logo">
-				<a href="#">
-					<img src="../eng-insights-img/ibm-logo.png" alt="IBM" />
-				</a>
-			</div>
-			<!-- Logo ends -->
-
-			<!-- Current user starts -->
-			<div class="user-info">
-				<div class="user-img">
-					<img src="../eng-insights-img/user1.png" alt="User Info">
-					
-				</div>
-				<h5 class="user-name-o">ReleaseManager</h5>
-
-			</div>
-			<!-- Current user ends -->
-
-			<!-- Sidebar menu start -->
-			<ul class="menu clearfix">
-				<li class="active selected">
-					<a href="#overview">
-						<i class="icon-graphic_eq"></i>
-						<span class="menu-item">Dashboards</span>
-						<span class="down-arrow"></span>
-					</a>
-					<ul>
-					<li>
-							<a href="#landing">
-								Engineering Insights
-								<span class="label label-danger">&nbsp;</span>
-							</a>
-						</li>
-					
-					</ul>
-				</li>
-
+	<tbody ng-controller="landingController">
+		<tr>
+			<td	style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+			<!-- <p>Requirements</p>  -->
+			<div class="progress" id="requirement"
+				ng-click="progressClicked('requirement')"
+				style="margin-left: 2px; margin-right: 2px;" >
 				
-			</ul>
-
-			
-		</div>
-
-
-		<!-- Dashboard Wrapper Start -->
-		<div class="dashboard-wrapper dashboard-wrapper-lg">
-
-			<!-- Header start -->
-			<header ng-controller="headerController">
-				<div class="row gutter">
-							<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-								<div class="btn-group" style="float:left; margin-top: 14px;">
-									<button type="button" class="btn btn-info">Projects</button>
-									<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-									<ul class="dropdown-menu" role="menu">
-										<li ng-repeat="projectname in projectnames" ng-click="select(projectname)">
-											<a href="#">{{ projectname }}</a>
-											</li>			
-									</ul>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-									<div style="color:white; float:left"class="center-text">
-										<h3 >{{projectname}}</h3>
-									</div>
-							</div>	
-				</div>
-			</header>
-			<!-- Header ends -->
-
-			<!-- Top Bar Starts -->
-			<div class="top-bar clearfix">
-				<div class="page-title">
-					<h4>Engineering Insights</h4>
-				</div>
-				
-			</div>
-			<!-- Top Bar Ends -->
-
-			<!-- Main container starts -->
-			<div class="main-container" ng-controller="landingController">
-			
-    				
-    				<!-- Container fluid Starts -->
-	<div class="container-fluid">
-
-		<div class="row gutter">
-			
-		
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="panel panel-blue">
-					<div class="panel-heading">
-						<h4>Project Health</h4>
-					</div>
-
-					<div class="panel-body" style="height: 260px;">
-						<div style="margin-left: 0px; padding-left: 0px;" class="row gutter">
-							<table style="table-layout: auto" class="table no-margin">
-								<tbody>
-									<tr>
-										<td 
-													
-											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											<!-- <p>Requirements</p>  -->
-											<div class="progress" id="requirement"
-												ng-click="progressClicked('requirement')"
-												style="margin-left: 2px; margin-right: 2px;" >
-											
-													 <div ng-class="{'progress-bar-success progress-bar' : requirementGreenStatus,'progress-bar-warning progress-bar' : requirementYellowStatus,'progress-bar-danger progress-bar' : requirementRedStatus}"
-													role="progressbar" aria-valuenow="80" aria-valuemin="0"
-													aria-valuemax="100" title="" style="width: {{requirementPercentage}}%"
-													
-													 id="pbreq" 
-													  onmouseover="tooltip.pop(this, '#Requirement_tip', { position:2, cssClass: 'no-padding'})">
-													  {{requirementPercentage}}% 
-													 </div>
-													 
-													 
-										
-												<ul id="horizontal-style">
-													
-														
-														<div role="tooltip" class="popover fade top in" id="popover262464" style="display: block; top: -84px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div>
-														<h3 class="popover-title">Requirements</h3>
-														<div class="popover-content">{{requirementTopPop}}</div>
-														</div>
-												</ul>
-<!-- 
-		<div role="dialog" class="modal fade" id="modalreq"
-			tabindex="-1" role="dialog" aria-labelledby="modal1Label">
-			<div class="modal-dialog modal-sm modal-left">
-				<div class="modal-content"
-					style="top: 110px; color: white; background-color: {{reqcolor">
-					<div class="modal-header"
-						style="padding-top: 0px; padding-bottom: 0px;">
-					</div>
-					<div class="modal-body" style="padding: 0px;">{{requirementDataContent}}</div>
-				</div>
-			</div>
-		</div>
- -->				
-											</div>
-										</td>
-										
-										<!--<p>Development</p>  -->
-										<td style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											<div class="progress" id="dev" ng-click="progressClicked('development')" style="margin-left: 2px; margin-right: 2px;">
-												<div ng-class="{'progress-bar-success progress-bar' : developmentGreenStatus,'progress-bar-warning progress-bar' : developmentYellowStatus,'progress-bar-danger progress-bar' : developmentRedStatus}"
-													role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" title="" 
-													style="width: {{developmentPercentage}}%"
-													 id="pbdev" 
-													 onmouseover="tooltip.pop(this, '#Development_tip', { position:2, cssClass: 'no-padding' })">{{developmentPercentage}}%</div>
-											
-												<ul id="horizontal-style">
-													<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div>
-														<h3 class="popover-title">Development</h3>
-													<div class="popover-content">{{developmentTopPop}}</div></div>
-												</ul>
-<!-- 												
-		<div role="dialog" class="modal fade" id="modaldev" tabindex="-1" role="dialog" aria-labelledby="modal2Label">
-				<div class="modal-dialog modal-sm modal-left">
-			    	<div class="modal-content" style="top: 110px; color:white; margin-left: 0px; left: 205px; background-color: {{devcolor}};">
-						<div class="modal-header" style="padding-top: 0px; padding-bottom: 0px;">
-				    		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						</div>
-						<div class="modal-body" style="padding: 0px;">{{developmentDataContent}}</div>
-				           
-			        </div>
-		    	</div>
-		</div>
- -->
-											</div>
-										</td>
-										
-										<!--<p>Build and Deploy</p>  -->
-										<td
-											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											
-											<div class="progress" id="deploy"
-												ng-click="progressClicked('deploy')" style="margin-left: 2px; margin-right: 2px;">
-												<div ng-class="{'progress-bar-success progress-bar' : builddeployGreenStatus,'progress-bar-warning progress-bar' : builddeployYellowStatus,'progress-bar-danger progress-bar' : builddeployRedStatus}"
-													role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" title="" 
-													style="width: {{builddeployPercentage}}%"
-													id="pbbnd"
-													onmouseover="tooltip.pop(this, '#Build_tip', { position:2, cssClass: 'no-padding' })">{{builddeployPercentage}}%</div>
-										
-												<ul id="horizontal-style">
-														<div role="tooltip" class="popover fade top in" id="popover272424" style="display: block; top: -84px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div>
-														<h3 class="popover-title">Build & Deploy</h3>
-														<div class="popover-content">{{builddeployTopPop}}</div></div>
-												</ul>
-<!-- 												
-		<div role="dialog" class="modal fade" id="modalbnd" tabindex="-1" role="dialog" aria-labelledby="modal1Label">
-			<div class="modal-dialog modal-sm modal-left">
-    			<div class="modal-content" style="top: 110px; color:white; margin-left: 0px; left: 400px; background-color: {{bndcolor}};">
-				<div class="modal-header" style="padding-top: 0px; padding-bottom: 0px;">
-    				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				</div>
-				<div class="modal-body" style="padding: 0px;">{{builddeployDataContent}}</div>
-           
-        		</div>
-    		</div>
-		</div>
- -->		
-											</div>
-										</td>
-										
-										<!--<p>Test</p>  -->
-										<td
-											style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
-											
-											<div class="progress" id="test" ng-click="progressClicked('testing')" style="margin-left: 2px; margin-right: 2px;">
-												
-												<div ng-class="{'progress-bar-success progress-bar' : testGreenStatus,'progress-bar-warning progress-bar' : testYellowStatus,'progress-bar-danger progress-bar' : testRedStatus}"
-													role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" title="" style="width: {{testPercentage}}%"
-													id="pbtest"
-													onmouseover="tooltip.pop(this, '#Test_tip', { position:2, cssClass: 'no-padding' })">{{testPercentage}}%</div>
-										
-												<ul id="horizontal-style">
-														<div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
-														<div class="arrow" style="left: 50%;"></div>
-														<h3 class="popover-title">Test</h3>
-														<div class="popover-content">{{testTopPop}}</div></div>
-												</ul>
-												
-<!-- 												
-		<div role="dialog" class="modal fade" id="modaltest" tabindex="-1" role="dialog" aria-labelledby="modal1Label">
-			<div class="modal-dialog modal-sm modal-left">
-		    	<div class="modal-content" style="top: 110px; color:white; margin-left: 0px; left: 600px; background-color: {{testcolor}};">
-					<div class="modal-header" style="padding-top: 0px; padding-bottom: 0px;">
-			    		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					</div>
-					<div class="modal-body" style="padding: 0px;">{{testDataContent}}</div>
-			           
-		        </div>
-		    </div>
-		</div>
- -->		
-											</div>
-										</td>
-
-									</tr>
-								</tbody>
-							</table>
-
-<div>
-<ul class="legend">
-    <li><span class="scheduleonlessimpact"></span> Schedule On Less Impact</li>
-    <li><span class="scheduleonrisk"></span> Schedule At Risk</li>
-     <li><span class="scheduleontrack"></span> Schedule On Track</li>
-</ul>
-</div>
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		
-		</div>
-		<div class="row gutter" ng-show="showAnalyzedDev">
-		<div class="panel panel-blue">
-					<div class="panel-heading">
-						<h4>Predicted Optimization for Development</h4>
-					</div>
-					<div class="panel-body">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">				
-						<div class="row gutter">
-							<nvd3 options="optionsbulletChart" data="databulletchart"></nvd3>
-
-							<h6><strong class="bg-success">2 Days</strong> of development effort could be saved !</h6>
-						</div>
-						<div class="row gutter">
-			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="float: left;">
-			<h6><strong class="bg-success">Do you want to ingest this optimization in to your planning?</strong></h6>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right;">
-			<span us-spinner="{radius:30, width:8, length: 16}"></span>
-			<button ng-click="devOptimizeYes(); demo.alert(devOptimizeSuccessMsg)" data-toggle="modal"
-			type="button" class="btn btn-success btn-xm btn-rounded" data-loading-text="Loading..." ng-controller="demoCtrl as demo">Yes</button>
-			<button ng-click="devOptimizeNo()" data-toggle="modal"
-			type="button" class="btn btn-danger btn-xm btn-rounded">No</button>			
-			</div>
-			</div>
-					</div>
-				
-
-
-			
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin" ng-show="devReusableTable">
-								
-								<thead>
-												<tr>
-													<th>#</th>												
-													<th>Reusable Asset</th>
-													<th>Benifited WorkItems</th>													
-												</tr>
-											</thead>
-							<tbody>
-									<tr ng-repeat="reusabledev in reusablesdev">
-										<td>{{reusabledev.SN}}</td>
-										<td>{{reusabledev.ReusableAsset}}</td>
-										<td>{{reusabledev.WIs}}</td>										
-									</tr>
-								</tbody>
-									
-			</table>
-	
-			</div>
-			
-			
-
-
-	
-		</div>
-		</div>
-		</div>
-		<div class="row gutter" ng-show="showAnalyzedTest">
-		<div class="panel panel-blue">
-					<div class="panel-heading">
-						<h4>Predicted Optimization for Test</h4>
-					</div>
-					<div class="panel-body">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">				
-						<div class="row gutter">
-							
-							<nvd3 options="optionsbulletChart" data="dataTestbulletchart"></nvd3>
-							<h6><strong class="bg-success">5 Days</strong> of testing effort could be saved !</h6>
-						</div>
-						<div class="row gutter">
-			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="float: left;">
-			<h6><strong class="bg-success">Do you want to ingest this optimization in to your planning?</strong></h6>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right;">
-			<span us-spinner="{radius:30, width:8, length: 16}"></span>
-			<button ng-click="startAjax(); testOptimizeYes(); demo.alert(testOptimizeSuccessMsg)" data-toggle="modal"
-			type="button" class="btn btn-success btn-xm btn-rounded" data-loading-text="Loading..." ng-controller="demoCtrl as demo">Yes</button>
-			<button ng-click="testOptimizeNo()" data-toggle="modal"
-			type="button" class="btn btn-danger btn-xm btn-rounded">No</button>			
-			</div>
-			</div>
-					</div>
-				
-
-
-			
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<table style="table-layout: auto" class="table table-responsive table-striped table-bordered no-margin" ng-show="testReusableTable">
-						<thead>
-												<tr>
-													<th>#</th>												
-													<th>Reusable Asset</th>
-													<th>Benifited TestCases</th>													
-												</tr>
-											</thead>
-							<tbody>
-									<tr ng-repeat="reusabletest in reusablestest">
-										<td>{{reusabletest.SN}}</td>
-										<td>{{reusabletest.ReusableAsset}}</td>
-										<td>{{reusabletest.TCs}}</td>										
-									</tr>
-								</tbody>
-										</table>
-			</div>
-			
-			
-
-
-	
-		</div>
-		</div>
-
-
-		</div>
-
-		<div class="row gutter" ng-if="showReqProgressChart">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="panel">
-					<div class="panel-heading">
-						<h4>Requirements Progress</h4>
-					</div>
-					<div class="panel-body">
-						<div>
-							<nvd3 options="optionsRequirementProgress"
-								data="dataRequirementProgress"></nvd3>
-						</div>
-
-					</div>
+				<!-- <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" title="" style="width: 70%">70%</div>
+		  		<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" title="" style="width: 10%">10%</div>
+		  		 -->											
+				<div ng-class="{'progress-bar-success progress-bar' : requirementGreenStatus,'progress-bar-warning progress-bar' : requirementYellowStatus,'progress-bar-danger progress-bar' : requirementRedStatus}"
+					role="progressbar" aria-valuenow="80" aria-valuemin="0"
+					aria-valuemax="100" title="" style="width: {{requirementPercentage}}%"
+					id="pbreq" 
+					onmouseover="tooltip.pop(this, '#Requirement_tip', { position:2, cssClass: 'no-padding'})">
+					{{requirementPercentage}}% 
 				</div>
 
-
+				<ul id="horizontal-style">
+					<div role="tooltip" class="popover fade top in" id="popover262464" style="display: block; top: -84px; left: 62px;">
+					<div class="arrow" style="left: 50%;"></div>
+					<h3 class="popover-title">Requirements</h3>
+					<div class="popover-content">{{requirementTopPop}}</div>
+					</div>
+				</ul>
 			</div>
-		</div>
-		<div class="row gutter" ng-if="showTwoQ">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				<div class="panel panel-blue" ng-if="showdevelopmentprogress">
-					<div class="panel-heading">
-						<h4>Development Progress</h4>
-					</div>
-					<div class="panel-body" style="padding-bottom: 0px; padding-top: 10px; height: 330px;">
-						<div>
-							<nvd3 options="optionsFeatureDevelopement"
-								data="dataFeatureDevelopement"></nvd3>
-						</div>
-						<div ng-if="showDevCompareOption">
-							
-							<a class='devoptimizer-iframe' onclick='javascript:compareDev()' >
-								<button type="button" 
-											 class="btn btn-info btn-xs btn-rounded">Compare</button>
-							</a>
-						</div>
-					</div>
+			</td>
+			<td	style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+			<!-- <p>Requirements</p>  -->
+			<div class="progress" id="dev" ng-click="progressClicked('development')" style="margin-left: 2px; margin-right: 2px;">
+                        <div ng-class="{'progress-bar-success progress-bar' : developmentGreenStatus,'progress-bar-warning progress-bar' : developmentYellowStatus,'progress-bar-danger progress-bar' : developmentRedStatus}"
+                          role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" title="" 
+                          style="width: {{developmentPercentage}}%"
+                           id="pbdev" 
+                           onmouseover="tooltip.pop(this, '#Development_tip', { position:2, cssClass: 'no-padding' })">{{developmentPercentage}}%</div>
+                      
+                        <ul id="horizontal-style">
+                          <div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
+                            <div class="arrow" style="left: 50%;"></div>
+                            <h3 class="popover-title">Development</h3>
+                          <div class="popover-content">{{developmentTopPop}}</div></div>
+                        </ul>
 
-				</div>
-				<div class="panel panel-blue" ng-if="showBuildprogress">
-					<div class="panel-heading">
-						<h4>Build and Deploy Progress</h4>
-					</div>
-					<div class="panel-body" style="padding-bottom: 15px; padding-top: 13px;">
-						<div>
-							<nvd3 options="optionsDefectStatus" data="dataDefectStatus"></nvd3>
+                      </div>
+			</td>
+			<td	style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+			<!-- <p>Requirements</p>  -->
+			<div class="progress" id="deploy"
+                        ng-click="progressClicked('deploy')" style="margin-left: 2px; margin-right: 2px;">
+                        <div ng-class="{'progress-bar-success progress-bar' : builddeployGreenStatus,'progress-bar-warning progress-bar' : builddeployYellowStatus,'progress-bar-danger progress-bar' : builddeployRedStatus}"
+                          role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" title="" 
+                          style="width: {{builddeployPercentage}}%"
+                          id="pbbnd"
+                          onmouseover="tooltip.pop(this, '#Build_tip', { position:2, cssClass: 'no-padding' })">{{builddeployPercentage}}%</div>
+                    
+                        <ul id="horizontal-style">
+                            <div role="tooltip" class="popover fade top in" id="popover272424" style="display: block; top: -84px; left: 62px;">
+                            <div class="arrow" style="left: 50%;"></div>
+                            <h3 class="popover-title">Build & Deploy</h3>
+                            <div class="popover-content">{{builddeployTopPop}}</div></div>
+                        </ul>
+            </div>
+			</td>
+			<td	style="padding: 90px 0px 70px 2px; width: 248px; height: 150px;">
+			<!-- <p>Requirements</p>  -->
+			<div class="progress" id="test" ng-click="progressClicked('testing')" style="margin-left: 2px; margin-right: 2px;">
+                        
+                        <div ng-class="{'progress-bar-success progress-bar' : testGreenStatus,'progress-bar-warning progress-bar' : testYellowStatus,'progress-bar-danger progress-bar' : testRedStatus}"
+                          role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" title="" style="width: {{testPercentage}}%"
+                          id="pbtest"
+                          onmouseover="tooltip.pop(this, '#Test_tip', { position:2, cssClass: 'no-padding' })">{{testPercentage}}%</div>
+                    
+                        <ul id="horizontal-style">
+                            <div role="tooltip" class="popover fade top in" id="popover262424" style="display: block; top: -84px; left: 62px;">
+                            <div class="arrow" style="left: 50%;"></div>
+                            <h3 class="popover-title">Test</h3>
+                            <div class="popover-content">{{testTopPop}}</div></div>
+                        </ul>
+              </div>
+			</td></tr></tbody>
+		</table>
+                <!-- <!-- <div class="ibm-col-medium-1-1 ibm-col-6-3">
+                  <h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-padding-top-r1 ibm-padding-bottom-r1">Cloud. Internet of Things. Watson.</h1>
+                  <h4 class="ibm-h4">Seize the momentum from IBM InterConnect 2017 to drive transformation</h4>
+                </div> -->
+              </div>
+              <!-- <div class="ibm-columns ibm-padding-bottom-0 ibm-show-large">
+                <div class="ibm-col-medium-1-1 ibm-col-6-3">
+                  <h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-padding-top-r1 ibm-padding-bottom-r1">Cloud. Internet of Things. Watson.</h1>
+                  <h4 class="ibm-h4">Seize the momentum from IBM InterConnect 2017 to drive transformation</h4>
+                </div>
+              </div> -->
+              <!-- <div class="ibm-columns">
+                <div class="ibm-col-6-4 ibm-col-medium-1-1">
+                  <p class="ibm-btn-row">
+                    <a href="https://ibmgo.com/interconnect2017/" target="_blank" class="ibm-btn-pri ibm-btn-red-50 ibm-hidden-large" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: InterConnect CTA" data-ibmevent_ibmevaction="Cloud: CTA: InterConnect CTA">Watch replays on IBMGO</a>
+                    <a href="https://www.ibm.com/blogs/cloud-computing/tag/ibm-interconnect-2017/" target="_blank" class="ibm-btn-sec ibm-btn-white ibm-hidden-large" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Breaking News CTA" data-ibmevent_ibmevaction="Cloud: CTA: Breaking News CTA">News digest</a>
+                    <a href="https://ibmgo.com/interconnect2017/" target="_blank" class="ibm-btn-pri ibm-btn-red-50 ibm-show-large ibm-margin-bottom-0" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: InterConnect CTA" data-ibmevent_ibmevaction="Cloud: CTA: InterConnect CTA">Watch replays on IBMGO</a>
+                    <a href="https://www.ibm.com/blogs/cloud-computing/tag/ibm-interconnect-2017/" target="_blank" class="ibm-btn-sec ibm-btn-white ibm-show-large ibm-margin-bottom-0" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Breaking News CTA" data-ibmevent_ibmevaction="Cloud: CTA: Breaking News CTA">News digest</a>
+                  </p>
+                </div>
+              </div> -->
+            </div>
+            <!-- <div class="ibm-video-background-container ibm-hidden-small ibm-hidden-medium">
+              <div data-widget="carousel" data-arrows="false" data-autoplay="true" data-dots="false" data-infinite="true" data-randomfirst="true">
+                <img src="/cloud-computing/images/cloud/homepage/recap/3.jpg" height="100%"  />
+                <img src="/cloud-computing/images/cloud/homepage/recap/5.jpg" height="100%"  />
 
-						</div>
-			<!-- 
-						<div>							
-							<a class='buildanddeployinsights-iframe' onclick='javascript:buildanddeployinsights()' >
- 									<button type="button" class="btn btn-info btn-xs btn-rounded">Build & Deploy Insights</button>
-							</a>
-						</div> 
-		 -->			
-					</div>
+                <img src="/cloud-computing/images/cloud/homepage/recap/6.jpg" height="100%"  />
+                <img src="/cloud-computing/images/cloud/homepage/recap/7.jpg" height="100%"  />
+                <img src="/cloud-computing/images/cloud/homepage/recap/8.jpg" height="100%"  />
+                <img src="/cloud-computing/images/cloud/homepage/recap/12.jpg" height="100%"  />
+              </div>
+            </div> -->
+          </div>
+          <div id="ibm-leadspace-head" style="background-image:url(/cloud-computing/images/cloud/hero/hero_spotlight2000w.jpg); background-repeat: no-repeat; background-position: 0% 100%; background-size: cover; position:relative; overflow:hidden; border-bottom-width:0px;display:none;" class="cloud-usopen01-leadspace ibm-alternate-background ibm-background-gray-80">
+            <div class="bg-image-gradient"></div>
+            <div id="ibm-leadspace-body" class="ibm-padding-top-r2 ibm-padding-bottom-r2">
+              <div class="ibm-columns">
+                <div class="ibm-col-medium-5-4 ibm-col-6-3">
+                  <h1 class="ibm-bold ibm-h1 ibm-medium ibm-padding-top-r1">out<span class="ibm-textcolor-blue-30">think</span><br/>unknown</h1>
+                  <h4 class="ibm-padding-bottom-r1 ibm-h4 ibm-light">Since 80% of data is dark, you might <br class="ibm-hidden-small"/>
+miss something important. Cognitive <br class="ibm-hidden-small"/>
+Business Operations can help.</h4>
+                  <p class="ibm-btn-row ibm-padding-top-r1"><a href="https://www.ibm.com/cloud-computing/solutions/process-automation/" class="ibm-btn-pri ibm-btn-white ibm-textcolor-gray-60" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Spotlight CTA" data-ibmevent_ibmevaction="Cloud: CTA: Spotligt CTA">Learn about Cognitive Business Operations</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="ibm-leadspace-head" style="background-image:url(/cloud-computing/images/cloud/hero/hero_builders2000w.jpg); background-repeat: no-repeat; background-position: 50% 0; background-size: cover; position:relative; overflow:hidden; border-bottom-width:0px;display:none;" class="cloud-usopen02-leadspace ibm-alternate-background ibm-background-gray-80">
+            <div class="bg-image-gradient"></div>
+            <div id="ibm-leadspace-body" class="ibm-padding-top-r2 ibm-padding-bottom-r2">
+              <div class="ibm-columns">
+                <div class="ibm-col-6-3 ibm-col-medium-6-5 ibm-col-large-6-5">
+                  <h1 class="ibm-bold ibm-h1 ibm-medium ibm-padding-top-r1">Out<span class="ibm-textcolor-blue-30">think</span> complexity</h1>
+                  <div class="ibm-columns ibm-hidden-small">
+                    <div class="ibm-col-6-3 ibm-col-xlarge-6-3 ibm-col-medium-6-4 ibm-col-large-6-4">
+                      <h4 class="ibm-padding-bottom-r1 ibm-h4 ibm-light">Join the many innovators who opt for IBM Bluemix, the IBM Cloud <br class="ibm-hidden-small ibm-hidden-medium ibm-hidden-large"/>platform that simplifies growth with a flexible infrastructure and <br class="ibm-hidden-small ibm-hidden-medium ibm-hidden-large"/>instant-on services such as IBM Watson language analysis</h4>
+                    </div>
+                  </div>
+                  <div class="ibm-columns ibm-hidden-large ibm-hidden-xlarge ibm-hidden-medium ibm-nospacing">
+                    <div class="ibm-col-6-3 ibm-nospacing">
+                      <h4 class="ibm-padding-bottom-r1 ibm-h4 ibm-light">Join the many innovators who opt for IBM Bluemix, the IBM Cloud platform that simplifies growth with a flexible infrastructure and instant-on services such as IBM Watson language analysis</h4>
+                    </div>
+                  </div>
+                  <p class="ibm-btn-row ibm-padding-top-r1"><a href="https://www.ibm.com/cloud-computing/bluemix/" class="ibm-btn-pri ibm-btn-white ibm-textcolor-gray-60" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Trailblazers CTA" data-ibmevent_ibmevaction="Cloud: CTA: Trailblazers CTA">Let's get started</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="ibm-leadspace-head" style="background-image:url(/cloud-computing/images/cloud/hero/hero_vip2000w.jpg); background-repeat: no-repeat; background-position: 0 0; background-size: cover;position:relative;overflow:hidden;border-bottom-width:0px;display:none;" class="cloud-usopen03-leadspace ibm-alternate-background ibm-background-gray-80">
+            <div class="bg-image-gradient"></div>
+            <div id="ibm-leadspace-body" class="ibm-padding-top-r2 ibm-padding-bottom-r2">
+              <div class="ibm-columns">
+                <div class="ibm-col-medium-5-4 ibm-col-6-3">
+                  <h1 class="ibm-bold ibm-h1 ibm-medium ibm-padding-top-r1">out<span class="ibm-textcolor-blue-30">think</span> <br class="ibm-hidden-small ibm-hidden-xlarge" />generic</h1>
+                  <h4 class="ibm-padding-bottom-r1 ibm-h4 ibm-light">The travel industry is using Cognitive Business <br class="ibm-hidden-small"/>
+Operations to predict customer needs from <br class="ibm-hidden-small"/>
+bedding to bistros.</h4>
+                  <p class="ibm-btn-row ibm-padding-top-r1"><a href="https://www.ibm.com/cloud-computing/solutions/process-automation/" class="ibm-btn-pri ibm-btn-white ibm-textcolor-gray-60" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: VIP CTA" data-ibmevent_ibmevaction="Cloud: CTA: VIP CTA">Find out about Cognitive Business Operations</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="ibm-leadspace-head" style="background-image:url(/cloud-computing/images/cloud/hero/hero_visible2000w.jpg); background-repeat: no-repeat; background-position: 0% 0; background-size: cover; position:relative; overflow:hidden; border-bottom-width:0px;display:none;" class="cloud-usopen04-leadspace ibm-alternate-background ibm-background-gray-80">
+            <div class="bg-image-gradient"></div>
+            <div id="ibm-leadspace-body" class="ibm-padding-top-r2 ibm-padding-bottom-r2">
+              <div class="ibm-columns">
+                <div class="ibm-col-medium-5-3 ibm-col-xlarge-5-3 ibm-col-6-3">
+                  <h1 class="ibm-bold ibm-h1 ibm-medium ibm-padding-top-r1">out<span class="ibm-textcolor-blue-30">think</span><br class="ibm-hidden-small ibm-hidden-xlarge"/> outdated</h1>
+                  <h4 class="ibm-padding-bottom-r1 ibm-h4 ibm-light">Companies like Whirlpool can use Cognitive <br class="ibm-hidden-small ibm-hidden-medium"/>
+Business Operations to learn how to personalize <br class="ibm-hidden-small ibm-hidden-medium"/>
+their customer experience. </h4>
+                  <p class="ibm-btn-row ibm-padding-top-r1"><a href="https://www.ibm.com/cloud-computing/solutions/process-automation/" class="ibm-btn-pri ibm-btn-white ibm-textcolor-gray-60" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Whirlpool CTA" data-ibmevent_ibmevaction="Cloud: CTA: Whirlpool CTA">Find out about Cognitive Business Operations</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main role="main" aria-labelledby="ibm-pagetitle-h1">
+          <div id="ibm-pcon">
+            <div id="ibm-content">
+              <div id="ibm-content-body">
+                <div id="ibm-content-main">
+                  <div class="ibm-band ibm-background-blue-80 ibm-alternate-background ibm-padding-bottom-0 ibm-padding-top-1">
+                    <div data-widget="setsameheight" data-always="true" data-items=".ibm-col-4-1" data-excludesmallgrid="true" class="ibm-columns ibm-padding-top-1">
+                      <div class="ibm-col-4-2 ibm-padding-bottom-1">
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          <span class="ibm-bold">AT&amp;T&rsquo;s next call: Partnering with IBM</span> <br />Telecom giant helps enterprise customers get the most out of IoT and analytics with IBM Watson IoT. <a href="https://www.ibm.com/blogs/cloud-computing/2017/03/att-ibm-analytics-watson/" target="_blank"><u>Start your next IoT project.</u></a></p>
+                     </div>
+                      <div class="ibm-col-4-2 ibm-padding-bottom-1">
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          <span class="ibm-bold">Watson and H&R Block make tax prep less taxing</span> <br />Data analysis enables tax pros to maximize deductions for customers. <a href="https://www.ibm.com/blogs/cloud-computing/2017/03/watson-hr-block-engaging-customer/" ><u>Read more.</u></a></p>
+                     </div>
+                    </div>
+                  </div>
+                  <div class="ibm-band ibm-background-white-core ibm-padding-top-r2 ibm-padding-bottom-r1">
+                    <div class="ibm-columns ibm-padding-bottom-0" data-widget="setsameheight" data-always="true" data-items=".ibm-card" data-excludesmallgrid="true">
+                      <div class="ibm-col-4-1 ibm-col-medium-4-2">
+                          <div class="ibm-nospacing">
+                            <div class="">
+                              <h2 class="ibm-h2 ibm-textcolor-default">Highlights from InterConnect</h2>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="ibm-col-4-3">
+                        <div class="ibm-columns ibm-padding-bottom-0">
+                          <div class="ibm-col-4-1 ibm-col-medium-4-2 ibm-nospacing">
+                            <div class="ibm-card ibm-background-cool-white-30 ibm-border-white-core ibm-nospacing">
+                                <div class="ibm-card__image">
+                                  <img alt="" class="ibm-resize" src="/cloud-computing/images/cloud/homepage/salesforce_540.jpg" />
+                                </div>
+                              <div class="ibm-card__content">
+                                <p class="ibm-bold ibm-padding-bottom-0">Making smarter decisions for customers</p>
+                                <p>IBM and Salesforce connect data and apps to accelerate decision making and customer success.</p>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                <p class="ibm-ind-link"><a href="https://www.ibm.com/cloud-computing/products/cloud-integration/salesforce-integration/?lnk=ec-toc" target="_blank" class="ibm-forward-link">Learn more</a></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="ibm-col-4-1 ibm-col-medium-4-2 ibm-nospacing">
+                            <div class="ibm-card ibm-background-cool-white-30 ibm-border-white-core ibm-nospacing">
+                                <div class="ibm-card__image">
+                                  <img alt="" class="ibm-resize" src="/cloud-computing/images/cloud/homepage/girls_who_code_540w.jpg" />
+                                </div>
+                              <div class="ibm-card__content">
+                                <p class="ibm-bold ibm-padding-bottom-0">Girls Who Code helps young women break barriers</p>
+                                <p>IBM-sponsored Girls Who Code summer camps spread knowledge about computing to close the tech gender gap.</p>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                <p class="ibm-ind-link"><a href="#" target="_blank" class="ibm-forward-link">Find out how.</a></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="ibm-col-4-1 ibm-col-medium-4-2 ibm-nospacing">
+                            <div class="ibm-card ibm-background-cool-white-30 ibm-border-white-core ibm-nospacing">
+                                <div class="ibm-card__image">
+                                  <img alt="IBM CEO Ginni Rometty addresses the InterConnect crowd" class="ibm-resize" src="/cloud-computing/images/cloud/homepage/ginni_540.jpg" />
+                                </div>
+                              <div class="ibm-card__content">
+                                <p class="ibm-bold ibm-padding-bottom-0">IBM CEO shares her vision for cloud in the cognitive era</p>
+                                <p>Learn how in the keynote address by Ginni Rometty.</p>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                <p class="ibm-ind-link"><a href="https://ibmgo.com/interconnect2017/" target="_blank" class="ibm-forward-link">Watch the replay</a></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="ibm-col-4-1 ibm-col-medium-4-2 ibm-nospacing">
+                            <div class="ibm-card ibm-background-cool-white-30 ibm-border-white-core ibm-nospacing">
+                                <div class="ibm-card__image">
+                                  <img alt="" class="ibm-resize" src="/cloud-computing/images/cloud/homepage/honda_watson_540.jpg" />
+                                </div>
+                              <div class="ibm-card__content">
+                                <p class="ibm-bold ibm-padding-bottom-0">Honda and Watson team up for safe driving</p>
+                                <p>Watson, speaking in Japanese, acts as a safe driving coach.</p>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                <p class="ibm-ind-link"><a href="https://www.ibm.com/blogs/cloud-computing/2017/03/honda-watson-safe-driving/" target="_blank" class="ibm-forward-link">Read more</a></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="ibm-col-4-1 ibm-col-medium-4-2 ibm-nospacing">
+                            <div class="ibm-card ibm-background-cool-white-30 ibm-border-white-core ibm-nospacing">
+                                <div class="ibm-card__image">
+                                  <img alt="" class="ibm-resize" src="/cloud-computing/images/cloud/homepage/american_air_540w.jpg" />
+                                </div>
+                              <div class="ibm-card__content">
+                                <p class="ibm-bold ibm-padding-bottom-0">American Airlines soars into the cloud</p>
+                                <p>Design thinking and DevOps are at the core of the airline’s transformation.</p>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                <p class="ibm-ind-link"><a href="https://www.ibm.com/blogs/think/2017/03/aa-ibm/" target="_blank" class="ibm-forward-link">Find out how</a></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="ibm-col-4-1 ibm-col-medium-4-2 ibm-nospacing">
+                            <div class="ibm-card ibm-background-cool-white-30 ibm-border-white-core ibm-nospacing">
+                                <div class="ibm-card__image">
+                                  <img alt="" class="ibm-resize" src="/cloud-computing/images/cloud/homepage/veritas_540.jpg" />
+                                </div>
+                              <div class="ibm-card__content">
+                                <p class="ibm-bold ibm-padding-bottom-0">IBM and Veritas optimize storage in the cloud</p>
+                                <p>Clients gain greater efficiency migrating data from on-premises systems.</p>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                <p class="ibm-ind-link"><a href="https://www.ibm.com/blogs/bluemix/2017/03/ibm-cloud-object-storage-veritas-road-ahead/?lnk=ec-toc" target="_blank" class="ibm-forward-link">Get the story</a></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ibm-band ibm-background-cool-white-20 ibm-padding-bottom-r1 ibm-padding-top-r1">
+                    <div data-widget="setsameheight" data-always="true" data-items=".ibm-col-4-1 .ibm-image" class="ibm-columns ibm-padding-bottom-0">
+                      <div class="ibm-col-1-1">
+                          <h2 class="ibm-h2 ibm-textcolor-default ibm-light ibm-padding-top-r1 ibm-padding-bottom-r1">What you can do with IBM Cloud</h2>
+                       </div>
+                     <!-- div class="ibm-col-4-1 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/salesforce_icon.svg" alt="" width="62" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          IBM and Salesforce announce landmark global strategic partnership. <a href="https://www.ibm.com/watson/ibm-salesforce/" target="_blank">Read more.</a></p>
+                     </div -->
+                     <div class="ibm-col-4-2 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/discover-cognitive-video.svg" alt="Discover cognitive video" width="47" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          Crack the intel in your video data with IBM Watson<sup>&trade;</sup>. <a href="/cloud-computing/solutions/video/">Learn how.</a></p>
+                     </div>
+                     <div class="ibm-col-4-2 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/clock.svg" alt="" width="45" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          Deploy a hybrid cloud with IBM and VMware in hours, not weeks. <a href="http://www.ibm.com/cloud-computing/solutions/ibm-vmware/virtualization/" target="_blank">Start here.</a></p>
+                     </div>
+                     <!-- div class="ibm-col-4-1 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/Data_icon.svg" alt="" width="50" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          Do more with your data. See how with <a href="https://www.ibm.com/cloud-computing/products/storage/object-storage/" target="_blank" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Featured News Object Storage CTA" data-ibmevent_ibmevaction="Cloud: CTA: Featured News Object Storage CTA">IBM Cloud Object Storage</a>.</p>
+                     </div -->
+                    </div>
+                  </div>
+                  <!--div class="ibm-band ibm-background-cool-white-20 ibm-padding-bottom-r1 ibm-padding-top-r1">
+                    <div data-widget="setsameheight" data-always="true" data-items=".ibm-col-4-1 .ibm-image" class="ibm-columns ibm-padding-bottom-0">
+                      <div class="ibm-col-1-1">
+                          <h2 class="ibm-h2 ibm-textcolor-default ibm-light ibm-padding-top-r1 ibm-padding-bottom-r1">What you can do with IBM Cloud</h2>
+                       </div>
+                     <div class="ibm-col-4-1 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/salesforce_icon.svg" alt="" width="62" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          IBM and Salesforce announce landmark global strategic partnership. <a href="https://www.ibm.com/watson/ibm-salesforce/" target="_blank">Read more.</a></p>
+                     </div>
+                     <div class="ibm-col-4-1 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/discover-cognitive-video.svg" alt="Discover cognitive video" width="47" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          Crack the intel in your video data with IBM Watson<sup>&trade;</sup>. <a href="/cloud-computing/solutions/video/">Learn how.</a></p>
+                     </div>
+                     <div class="ibm-col-4-1 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/clock.svg" alt="" width="45" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          Deploy a hybrid cloud with IBM and VMware in hours, not weeks. <a href="http://www.ibm.com/cloud-computing/solutions/ibm-vmware/virtualization/" target="_blank">Start here.</a></p>
+                     </div>
+                     <div class="ibm-col-4-1 ibm-padding-bottom-r1">
+                      <div class="ibm-image"><img src="/cloud-computing/images/cloud/homepage/Data_icon.svg" alt="" width="50" class="ibm-downsize" /></div>
+                      <p class="ibm-textcolor-gray-70 ibm-light">
+                          Do more with your data. See how with <a href="https://www.ibm.com/cloud-computing/products/storage/object-storage/" target="_blank" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Featured News Object Storage CTA" data-ibmevent_ibmevaction="Cloud: CTA: Featured News Object Storage CTA">IBM Cloud Object Storage</a>.</p>
+                     </div>
+                    </div>
+                  </div-->
+                  <!-- <div style="background-image:url(/cloud-computing/images/cloud/homepage/homepage_WoW_stage_black.jpg);background-repeat:no-repeat; background-position: 100% 50%;" class="ibm-band why-ibm ibm-background-black-core ibm-hidden-bg-small ibm-padding-top-r1 ibm-padding-bottom-r1">
+                    <div class="ibm-columns ibm-alternate-background">
+                      <div class="ibm-col-4-2">
+                            <h2 class="ibm-h2 ibm-textcolor-blue-30 ibm-light ibm-padding-top-r1">Work your way, not theirs</h2>
+                            <h4 class="ibm-h4 ibm-light">Get hands-on experience with IBM Watson, data analytics, IBM Cloud, mobile, IBM Bluemix, DevOps and more.</h4>
+                            <p class="ibm-ind-link ibm-padding-bottom-r1">
+                                <a href="http://ibm.biz/wow-devtalks" target="_blank" class="ibm-h4 ibm-light ibm-external-link">Join us live at World of Watson 2016 or on Ustream</a></p>
+                      </div>
+                      <div class="ibm-col-4-2">&nbsp;</div>
+                    </div>
+                  </div> -->
+                  <div class="ibm-band ibm-background-white-core ibm-padding-top-r2 ibm-padding-bottom-r1">
+                    <div class="ibm-columns ibm-padding-bottom-0">
+                      <div class="ibm-col-4-2 ibm-nospacing">
+                          <div class="ibm-col-5-2 ibm-col-medium-4-2 ibm-padding-bottom-r2">
+                              <h2 class="ibm-h2 ibm-light">Choosing IBM Cloud gives you a competitive advantage</h2>
+                              <p>It&rsquo;s your data, your insight, your cloud. We protect it. You control it. Own your unique insights on a cloud built for business. Use artificial intelligence (AI) on IBM Cloud, built with some of the world’s largest usable data sets.</p>
+                              <p class="ibm-btn-link ibm-padding-top-r1"><a href="/cloud-computing/case-studies/" class="ibm-btn-pri">View case studies</a></p>
+                          </div>
+                      </div>
+                      <div class="ibm-col-4-2">
+                          <br class="ibm-hidden-medium ibm-hidden-large ibm-hidden-xlarge" />
+                          <h2 class="ibm-h2 ibm-textcolor-blue-40 ibm-light">What’s in it for you?</h2>
+                          <div class="ibm-rule ibm-alternate ibm-gray-30" style="margin-bottom:7px;"><hr/></div>
+                          <p class="ibm-padding-bottom-0">Develop, experiment and iterate at speed with <a href="/cloud-computing/products/devops/">DevOps</a>.</p>
+                          <div class="ibm-rule ibm-alternate ibm-gray-30" style="margin-bottom:7px;"><hr/></div>
+                          <p class="ibm-padding-bottom-0">Act with confidence. Turn your <a target="_blank" href="http://www.ibm.com/analytics/us/en/technology/cloud-data-services/?link=usopen-analytics">data into insight</a>.</p>
+                          <div class="ibm-rule ibm-alternate ibm-gray-30" style="margin-bottom:7px;"><hr/></div>
+                          <p class="ibm-padding-bottom-0">It’s a multi-cloud world. Free yourself to <a href="/cloud-computing/learn-more/open-cloud">choose what works for you today</a>.</p>
+                          <p class="ibm-hidden-medium ibm-hidden-large ibm-hidden-xlarge">&nbsp;</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ibm-band ibm-background-blue-70 ibm-padding-top-0 ibm-padding-bottom-0" data-widget="setsameheight" data-always="true" data-items=".card-description">
+                      <div class="ibm-fluid ibm-downsize ibm-nospacing" data-widget="setsameheight" data-always="true" data-items=".featured-offerings">
+                          <div class="ibm-col-12-12 ibm-hidden-medium ibm-hidden-large ibm-hidden-xlarge ibm-nospacing" style="background-image:url(/cloud-computing/images/cloud/homepage/ibm-cloud-featured-offering-homepage.jpg);background-repeat:no-repeat; background-position: 50% -30px;position:relative;">
+                              <div class="ibm-padding-content ibm-padding-bottom-r3">
+                                  <h4 class="ibm-h4 ibm-light ibm-textcolor-blue-60">Unmatched choice and <br/>flexibility with hybrid <br/>cloud object storage</h4>
+                              </div>
+                              <div class="ibm-padding-content ibm-padding-top-r3">
+                                  <p class="ibm-ind-link ibm-h4 ibm-textcolor-blue-60 ibm-padding-top-r3"><a href="/cloud-computing/products/storage/object-storage/" data-ibmevent_ibmev="Cloud: CTA" data-ibmevent_ibmevname="Cloud: CTA: Featured Offerings Object Storage CTA" data-ibmevent_ibmevaction="Cloud: CTA: Featured Offerings Object Storage CTA" class="ibm-forward-link ibm-h4 ibm-textcolor-blue-60"><span class="ibm-textcolor-blue-60">IBM Cloud Object Storage</span></a></p>
+                              </div>
+                          </div>
+                          <div class="ibm-col-12-6 ibm-col-medium-12-12 featured-offerings ibm-background-neutral-white-30 ibm-hidden-small ibm-nospacing" style="background-image:url(/cloud-computing/images/cloud/homepage/ibm-cloud-featured-offering-homepage.jpg);background-repeat:no-repeat; background-position: 50% 0%;position:relative;">
+                              <div class="ibm-padding-content">
+                                  <h4 class="ibm-h4 ibm-light ibm-textcolor-blue-60">Unmatched choice and <br/>flexibility with hybrid <br/>cloud object storage</h4>
+                              </div>
+                              <div class="ibm-card__bottom">
+                                  <p class="ibm-ind-link ibm-h4 ibm-textcolor-blue-60"><a href="/cloud-computing/products/storage/object-storage/" class="ibm-forward-link ibm-h4 ibm-textcolor-blue-60"><span class="ibm-textcolor-blue-60">IBM Cloud Object Storage</span></a></p>
+                              </div>
+                          </div>
+                          <div class="ibm-col-12-6 ibm-col-medium-12-12 featured-offerings ibm-alternate-background ibm-nospacing" data-widget="setsameheight" data-always="true" data-items=".ibm-card">
+                          <div data-widget="setsameheight" data-always="true" data-items=".ibm-card h4">
+                              <div class="ibm-col-12-6 ibm-nospacing">
+                                  <div class="ibm-col-12-12 ibm-nospacing ibm-background-blue-40">
+                                      <div class="ibm-card ibm-background-blue-40 ibm-border-blue-40">
+                                        <div class="ibm-card__content">
+                                          <h4 class="ibm-h4">Open for business &mdash; IBM Blockchain</h4>
+                                          <p class="card-description">How do clients such as Credit Mutuel Akrea and Mizuho Bank use distributed ledger technology to re-imagine their business networks?</p>
+                                          <p class="ibm-ind-link"><a href="https://www.ibm.com/blockchain/" target="_blank" class="ibm-forward-link">Find out now</a></p>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="ibm-col-12-12 ibm-nospacing ibm-background-blue-50">
+                                      <div class="ibm-card ibm-background-blue-50 ibm-border-blue-50">
+                                        <div class="ibm-card__content">
+                                          <h4 class="ibm-h4">Data professionals make data work on IBM Cloud</h4>
+                                          <p class="card-description">Experience the world's first cloud-based data and analytics platform with cognitive business intelligence.</p>
+                                          <p class="ibm-ind-link"><a href="http://ibm.co/makedatasimple" target="_blank" class="ibm-forward-link">Let's go</a></p>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="ibm-col-12-6 ibm-nospacing">
+                                  <div class="ibm-col-12-12 ibm-nospacing ibm-background-blue-50 ibm-hidden-small">
+                                      <div class="ibm-card ibm-background-blue-50 ibm-border-blue-50">
+                                        <div class="ibm-card__content">
+                                          <h4 class="ibm-h4">Get your cloud together</h4>
+                                          <p class="card-description">Build with infrastructure, platform, Watson and software services on the Bluemix cloud platform.</p>
+                                          <p class="ibm-ind-link"><a href="https://www.ibm.com/cloud-computing/bluemix/" target="_blank" class="ibm-forward-link">Learn more</a></p>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="ibm-col-12-12 ibm-nospacing ibm-background-blue-40 ibm-hidden-medium ibm-hidden-large ibm-hidden-xlarge">
+                                      <div class="ibm-card ibm-background-blue-40 ibm-border-blue-40">
+                                        <div class="ibm-card__content">
+                                          <h4 class="ibm-h4">Get your cloud together</h4>
+                                          <p class="card-description">Build with infrastructure, platform, Watson and software services on the Bluemix cloud platform.</p>
+                                          <p class="ibm-ind-link"><a href="https://www.ibm.com/cloud-computing/bluemix/" target="_blank" class="ibm-forward-link">Learn more</a></p>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="ibm-col-12-12 ibm-nospacing ibm-background-blue-60">
+                                      <div class="ibm-card ibm-background-blue-60 ibm-border-blue-60">
+                                        <div class="ibm-card__content">
+                                          <h4 class="ibm-h4">Unleash your data's true potential</h4>
+                                          <p class="card-description">Use the hybrid cloud storage solution that adapts to your workload needs and is designed for global security with data encryption and geo-dispersed data.</p>
+                                          <p class="ibm-ind-link"><a href="/cloud-computing/products/storage/object-storage/cloud/" class="ibm-forward-link">See how</a></p>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div style="" class="ibm-band ibm-background-gray-80 ibm-padding-top-r2 ibm-padding-bottom-r2">
 
-				</div>
-				<div class="panel panel-blue" ng-if="showtestingprogress">
-					<div class="panel-heading">
-						<h4>Testing Progress</h4>
-					</div>
-					<div class="panel-body" style="padding-bottom: 0px; padding-top: 10px; height: 330px;">
-						<div>
-							<!-- <div fusioncharts type="pie3d" dataSource="{{myDataSource}}"></div> -->
-							 <nvd3 options="optionsTestDevelopement" data="dataTestDevelopement"></nvd3>
-						</div>
-						<div ng-if="showTestCompareOption">
-							
-							<a class='testoptimizer-iframe' onclick='javascript:compareTest()' >
-								<button type="button" 
-											 class="btn btn-info btn-xs btn-rounded">Compare</button>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				<div class="panel panel-blue">
+                    <br clear="all"/>
+                    <div class="ibm-columns ibm-alternate-background">
+                      <div class="ibm-col-4-2 ibm-nospacing">
+                        <h2 class="ibm-h2 ibm-light ibm-textcolor-blue-30">Sign up for a Bluemix trial today</h2>
+                        <p class="ibm-light ibm-textcolor-gray-60"></p>
+                      </div>
+                      <div class="ibm-col-4-2 ibm-nospacing">
+                        <p class="ibm-btn-row"><a href="https://console.ng.bluemix.net/registration/" target="_blank" class="ibm-btn-pri ibm-btn-blue-30">Get started at no cost</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ibm-band ibm-background-white-core ibm-padding-top-r2 ibm-padding-bottom-r2">
+                    <div class="ibm-columns">
+                        <div class="ibm-col-4-2 ibm-nospacing ibm-padding-bottom-r2">
+                              <h2 class="ibm-h2"><a href="https://www.ibm.com/cloud-computing/learn-more/about-cloud"><span class="">Learn the basics</span></a> of <br/>cloud computing</h2>
+                        </div>
+                        <div class="ibm-col-4-2 ibm-nospacing">
+                          <ul class="ibm-link-list">
+                            <li><a href="https://www.ibm.com/cloud-computing/learn-more/what-is-video-streaming/" class="ibm-forward-link">What is video streaming?</a></li>
+                            <li><a href="https://www.ibm.com/cloud-computing/learn-more/what-is-mobile-cloud-computing/" class="ibm-forward-link">What is mobile cloud computing?</a></li>
+                            <li><a href="https://www.ibm.com/cloud-computing/learn-more/what-is-virtual-private-cloud/" class="ibm-forward-link">What is virtual private cloud?</a></li>
+                            <li><a href="https://www.ibm.com/cloud-computing/learn-more/what-is-devops/" class="ibm-forward-link">What is DevOps?</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
 
-					<div class="panel-heading">
-						<h4>Insights</h4>
-					</div>
-					<div class="panel-body" ng-show="showdevEngineeringprogress" style="padding: 1px 0px 0px; height:330px;">
-						<div class="tabbable">
-							<ul class="nav nav-tabs">
+    <!-- FOOTER_BEGIN -->
+    <div id="ibm-footer-module"><!-- Dynamic footer links inserted here inside a <section> --></div>
 
-								<!-- <li ng-class="{ active: isSet(1) }"><a href
-									ng-click="setTab(1)">Business Insights</a></li>
- -->
-								<li ng-class="{ active: isSet(1) }"><a href
-									ng-click="setTab(1)">Optimization</a></li>
-								<li ng-class="{ active: isSet(2) }"><a href
-									ng-click="setTab(2); devReusableChecked();">What-If Analysis</a></li>
+    <footer role="contentinfo" aria-label="IBM">
+      <div id="ibm-footer">
+        <ul>
+          <li><a href="http://www.ibm.com/contact/us/en/">Contact</a></li>
+          <li><a href="http://www.ibm.com/privacy/us/en/">Privacy</a></li>
+          <li><a href="http://www.ibm.com/legal/us/en/">Terms of use</a></li>
+          <li><a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- FOOTER_END -->
 
-							</ul>
-							<div class="tab-content no-margin"
-								style="padding-bottom: 0px; padding-top: 0px;">
-								<!-- <div ng-show="isSet(3)">
-									<nvd3 options="optionsDevSunBurst" data="dataDevSunBurst"
-							class="with-3d-shadow with-transitions"></nvd3>
-	<div>
-										<table class="table no-margin" style="table-layout: auto">
-											<tbody>
-												<tr>
-													<td style="width: 0px;"><span class="label-bullet"
-														style="border: 3px solid #756bb1; height: 1px; border-bottom-width: 0px; border-top-width: 0px; top: 0px;">
-													</span></td>
-													<td>Skills</td>
-													<td style="width: 0px;"><span class="label-bullet"
-														style="border: 3px solid #d9d9d9; height: 1px; border-bottom-width: 0px; border-top-width: 0px; top: 0px;">
-													</span></td>
-													<td>Dependencies</td>
-													<td style="width: 0px;"><span class="label-bullet"
-														style="border: 3px solid #6baed6; height: 1px; border-bottom-width: 0px; border-top-width: 0px; top: 0px;">
-													</span></td>
-													<td>Resources</td>
-												</tr>
-											</tbody>
-										</table>
+  </div>
 
+  	<script src="/cloud-computing/bin/javascripts/main_v2.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery.js"></script>
 
-									</div>
-								</div>
-								 --><div ng-show="isSet(1)">
-									<div class="panel-body">
-										<ul class="activity-list">
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
 
-											<li>
-												<p>
-												
-												 <!-- <h9 class="center-text"><b>We found the following, which could help you optimize your development effort</b></h9> -->
-												<br>
-													<i class="icon-verified_user text-danger"></i>Reusable
-													Assests 
-													<span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Reusable Assets Available</span>
-													<br>
-													<div class="info">
-													<h10><b>The following asset(s) can help accelerate your development efforts</b><h10></div>
-													
-													<div class="info" ng-repeat="reusable in reusbleproducts">
-														<ul class="manage-labels">
-																<li><i class="icon-controller-record blue"></i> {{reusable.name}}</li>
-															</ul>	
-													{{reusable.desc}}
-													<span class="time" style="margin-top: -5px;">{{reusable.info}}</span>
-													</div>	
-												</p>
-											</li>
-													<li>
-														<p>
-															<i class="icon-whatshot text-warning"></i> <a
-																class='reusableasset-vs-workitems-iframe'
-																onclick='javascript:reusableAssetVsWorkItems()'>
-																<button type="button"
-																	class="btn btn-info btn-xs btn-rounded">Re-Usable
-																	Asset Vs WorkItem</button>
-															</a>
-														</p>
-													</li>
+    <!-- jQuery UI JS -->
+    <script src="/js/jquery-ui.js"></script>
+    <!-- Sparkline graphs -->
+    <script src="/js/sparkline.js"></script>
 
-													<li>
-												<p>
-													<i class="icon-offline_pin text-info"></i> Skill Level<span
-														class="time" style="margin-top: -5px;">Average Skill Level of developers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
-												</p>
-											</li>
-										</ul>
-									</div>
-									
-								</div>
-								<div ng-show="isSet(2)">
-									<div class="panel-body" style="padding-bottom: 0px; padding-top: 13px;">
+    
+    <!-- Tiny Scrollbar JS -->
+    <script src="/js/scrollbar/jquery.tinyscrollbar.min.js"></script>
 
-										<button data-toggle="collapse" data-target="#demo"
-											class="btn btn-warning btn-xs btn-rounded btn-block"
-											ng-click="refreshSlider()">Skill Level</button>
-										<div id="demo" class="collapse" style="margin-bottom: 20px;">
-											<rzslider id="devSlider"
-												rz-slider-model="range_slider_ticks_values.minValue"
-												rz-slider-high="range_slider_ticks_values.maxValue"
-												rz-slider-options="range_slider_ticks_values.options">
-											</rzslider>
-											<br />
-										</div>
-										<br />
+    <!-- jquery ScrollUp JS -->
+    <script src="/js/scrollup/jquery.scrollUp.js"></script>
 
-										<button data-toggle="collapse" data-target="#demo1"
-											class="btn btn-success btn-xs btn-rounded btn-block">Reusable
-											Assets</button>
-										<div id="demo1" class="collapse" style="margin-bottom: -20px;">
-											<div class="checkbox" ng-repeat="reusable in reusbleproducts">
-												<label><input type="checkbox" ng-click="devReusableChecked()" checklist-model="user.reusbleproducts" checklist-value="reusable.name">{{reusable.name}}</label>
-											</div>
+    <!-- Circliful js -->
+    <script src="/js/circliful/circliful.min.js"></script>
+    <script src="/js/circliful/circliful.custom.js"></script>   
 
-										</div>
-										<br />
+    <!-- Custom JS -->
+    <script src="/js/custom.js"></script>
+    
+    <!-- For Content Box -->
+    <link rel="stylesheet" href="/js/testcase-optimizer/css/colorbox.css" />
+    
+    <script src="/js/testcase-optimizer/jquery.colorbox.js"></script>
+        
+      
+    <!-- Start: All Tooltips on mouse over -->
+      <div style="display: none;" ng-controller="landingController">
+        <div id="Requirement_tip">
+          <h3>Requirement</h3>
+          <p id="Requirement_tip_content">{{requirementDataContent}}</p>
+          
+        </div>
+      </div>
+      <div style="display: none;" ng-controller="landingController">
+        <div id="Development_tip">
+          <h3>Development</h3>
+          <p id="Development_tip_content">{{developmentDataContent}}</p>
+          
+        </div>
+      </div>
+      <div style="display: none;" ng-controller="landingController">
+        <div id="Build_tip">
+          <h3>Build & Deploy</h3>
+          <p id="Build_tip_content">{{builddeployDataContent}}</p>
+          
+        </div>
+      </div>
+      <div style="display: none;" ng-controller="landingController">
+        <div id="Test_tip">
+          <h3>Test</h3>
+          <p id="Test_tip_content">{{testDataContent}}</p>
+          
+        </div>
+      </div>
+    <!-- End: All Tooltips on mouse over -->
 
-
-										<button ng-click="devAnalyzedClicked()" data-toggle="modal"
-											type="button" class="btn btn-info btn-xm btn-rounded" id="devAnalyzeButton">Analyze</button>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="panel-body" ng-show="showTestEngineeringprogress"
-						style="padding: 1px 0px 0px; height: 330px;">
-						<div class="tabbable">
-							<ul class="nav nav-tabs">
-
-								<!-- <li ng-class="{ active: isSet(1) }"><a href
-									ng-click="setTab(1)">Business Insights</a></li>
- -->
-								<li ng-class="{ active: isSet(1) }"><a href
-									ng-click="setTab(1)">Optimization</a></li>
-								<li ng-class="{ active: isSet(2) }"><a href
-									ng-click="setTab(2); testReusableChecked();">What-If Analysis</a></li>
-
-							</ul>
-							<div class="tab-content no-margin" style="padding-bottom: 0px; padding-top: 0px;">
-								<!-- <div ng-show="isSet(1)">
-									<nvd3 options="options" data="data"
-									class="with-3d-shadow with-transitions"></nvd3>
-									<table class="table no-margin" style="table-layout: auto">
-											<tbody>
-												<tr>
-													<td style="width: 0px;"><span class="label-bullet"
-														style="border: 3px solid #6baed6; height: 1px; border-bottom-width: 0px; border-top-width: 0px; top: 0px;">
-													</span></td>
-													<td>Stories</td>
-													<td style="width: 0px;"><span class="label-bullet"
-														style="border: 3px solid #9ecae1; height: 1px; border-bottom-width: 0px; border-top-width: 0px; top: 0px;">
-													</span></td>
-													<td>Skills</td>
-												</tr>
-											</tbody>
-										</table>
-								</div> -->
-								<div ng-show="isSet(1)">
-									<div class="panel-body">
-										<ul class="activity-list">
-											<li>
-												<p>
-												
-												
-												<br>
-													<i class="icon-verified_user text-danger"></i>Reusable
-													Assests 
-													<span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Reusable Assets Available</span>
-													<br>
-													<div class="info">
-													<h10><b>The following asset(s) can help accelerate your Testing efforts</b><h10></div>
-													
-													<div class="info" ng-repeat="reusable in reusbleproducts">
-														<ul class="manage-labels">
-																<li><i class="icon-controller-record blue"></i> {{reusable.name}}</li>
-															</ul>	
-													{{reusable.desc}}<br>
-													<span class="time" style="margin-top: -5px;">{{reusable.info}}</span>
-													</div>	
-												</p>
-												<!-- <p>
-													<i class="icon-flag2 text-info"></i> Test Reusable Assets <span class="time" style="margin-top: -5px;">Total {{totalreusableassert}} Reusable Assets Available</span>
-													<div class="info" ng-repeat="reusable in reusbleproducts">
-														<ul class="manage-labels">
-																
-																<li><i class="icon-controller-record blue"></i> {{reusable.name}}</li>
-																
-															</ul>
-													</div>
-												</p> -->
-											</li>
-											 <li>
-												<p>
-													 <i class="icon-whatshot text-warning"></i>  
- 													<a class='testcaseoptimizer-iframe' onclick='javascript:optimizeTestcase()' >
- 															<button type="button" 
-																			class="btn btn-info btn-xs btn-rounded">Try Optimization</button>
-													</a>
-												</p>
-											</li> 
-											<li>
-												<p>
-													<i class="icon-offline_pin text-info"></i> Skill Level<span
-														class="time" style="margin-top: -5px;">Average Skill Level of Testers is {{skilllevel}} on the scale of {{totalskilllevel}}</span>
-												</p>
-											</li>
-										</ul>
-									</div>
-								</div>
-								
-									
-								</div>
-								<div ng-show="isSet(2)">
-									<div class="panel-body">
-
-										<button data-toggle="collapse" data-target="#demo_t1"
-											class="btn btn-warning btn-xs btn-rounded btn-block"
-											ng-click="refreshSlider()">Skill Level</button>
-										<div id="demo_t1" class="collapse" style="margin-bottom: 20px;">
-											<rzslider id="testSlider"
-												rz-slider-model="range_slider_ticks_values.minValue"
-												rz-slider-high="range_slider_ticks_values.maxValue"
-												rz-slider-options="range_slider_ticks_values.options">
-											</rzslider>
-											<br />
-										</div>
-										<br />
-
-										<button data-toggle="collapse" data-target="#demo_t2"
-											class="btn btn-success btn-xs btn-rounded btn-block">Test Reusable Assets
-											</button>
-										<div id="demo_t2" class="collapse">
-											<div class="checkbox" ng-repeat="reusable_t in reusbleproducts">
-												<label><input type="checkbox" checklist-model="testuser.reusbleproducts" ng-click="testReusableChecked()" checklist-value="reusable_t.name">{{reusable_t.name}}</label>
-											</div>
-										</div>
-										<br />
-
-										<!-- <button data-toggle="collapse" data-target="#demo_t3"
-											class="btn btn-warning btn-xs btn-rounded btn-block">Test
-											Cases Optimization</button>
-										<div id="demo_t3" class="collapse">
-											<div class="checkbox">
-												<label><input type="checkbox" value="">Optimize
-													Test Cases</label>
-											</div>
-										</div> -->
-										<p></p>
-
-										<button type="button" ng-click="testAnalyzedClicked()"
-											class="btn btn-info btn-xm btn-rounded" id="testAnalyzeButton">Analyze</button>
-
-									</div>
-								</div>
-
-							</div>
-						</div>
-					
-					
-					<div class="panel-body" ng-if="showBuildInsightprogress">
-						<div>
-							<nvd3 options="optionsBuildTimetaked" data="dataBuildTimetaken"></nvd3>
-
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-    				
-    				
-			</div>
-			<!-- Main container ends -->
-
-			<!-- Footer Start -->
-			<footer>
-				IBM India SI Labs <span>2017</span>.
-			</footer>
-			<!-- Footer end -->
-			
-		</div>
-		<!-- Dashboard Wrapper End -->
-
-		
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="/js/jquery.js"></script>
-
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="/js/bootstrap.min.js"></script>
-
-		<!-- jQuery UI JS -->
-		<script src="/js/jquery-ui.js"></script>
-
-		<!-- Sparkline graphs -->
-		<script src="/js/sparkline.js"></script>
-
-		
-		<!-- Tiny Scrollbar JS -->
-		<script src="/js/scrollbar/jquery.tinyscrollbar.min.js"></script>
-
-		<!-- jquery ScrollUp JS -->
-		<script src="/js/scrollup/jquery.scrollUp.js"></script>
-
-		<!-- Circliful js -->
-		<script src="/js/circliful/circliful.min.js"></script>
-		<script src="/js/circliful/circliful.custom.js"></script>		
-
-		<!-- Custom JS -->
-		<script src="/js/custom.js"></script>
-		
-			
-		<!-- For Content Box -->
-		<link rel="stylesheet" href="/js/testcase-optimizer/css/colorbox.css" />
-		
-		<script src="/js/testcase-optimizer/jquery.colorbox.js"></script>
-				
-			
-		<!-- Start: All Tooltips on mouse over -->
-			<div style="display: none;" ng-controller="landingController">
-				<div id="Requirement_tip">
-					<h3>Requirement</h3>
-					<p id="Requirement_tip_content">{{requirementDataContent}}</p>
-					
-				</div>
-			</div>
-			<div style="display: none;" ng-controller="landingController">
-				<div id="Development_tip">
-					<h3>Development</h3>
-					<p id="Development_tip_content">{{developmentDataContent}}</p>
-					
-				</div>
-			</div>
-			<div style="display: none;" ng-controller="landingController">
-				<div id="Build_tip">
-					<h3>Build & Deploy</h3>
-					<p id="Build_tip_content">{{builddeployDataContent}}</p>
-					
-				</div>
-			</div>
-			<div style="display: none;" ng-controller="landingController">
-				<div id="Test_tip">
-					<h3>Test</h3>
-					<p id="Test_tip_content">{{testDataContent}}</p>
-					
-				</div>
-			</div>
-		<!-- End: All Tooltips on mouse over -->
-			
-	</body>
+</body>
 </html>

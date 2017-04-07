@@ -1,0 +1,51 @@
+.tooltip-inner {
+  color: #ffffff;
+  background-color: #e77338;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0; }
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: #e77338; }
+
+.tooltip.top-left .tooltip-arrow {
+  border-top-color: #e77338; }
+
+.tooltip.top-right .tooltip-arrow {
+  border-top-color: #e77338; }
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #e77338; }
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #e77338; }
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #e77338; }
+
+.tooltip.bottom-left .tooltip-arrow {
+  border-bottom-color: #e77338; }
+
+.tooltip.bottom-right .tooltip-arrow {
+  border-bottom-color: #e77338; }
+
+.popover {
+  background: #4d4d4d;
+  border: 1px solid #4d4d4d;
+  color: #ffffff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0; }
+
+.popover.left > .arrow:after {
+  border-left-color: #4d4d4d; }
+
+.popover.right > .arrow:after {
+  border-right-color: #4d4d4d; }
+
+.popover.top > .arrow:after {
+  border-top-color: #4d4d4d; }
+
+.popover.bottom > .arrow:after {
+  border-bottom-color: #4d4d4d; }
+
